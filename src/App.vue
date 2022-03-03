@@ -59,7 +59,7 @@
 <script setup>
 
 function elHandle() {
-  window.open = 'https://store.steampowered.com/app/1245620/_/';
+  window.open('https://store.steampowered.com/app/1245620/_/');
 }
 </script>
 
