@@ -14,7 +14,7 @@
                 <span>Request integration</span>
             </a>
         </div>
-    </div> -->
+    </div>-->
     <div class="content">
         <div class="content-panel">
             <div class="vertical-tabs">
@@ -23,7 +23,22 @@
         </div>
 
         <div class="content-main">
+            <transition>
             <router-view></router-view>
+            </transition>
         </div>
     </div>
 </template>
+
+<style>
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 1s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>

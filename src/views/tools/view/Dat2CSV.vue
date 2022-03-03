@@ -14,16 +14,19 @@
             <em>点击上传</em>
         </div>
         <template #tip>
-            <div class="inputArea">
-                <p class="el-upload__tip">能量区间(MeV)</p>
-                <el-input class="input" v-model="st" placeholder="输入能量起" />-
-                <el-input class="input" v-model="ed" placeholder="输入能量止" />
+            <div class="inputTotal">
+                <div class="inputArea">
+                    <div class="label">能量区间(MeV)</div>
+                    <el-input class="input" v-model="st" placeholder="输入能量起" />
+                    <div class="label1">-</div>
+                    <el-input class="input" v-model="ed" placeholder="输入能量止" />
+                </div>
+                <div class="inputArea">
+                    <div class="label">道址</div>
+                    <el-input class="input" v-model="chl"></el-input>
+                </div>
             </div>
-            <div class="inputArea">
-                <p class="el-upload__tip">道址</p>
-                <el-input class="input" v-model="chl"></el-input>
-            </div>
-            <button class="bubbly-button" @click="convert2Csv">开始转换</button>
+            <el-button class="bubbly-button" @click="convert2Csv">开始转换</el-button>
         </template>
     </el-upload>
 </template>
@@ -51,26 +54,8 @@ function convert2Csv() {
     axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
         loading.close()
         // alert("转换完成")
-        window.location.href="http://43.154.8.62:8080/test/download?fileName=data2csv.zip";
+        window.location.href = "http://43.154.8.62:8080/test/download?fileName=data2csv.zip";
     })
-}
-
-var animateButton = function (e) {
-
-    e.preventDefault;
-    //reset animation
-    e.target.classList.remove('animate');
-
-    e.target.classList.add('animate');
-    setTimeout(function () {
-        e.target.classList.remove('animate');
-    }, 700);
-};
-
-var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-for (var i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton, false);
 }
 </script>
 
@@ -82,124 +67,28 @@ for (var i = 0; i < bubblyButtons.length; i++) {
     /* overflow-x: auto; */
     margin-bottom: 1rem;
     margin-top: 1rem;
+
+    align-items: center;
 }
 
-.inputArea p {
-    text-align: center;
-    min-width: 30px;
-    margin-right: 20px;
+.inputArea .label {
+    margin-right: 15px;
+    height: 10;
+    font-size: 14px;
+    color: gray;
 }
-.inputArea el-input {
-    max-width: 10px;
+
+.inputArea .label1 {
+    margin-right: 5px;
+    height: 10;
+    color: gray;
+    font-size: 14px;
 }
+
 
 .input {
-    max-width: 120px;
+    max-width: 115px;
+    margin-right: 5px;
 }
 
-.bubbly-button {
-    font-family: "Helvetica", "Arial", sans-serif;
-    display: inline-block;
-    font-size: 1em;
-    padding: 1em 2em;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #434ce8;
-    color: #fff;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 5px #434ce8;
-}
-.bubbly-button:focus {
-    outline: 0;
-}
-.bubbly-button:before,
-.bubbly-button:after {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -20%;
-    z-index: -1000;
-    transition: all ease-in-out 0.5s;
-    background-repeat: no-repeat;
-}
-.bubbly-button:before {
-    display: none;
-    top: -75%;
-    background-image: radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, transparent 20%, #434ce8 20%, transparent 30%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, #434ce8 15%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%);
-    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
-        15% 15%, 10% 10%, 18% 18%;
-}
-.bubbly-button:after {
-    display: none;
-    bottom: -75%;
-    background-image: radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, #434ce8 15%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%),
-        radial-gradient(circle, #434ce8 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%,
-        20% 20%;
-}
-.bubbly-button:active {
-    transform: scale(0.9);
-    background-color: #434ce8;
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-}
-.bubbly-button.animate:before {
-    display: block;
-    animation: topBubbles ease-in-out 0.75s forwards;
-}
-.bubbly-button.animate:after {
-    display: block;
-    animation: bottomBubbles ease-in-out 0.75s forwards;
-}
-
-@keyframes topBubbles {
-    0% {
-        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-            40% 90%, 55% 90%, 70% 90%;
-    }
-    50% {
-        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-            50% 50%, 65% 20%, 90% 30%;
-    }
-    100% {
-        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-            50% 40%, 65% 10%, 90% 20%;
-        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
-}
-@keyframes bottomBubbles {
-    0% {
-        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-            70% -10%, 70% 0%;
-    }
-    50% {
-        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%,
-            95% 60%, 105% 0%;
-    }
-    100% {
-        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%,
-            95% 70%, 110% 10%;
-        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
-}
 </style>

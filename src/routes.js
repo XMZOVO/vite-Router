@@ -15,7 +15,7 @@ export const routes = [
       {
         path: "",
         component: Tools,
-        meta: { title: 'Tools' },
+        meta: { transition: 'slide-left' },
         children: [{
           path:'',
           component:ToolsMain,
