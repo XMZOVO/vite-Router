@@ -1,10 +1,31 @@
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
+import Tools from './views/tools/Tools.vue'
+import Dat2CSV from './views/tools/view/Dat2CSV.vue'
+import ToolsMain from './views/tools/view/Main.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
-  { path: '/', component: Home, meta: { title: 'Home' } },
+  {
+    path: '/',
+    component: Home,
+    meta: { title: 'Home' },
+    children: [
+      {
+        path: "",
+        component: Tools,
+        meta: { title: 'Tools' },
+        children: [{
+          path:'',
+          component:ToolsMain,
+        }, {
+          path: '/dat2csv',
+          component: Dat2CSV,
+        }]
+      }
+    ],
+  },
   {
     path: '/about',
     meta: { title: 'About' },
