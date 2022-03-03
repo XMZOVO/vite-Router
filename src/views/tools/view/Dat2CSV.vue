@@ -51,7 +51,7 @@ function convert2Csv() {
     axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
         loading.close()
         // alert("转换完成")
-        window.open("http://43.154.8.62:8080/test/download?fileName=data2csv.zip");
+        window.location.href="http://43.154.8.62:8080/test/download?fileName=data2csv.zip";
     })
 }
 

@@ -29,10 +29,10 @@
             <router-link to="/">好耶</router-link>
           </nav>
           <div class="header-navigation-actions">
-            <a class="button" @click="elHandle">
+            <button class="button" @click="elHandle">
               <i class="ph-lightning-bold"></i>
               <span>什么时候能玩到老头环</span>
-            </a>
+            </button>
             <a href="#" class="icon-button">
               <i class="ph-gear-bold"></i>
             </a>
@@ -59,7 +59,7 @@
 <script setup>
 
 function elHandle() {
-  window.open('https://store.steampowered.com/app/1245620/_/');
+  window.location.href = 'https://store.steampowered.com/app/1245620/_/';
 }
 </script>
 
