@@ -1,11 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-
-let counter = ref(0)
-
-setInterval(() => {
-  counter.value++
-}, 1000)
 </script>
 
 <template>
@@ -15,9 +8,9 @@ setInterval(() => {
 		<div class="header-logo">
 			<a href="#">
 				<div>
-					<img class="heardIcon" src="../public/Saly-31.png" />
+					<img class="heardIcon" src="../public/zhouzhou.jpeg" />
 				</div>
-				<b>龙鸣之家</b>
+				<span>&#x1F91A</span>
 			</a>
 		</div>
 		<div class="header-navigation">
@@ -92,6 +85,7 @@ body {
 
 .heardIcon{
   max-width: 35px;
+  margin-right: 1rem;
 }
 
 .header {
@@ -141,7 +135,7 @@ body {
   height: 50%;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
   /* -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px); */
 }

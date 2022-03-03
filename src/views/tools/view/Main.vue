@@ -14,7 +14,7 @@
         </label>
       </div>
       <div class="card-body">
-        <p>历史遗留Dat文件转换.Csv文件，指定能量区间与道址。</p>
+        <p>历史遗留.Dat转换.Csv文件，指定能量区间与道址。</p>
       </div>
       <div class="card-footer">
         <router-link to="/dat2csv">前往</router-link>
