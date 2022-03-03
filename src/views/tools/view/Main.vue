@@ -4,7 +4,7 @@
       <div class="card-header">
         <div>
           <span>
-            <img src="https://assets.codepen.io/285131/zeplin.svg" />
+            <img src="../../../../public/zeplin.svg" />
           </span>
           <h3>Dat2Csv</h3>
         </div>
