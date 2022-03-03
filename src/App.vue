@@ -4,46 +4,64 @@
 <template>
   <div>
     <header class="header">
-	<div class="header-content responsive-wrapper">
-		<div class="header-logo">
-			<a href="#">
-				<div>
-					<img class="heardIcon" src="../public/zhouzhou.jpeg" />
-				</div>
-				<span>&#x1F91A</span>
-			</a>
-		</div>
-		<div class="header-navigation">
-			<nav class="header-navigation-links">
-				<router-link to="/"> 主页 </router-link>
-			</nav>
-			<div class="header-navigation-actions">
-				<a href="#" class="button">
-					<i class="ph-lightning-bold"></i>
-					<span>什么时候能玩到老头环</span>
-				</a>
-				<a href="#" class="icon-button">
-					<i class="ph-gear-bold"></i>
-				</a>
-				<a href="#" class="icon-button">
-					<i class="ph-bell-bold"></i>
-				</a>
-				<!-- <a href="#" class="avatar">
+      <div class="header-content responsive-wrapper">
+        <div class="header-logo">
+          <a href="#">
+            <div>
+              <img class="heardIcon" src="../public/zhouzhou.jpeg" />
+            </div>
+          </a>
+        </div>
+        <div class="header-navigation">
+          <nav class="header-navigation-links">
+            <router-link to="/">主页</router-link>
+          </nav>
+          <nav class="header-navigation-links">
+            <router-link to="/">奴页</router-link>
+          </nav>
+          <nav class="header-navigation-links">
+            <router-link to="/">龟男页</router-link>
+          </nav>
+          <nav class="header-navigation-links">
+            <router-link to="/">一千零一页</router-link>
+          </nav>
+          <nav class="header-navigation-links">
+            <router-link to="/">好耶</router-link>
+          </nav>
+          <div class="header-navigation-actions">
+            <a class="button" @click="elHandle">
+              <i class="ph-lightning-bold"></i>
+              <span>什么时候能玩到老头环</span>
+            </a>
+            <a href="#" class="icon-button">
+              <i class="ph-gear-bold"></i>
+            </a>
+            <a href="#" class="icon-button">
+              <i class="ph-bell-bold"></i>
+            </a>
+            <!-- <a href="#" class="avatar">
 					<img src="https://uifaces.co/our-content/donated/gPZwCbdS.jpg" alt="" />
-				</a> -->
-			</div>
-		</div>
-		<a href="#" class="button">
-			<i class="ph-list-bold"></i>
-			<span>菜单</span>
-		</a>
-	</div>
-</header>
+            </a>-->
+          </div>
+        </div>
+        <a href="#" class="button">
+          <i class="ph-list-bold"></i>
+          <span>菜单</span>
+        </a>
+      </div>
+    </header>
     <main>
       <router-view />
     </main>
   </div>
 </template>
+
+<script setup>
+
+function elHandle() {
+  window.open('https://store.steampowered.com/app/1245620/_/');
+}
+</script>
 
 <style sc>
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -83,9 +101,10 @@ body {
   margin-right: auto;
 }
 
-.heardIcon{
+.heardIcon {
   max-width: 35px;
   margin-right: 1rem;
+  border-radius: 8px;
 }
 
 .header {
@@ -165,7 +184,8 @@ body {
 .header-navigation-links a + * {
   margin-left: 1.5rem;
 }
-.header-navigation-links a:hover, .header-navigation-links a:focus {
+.header-navigation-links a:hover,
+.header-navigation-links a:focus {
   color: var(--c-accent-primary);
 }
 
@@ -207,7 +227,8 @@ body {
 .button span {
   font-weight: 500;
 }
-.button:hover, .button:focus {
+.button:hover,
+.button:focus {
   border-color: var(--c-accent-primary);
   color: var(--c-accent-primary);
 }
@@ -228,7 +249,8 @@ body {
 .icon-button i {
   font-size: 1.25em;
 }
-.icon-button:focus, .icon-button:hover {
+.icon-button:focus,
+.icon-button:hover {
   background-color: var(--c-background-tertiary);
   color: var(--c-accent-primary);
 }
@@ -297,7 +319,8 @@ body {
 .search input::placeholder {
   color: var(--c-text-action);
 }
-.search input:focus, .search input:hover {
+.search input:focus,
+.search input:hover {
   border-color: var(--c-accent-primary);
 }
 .search button {
@@ -343,7 +366,9 @@ body {
   text-decoration: none;
   transition: 0.15s ease;
 }
-.horizontal-tabs a:hover, .horizontal-tabs a:focus, .horizontal-tabs a.active {
+.horizontal-tabs a:hover,
+.horizontal-tabs a:focus,
+.horizontal-tabs a.active {
   color: var(--c-accent-primary);
   border-bottom-color: var(--c-accent-primary);
 }
@@ -413,7 +438,9 @@ body {
   color: var(--c-text-action);
   transition: 0.15s ease;
 }
-.vertical-tabs a:hover, .vertical-tabs a:focus, .vertical-tabs a.active {
+.vertical-tabs a:hover,
+.vertical-tabs a:focus,
+.vertical-tabs a.active {
   background-color: var(--c-background-tertiary);
   color: var(--c-accent-primary);
 }
@@ -431,7 +458,7 @@ body {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
   row-gap: 1.5rem;
 }
 @media (min-width: 600px) {
@@ -506,7 +533,7 @@ body {
 .toggle input {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;

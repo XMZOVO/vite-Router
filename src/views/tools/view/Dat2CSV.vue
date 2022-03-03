@@ -13,17 +13,19 @@
             拖拽文件或
             <em>点击上传</em>
         </div>
+        <template #tip>
+            <div class="inputArea">
+                <p class="el-upload__tip">能量区间(MeV)</p>
+                <el-input class="input" v-model="st" placeholder="输入能量起" />-
+                <el-input class="input" v-model="ed" placeholder="输入能量止" />
+            </div>
+            <div class="inputArea">
+                <p class="el-upload__tip">道址</p>
+                <el-input class="input" v-model="chl"></el-input>
+            </div>
+            <button class="bubbly-button" @click="convert2Csv">开始转换</button>
+        </template>
     </el-upload>
-    <div class="inputArea">
-        <p class="el-upload__tip">能量区间(MeV)</p>
-        <el-input class="input" v-model="st" placeholder="输入能量起" />-
-        <el-input class="input" v-model="ed" placeholder="输入能量止" />
-    </div>
-    <div class="inputArea">
-        <p class="el-upload__tip">道址</p>
-        <el-input class="input" v-model="chl"></el-input>
-    </div>
-    <button class="bubbly-button" @click="convert2Csv">开始转换</button>
 </template>
 
 <script setup lang="ts">
@@ -31,9 +33,12 @@ import { UploadFilled } from '@element-plus/icons-vue'
 import { ElLoading } from 'element-plus'
 import axios from 'axios'
 import { ref } from 'vue'
+
 let st = ref(0)
 let ed = ref(1.6)
 let chl = ref(4096)
+
+
 
 let loading;
 
@@ -101,14 +106,14 @@ for (var i = 0; i < bubblyButtons.length; i++) {
     margin-bottom: 20px;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #434CE8;
+    background-color: #434ce8;
     color: #fff;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     position: relative;
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 5px #434CE8;
+    box-shadow: 0 2px 5px #434ce8;
 }
 .bubbly-button:focus {
     outline: 0;
@@ -128,34 +133,34 @@ for (var i = 0; i < bubblyButtons.length; i++) {
 .bubbly-button:before {
     display: none;
     top: -75%;
-    background-image: radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, transparent 20%, #434CE8 20%, transparent 30%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, #434CE8 15%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%);
+    background-image: radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, #434ce8 20%, transparent 30%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #434ce8 15%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%);
     background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
         15% 15%, 10% 10%, 18% 18%;
 }
 .bubbly-button:after {
     display: none;
     bottom: -75%;
-    background-image: radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, #434CE8 15%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%),
-        radial-gradient(circle, #434CE8 20%, transparent 20%);
+    background-image: radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #434ce8 15%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%),
+        radial-gradient(circle, #434ce8 20%, transparent 20%);
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%,
         20% 20%;
 }
 .bubbly-button:active {
     transform: scale(0.9);
-    background-color: #434CE8;
+    background-color: #434ce8;
     box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
 }
 .bubbly-button.animate:before {
