@@ -2,7 +2,7 @@
     <el-upload
         class="upload-demo"
         drag
-        action="http://localhost:8080/test/upload"
+        action="http://43.154.8.62:8080/test/upload"
         multiple
         tip="haha"
     >
@@ -43,10 +43,10 @@ function convert2Csv() {
         text: 'Loading',
         background: 'rgba(0, 0, 0, 0.7)',
     })
-    axios.post('http://localhost:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
+    axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
         loading.close()
         // alert("转换完成")
-        window.open("http://localhost:8080/test/download?fileName=data2csv.zip");
+        window.open("http://43.154.8.62:8080/test/download?fileName=data2csv.zip");
     })
 }
 
