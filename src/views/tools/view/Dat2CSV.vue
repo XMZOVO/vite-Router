@@ -1,5 +1,5 @@
 <template >
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden mr-6">
         <div class="md:flex">
             <div class="md:flex-shrink-0"></div>
             <div class="p-7">
