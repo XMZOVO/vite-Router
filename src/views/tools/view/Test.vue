@@ -1,5 +1,5 @@
 <template>
- <div class="max-w-md mx-20 bg-white rounded-xl shadow-md overflow-hidden sm:max-w-sm">
+ <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden sm:max-w-sm">
         <div class="md:flex">
             <div class="p-8">
                 <p class="uppercase tracking-wide text-sm font-semibold mb-2">能量区间(MeV)</p>
