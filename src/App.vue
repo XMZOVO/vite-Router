@@ -451,7 +451,6 @@ body {
 .content-main {
   padding-top: 2rem;
   padding-bottom: 6rem;
-  padding-right: 4rem;
   flex-grow: 1;
 }
 
