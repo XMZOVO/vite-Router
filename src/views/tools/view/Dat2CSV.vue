@@ -1,24 +1,26 @@
 <template >
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-md">
-        <div class="md:flex">
-            <div class="p-8">
-                <p class="uppercase tracking-wide text-sm font-semibold mb-2">能量区间(MeV)</p>
-                <div class="flex-auto flex items-baseline mb-2">
-                    <el-input v-model="st" placeholder="输入能量起" />
-                    <p class="label">-</p>
-                    <el-input v-model="ed" placeholder="输入能量止" />
-                </div>
-                <p class="uppercase tracking-wide text-sm font-semibold mb-2">道址数</p>
-                <div class="flex-auto flex mb-3">
-                    <el-input v-model="chl" placeholder="输入道址数" />
-                </div>
-                <button
-                    class="w-1/3 flex items-center justify-center rounded-md bg-white text-main-unactive mb-3 p-1 border-2 font-semibold hover:border-main-active hover:text-main-active"
-                    type="submit"
-                    @click="convert2Csv"
-                >开始转换</button>
 
-                <div class="md:flex-shrink-0">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md flex">
+        <div class="md:flex">
+            <div class="flex-shrink-0">
+                <div class="p-7">
+                    <p class="uppercase tracking-wide text-sm font-semibold mb-2">能量区间(MeV)</p>
+                    <div class="flex-auto flex items-baseline mb-2">
+                        <el-input v-model="st" placeholder="输入能量起" />
+                        <p class="label">-</p>
+                        <el-input v-model="ed" placeholder="输入能量止" />
+                    </div>
+                    <p class="uppercase tracking-wide text-sm font-semibold mb-2">道址数</p>
+                    <div class="flex-auto flex mb-3">
+                        <el-input v-model="chl" placeholder="输入道址数" />
+                    </div>
+
+                    <button
+                        class="w-1/3 flex items-center justify-center rounded-md bg-white text-main-unactive mb-3 p-1 border-2 font-semibold hover:border-main-active hover:text-main-active"
+                        type="submit"
+                        @click="convert2Csv"
+                    >开始转换</button>
+
                     <el-upload
                         drag
                         action="http://43.154.8.62:8080/test/upload"
@@ -39,7 +41,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script setup lang="ts">

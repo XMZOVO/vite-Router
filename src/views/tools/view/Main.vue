@@ -20,6 +20,27 @@
         <router-link to="/dat2csv">前往</router-link>
       </div>
     </article>
+
+    <article class="card">
+      <div class="card-header">
+        <div>
+          <span>
+            <img src="../../../../public/github.svg" />
+          </span>
+          <h3>Test</h3>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked />
+          <span></span>
+        </label>
+      </div>
+      <div class="card-body">
+        <p>测试页</p>
+      </div>
+      <div class="card-footer">
+        <router-link to="/test">前往</router-link>
+      </div>
+    </article>
     <!-- <article class="card">
       <div class="card-header">
         <div>

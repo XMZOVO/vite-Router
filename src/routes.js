@@ -4,6 +4,7 @@ import NotFound from './views/NotFound.vue'
 import Tools from './views/tools/Tools.vue'
 import Dat2CSV from './views/tools/view/Dat2CSV.vue'
 import ToolsMain from './views/tools/view/Main.vue'
+import Test from './views/tools/view/test.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -22,6 +23,9 @@ export const routes = [
         }, {
           path: '/dat2csv',
           component: Dat2CSV,
+        },{
+          path:'/test',
+          component: Test
         }]
       }
     ],
