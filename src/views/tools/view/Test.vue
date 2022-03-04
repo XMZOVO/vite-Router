@@ -1,5 +1,45 @@
 <template>
+ <div class="max-w-md mx-20 bg-white rounded-xl shadow-md overflow-hidden sm:max-w-sm">
+        <div class="md:flex">
+            <div class="p-8">
+                <p class="uppercase tracking-wide text-sm font-semibold mb-2">能量区间(MeV)</p>
+                <div class="flex-auto flex items-baseline mb-2">
+                    <input v-model="st" placeholder="输入能量起" />
+                    <p class="label">-</p>
+                    <input v-model="ed" placeholder="输入能量止" />
+                </div>
+                <p class="uppercase tracking-wide text-sm font-semibold mb-2">道址数</p>
+                <div class="flex-auto flex mb-3">
+                    <input v-model="chl" placeholder="输入道址数" />
+                </div>
+                <button
+                    class="w-1/3 flex items-center justify-center rounded-md bg-white text-main-unactive mb-3 p-1 border-2 font-semibold hover:border-main-active hover:text-main-active"
+                    type="submit"
+                    @click="convert2Csv"
+                >开始转换</button>
 
+                <form id="file-upload-form" class="uploader">
+                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+                    <label for="file-upload" id="file-drag">
+                        <img id="file-image" src="#" alt="Preview" class="hidden" />
+                        <div id="start">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                            <div>Select a file or drag here</div>
+                            <div id="notimage" class="hidden">Please select an image</div>
+                            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                        </div>
+                        <div id="response" class="hidden">
+                            <div id="messages"></div>
+                            <progress class="progress" id="file-progress" value="0">
+                                <span>0</span>%
+                            </progress>
+                        </div>
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
