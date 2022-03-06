@@ -16,7 +16,7 @@
         </div>
     </div>-->
 
-    <div class="flex w-3/4 mx-auto items-start pt-8">
+    <div class="flex w-11/12 sm:w-3/4 mx-auto items-start pt-8">
         <div class="h-screen hidden sm:block max-w-sm sm:w-1/4 md:w-1/5 space-y-5 mr-10">
             <div
                 class="bg-main-slideBar text-main-active text-left rounded-md w-full pl-4 py-3 font-bold"

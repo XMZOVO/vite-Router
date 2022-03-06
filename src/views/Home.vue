@@ -4,7 +4,7 @@ import ButtonRepo from '@/components/ButtonRepo.vue'
 
 <template>
   <div
-    class="w-3/4 h-30 mt-10 mx-auto items-center sm:flex sm:justify-between space-y-3 sm:space-y-0"
+    class="w-11/12 sm:w-3/4 h-30 mt-10 mx-auto items-center sm:flex sm:justify-between space-y-3 sm:space-y-0"
   >
     <div class="flex">
       <p class=" text-3xl font-bold">主页</p>
@@ -20,7 +20,7 @@ import ButtonRepo from '@/components/ButtonRepo.vue'
     </div>
   </div>
 
-  <div class="flex w-3/4 mx-auto mt-10 space-x-2 pb-8 border-b border-gray-200">
+  <div class="flex w-11/12 sm:w-3/4 mx-auto mt-10 space-x-2 pb-8 border-b border-gray-200">
     <a href="#" class="border-b-2 border-main-active font-bold text-main-active pb-2 px-1">工具</a>
     <a href="#" class="pb-2 px-1 hover:font-bold hover:text-main-active">阿萎</a>
     <a href="#" class="pb-2 px-1 hover:font-bold hover:text-main-active">胖铁</a>

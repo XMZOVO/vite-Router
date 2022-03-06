@@ -3,7 +3,7 @@
 
 <template>
   <div class="w-ful bg-white border-b">
-    <div class="w-3/4 mx-auto h-20 flex items-center justify-between font-bold">
+    <div class=" w-11/12 sm:w-3/4 mx-auto h-20 flex items-center justify-between font-bold">
       <div class="flex space-x-12">
         <div class="flex items-center">
           <img class="rounded h-8 w-8" src="../public/zhouzhou.jpeg" />
