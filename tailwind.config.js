@@ -11,7 +11,8 @@ module.exports = {
       colors:{
         main:{
           unactive:"#312D76",
-          active:"#332FE2"
+          active:"#332FE2",
+          slideBar:"#E7F0FE",
           }
       }
     },

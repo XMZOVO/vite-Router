@@ -2,9 +2,9 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
 import Tools from './views/tools/Tools.vue'
-import Dat2CSV from './views/tools/view/Dat2CSV.vue'
-import ToolsMain from './views/tools/view/Main.vue'
-import Test from './views/tools/view/test.vue'
+import Dat2CSV from './views/tools/Dat2CSV.vue'
+import ToolsMain from './views/tools/Main.vue'
+import Test from './views/tools/Test.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [

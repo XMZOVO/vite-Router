@@ -1,6 +1,43 @@
 <template >
+    <div class="inline-flex rounded-lg shadow-lg w-full sm:w-1/2 md:w-2/5 mx-auto">
+        <div class="mx-auto space-y-2 my-8">
+            <p>能量区间(MeV)</p>
+            <div class="flex space-x-2 justify-between">
+                <span class="w-20">
+                    <input value="0" class=" hover:border-main-active w-full border-2 rounded-md px-2" />
+                </span>
+                <p>—</p>
+                <span class="w-20">
+                    <input class=" hover:border-main-active w-full border-2 rounded-md px-2" value="1.6" />
+                </span>
+            </div>
+            <p>道址数</p>
+            <input class="rounded-md border-2 hover:border-main-active w-full px-2" value="4096"/>
+            <div class="flex justify-between pt-4">
+                <label
+                    class="border-2 rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
+                >
+                    点击上传
+                    <el-upload
+                        drag
+                        action="http://43.154.8.62:8080/test/upload"
+                        multiple
+                        tip="haha"
+                        :on-success="onSuccess"
+                        :before-upload="beforeUp"
+                        ref="upload"
+                        class="hidden"
+                    ></el-upload>
+                </label>
+                <button
+                    class="border-2 rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
+                    @click="convert2Csv"
+                >开始转换</button>
+            </div>
+        </div>
+    </div>
 
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md flex">
+    <!-- <div class="max-w-md mx-auto bg-white rounded-xl shadow-md flex">
         <div class="md:flex">
             <div class="flex-shrink-0">
                 <div class="p-7">
@@ -40,7 +77,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </template>
 
 <script setup lang="ts">
@@ -54,7 +91,29 @@ let ed = ref(1.6)
 let chl = ref(4096)
 const upload = ref(null)
 
+let filesNum = ref(0)
+
 let loading;
+
+function beforeUp(file) {
+    // console.log(file)
+}
+
+function onSuccess(response, file, fileList) {
+    if (filesNum.value == 0) {
+        loading = ElLoading.service({
+            lock: true,
+            text: '上传中',
+            background: 'rgba(0, 0, 0, 0.7)',
+        })
+    }
+    filesNum.value += 1;
+    if (filesNum.value == fileList.length) {
+        filesNum.value = 0;
+        upload.value.clearFiles();
+        loading.close()
+    }
+}
 
 function convert2Csv() {
     loading = ElLoading.service({
@@ -62,6 +121,7 @@ function convert2Csv() {
         text: '转换中',
         background: 'rgba(0, 0, 0, 0.7)',
     })
+
     axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
         loading.close()
         // alert("转换完成")
@@ -72,6 +132,5 @@ function convert2Csv() {
 </script>
 
 <style scoped>
-
 </style>
 

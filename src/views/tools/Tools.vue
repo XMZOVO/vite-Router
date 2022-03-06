@@ -15,7 +15,22 @@
             </a>
         </div>
     </div>-->
-    <div class="content">
+
+    <div class="flex w-3/4 mx-auto items-start pt-8">
+        <div class="h-screen hidden sm:block max-w-sm sm:w-1/4 md:w-1/5 space-y-5 mr-10">
+            <div
+                class="bg-main-slideBar text-main-active text-left rounded-md w-full pl-4 py-3 font-bold"
+            >
+                <router-link to="/">全部</router-link>
+            </div>
+            <button class="text-left rounded-md w-full pl-4 py-3 font-bold">ぜんぶ</button>
+        </div>
+        <transition>
+        <router-view></router-view>
+        </transition>
+    </div>
+
+    <!-- <div class="content">
         <div class="content-panel">
             <div class="vertical-tabs">
                 <router-link to="/" class="active">全部</router-link>
@@ -23,22 +38,20 @@
         </div>
 
         <div class="content-main">
-            <transition>
             <router-view></router-view>
-            </transition>
         </div>
-    </div>
+    </div>-->
 </template>
 
 <style>
 /* we will explain what these classes do next! */
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 1s ease;
+    transition: opacity 1.5s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>
