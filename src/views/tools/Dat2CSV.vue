@@ -1,13 +1,13 @@
 <template >
     <div class="inline-flex rounded-lg shadow-lg w-full sm:w-1/2 md:w-2/5 mx-auto">
-        <div class="mx-auto space-y-2 my-8">
+        <div class="mx-auto space-y-2 my-8 ">
             <p>能量区间(MeV)</p>
-            <div class="flex space-x-2 justify-between">
-                <span class="w-20">
+            <div class="flex flex-row">
+                <span class="w-20 flex-auto">
                     <input value="0" class=" hover:border-main-active w-full border-2 rounded-md px-2" />
                 </span>
-                <p>—</p>
-                <span class="w-20">
+                <p class="flex-auto text-center">-</p>
+                <span class="w-20 flex-auto">
                     <input class=" hover:border-main-active w-full border-2 rounded-md px-2" value="1.6" />
                 </span>
             </div>
