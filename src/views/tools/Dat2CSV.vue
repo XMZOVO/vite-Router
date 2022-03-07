@@ -4,15 +4,15 @@
             <p>能量区间(MeV)</p>
             <div class="flex flex-row">
                 <span class="w-20 flex-auto">
-                    <input value="0" class=" hover:border-main-active w-full border-2 rounded-md px-2" />
+                    <input v-model="st" value="0" class=" hover:border-main-active w-full border-2 rounded-md px-2" />
                 </span>
                 <p class="flex-auto text-center">-</p>
                 <span class="w-20 flex-auto">
-                    <input class=" hover:border-main-active w-full border-2 rounded-md px-2" value="1.6" />
+                    <input v-model="ed" class=" hover:border-main-active w-full border-2 rounded-md px-2" value="1.6" />
                 </span>
             </div>
             <p>道址数</p>
-            <input class="rounded-md border-2 hover:border-main-active w-full px-2" value="4096"/>
+            <input v-model="chl" class="rounded-md border-2 hover:border-main-active w-full px-2" value="4096"/>
             <div class="flex justify-between pt-4">
                 <label
                     class="border-2 rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
