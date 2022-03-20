@@ -5,6 +5,7 @@ import Tools from './views/tools/Tools.vue'
 import Dat2CSV from './views/tools/Dat2CSV.vue'
 import ToolsMain from './views/tools/Main.vue'
 import Test from './views/tools/Test.vue'
+import JSRoot from './views/tools/JSRoot.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -26,7 +27,12 @@ export const routes = [
         },{
           path:'/test',
           component: Test
-        }]
+        },{
+          path:'/jsroot',
+          component: JSRoot
+        },
+      
+      ]
       }
     ],
   },
