@@ -1,0 +1,3348 @@
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "Gentle Geometry",
+"fTitle": "",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+1,
+1,
+1,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": null,
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "ITS",
+"fTitle": "ITSV::TGeoPcon",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+-1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+8.000000e-001,
+7.800000e-001,
+6.700000e-001,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 85,
+"fDY": 85,
+"fDZ": 2.886000e+002,
+"fOrigin": [
+0,
+0,
+-5.000000e-001
+],
+"fNz": 16,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+46,
+46,
+46,
+46,
+46,
+6,
+6,
+3.295000e+000,
+3.295000e+000,
+6,
+6,
+46,
+46,
+62,
+62,
+62
+],
+"fRmax": [
+85,
+85,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+5.750000e+001,
+66,
+85,
+85
+],
+"fZ": [
+-2.891000e+002,
+-284,
+-284,
+-9.750000e+001,
+-74,
+-48,
+-2.860000e+001,
+-2.760000e+001,
+2.760000e+001,
+2.860000e+001,
+48,
+74,
+9.750000e+001,
+284,
+284,
+2.881000e+002
+]
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "ITS_Dets",
+"fTitle": "ITSD::TGeoPcon",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+-1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+8.000000e-001,
+7.800000e-001,
+6.700000e-001,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 50,
+"fDY": 50,
+"fDZ": 74,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 8,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+46,
+6.005000e+000,
+6.005000e+000,
+3.300000e+000,
+3.300000e+000,
+6.005000e+000,
+6.005000e+000,
+46
+],
+"fRmax": [
+50,
+50,
+50,
+50,
+50,
+50,
+50,
+50
+],
+"fZ": [
+-74,
+-4.750000e+001,
+-2.850000e+001,
+-2.750000e+001,
+2.750000e+001,
+2.850000e+001,
+4.750000e+001,
+74
+]
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "IT12_1",
+"fTitle": "IT12::TGeoTube",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+-1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+8.000000e-001,
+4.039216e-001,
+5.137255e-001,
+4.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": false,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTube",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 9216,
+"fDX": 7.750000e+000,
+"fDY": 7.750000e+000,
+"fDZ": 2.610000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fRmin": 3.700000e+000,
+"fRmax": 7.750000e+000,
+"fDz": 2.610000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "IT34_1",
+"fTitle": "IT34::TGeoPcon",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+-1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+5.215687e-001,
+8.274510e-001,
+5.882353e-001,
+4.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": false,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 2.850000e+001,
+"fDY": 2.850000e+001,
+"fDZ": 3.460000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 6,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+2.349000e+001,
+2.349000e+001,
+1.459000e+001,
+1.459000e+001,
+2.349000e+001,
+2.349000e+001
+],
+"fRmax": [
+2.850000e+001,
+2.850000e+001,
+2.850000e+001,
+2.850000e+001,
+2.850000e+001,
+2.850000e+001
+],
+"fZ": [
+-3.460000e+001,
+-2.735000e+001,
+-2.735000e+001,
+2.735000e+001,
+2.735000e+001,
+3.460000e+001
+]
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "IT56_1",
+"fTitle": "IT56::TGeoPcon",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+-1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+4.156863e-001,
+3.882353e-001,
+6.980392e-001,
+4.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": false,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 48,
+"fDY": 48,
+"fDZ": 5.745000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 6,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+4.360000e+001,
+4.360000e+001,
+3.690000e+001,
+3.690000e+001,
+4.360000e+001,
+4.360000e+001
+],
+"fRmax": [
+48,
+48,
+48,
+48,
+48,
+48
+],
+"fZ": [
+-5.745000e+001,
+-4.915000e+001,
+-4.915000e+001,
+5.055000e+001,
+5.055000e+001,
+5.745000e+001
+]
+},
+"fElements": null
+}
+],
+"opt": [
+"",
+"",
+""
+]
+}
+}
+],
+"opt": [
+""
+]
+}
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC",
+"fTitle": "",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+1,
+1,
+1,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": null,
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_M_1",
+"fTitle": "TPC_M::TGeoPcon",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+7.000000e-001,
+7.000000e-001,
+7.000000e-001,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 278,
+"fDY": 278,
+"fDZ": 290,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 18,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+77,
+70,
+6.810000e+001,
+6.810000e+001,
+68,
+6.080000e+001,
+6.010000e+001,
+6.010000e+001,
+5.690000e+001,
+5.690000e+001,
+6.010000e+001,
+6.010000e+001,
+6.080000e+001,
+6.550000e+001,
+6.560000e+001,
+6.560000e+001,
+70,
+77
+],
+"fRmax": [
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278,
+278
+],
+"fZ": [
+-290,
+-2.596000e+002,
+-2.596000e+002,
+-2.536000e+002,
+-2.536000e+002,
+-74,
+-74,
+-7.330000e+001,
+-7.330000e+001,
+7.330000e+001,
+7.330000e+001,
+74,
+74,
+2.536000e+002,
+2.536000e+002,
+2.596000e+002,
+2.596000e+002,
+290
+]
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_Drift_1",
+"fTitle": "TPC_Drift::TGeoPcon",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+4.392157e-001,
+6.549020e-001,
+6.980392e-001,
+2.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPcon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 67240960,
+"fDX": 2.644000e+002,
+"fDY": 2.644000e+002,
+"fDZ": 260,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 6,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+7.450000e+001,
+7.450000e+001,
+7.667740e+001,
+7.667740e+001,
+7.450000e+001,
+7.450000e+001
+],
+"fRmax": [
+2.644000e+002,
+2.644000e+002,
+258,
+258,
+2.644000e+002,
+2.644000e+002
+],
+"fZ": [
+-260,
+-2.536000e+002,
+-2.536000e+002,
+2.536000e+002,
+2.536000e+002,
+260
+]
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_HVMEM_1",
+"fTitle": "TPC_HVMEM::TGeoShapeAssembly",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+4.078431e-001,
+1,
+5.960785e-001,
+4.900000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoShapeAssembly",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 0,
+"fShapeBits": 1024,
+"fDX": 256,
+"fDY": 256,
+"fDZ": 5.000000e-001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fVolume": {
+"_typename": "TGeoVolumeAssembly",
+"fUniqueID": 0,
+"fBits": 59768832,
+"fName": "TPC_HVMEM",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fLineColor": 1,
+"fLineStyle": 1,
+"fLineWidth": 1,
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fNodes": {
+"_typename": "TObjArray",
+"name": "TObjArray",
+"arr": [
+{
+"_typename": "TGeoNodeMatrix",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_IHVH_1",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fVolume": {
+"_typename": "TGeoVolume",
+"fUniqueID": 0,
+"fBits": 58720256,
+"fName": "TPC_IHVH",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fLineColor": 3,
+"fLineStyle": 1,
+"fLineWidth": 1,
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fNodes": null,
+"fShape": {
+"_typename": "TGeoTube",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 9216,
+"fDX": 8.405000e+001,
+"fDY": 8.405000e+001,
+"fDZ": 3.000000e-001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fRmin": 8.105000e+001,
+"fRmax": 8.405000e+001,
+"fDz": 3.000000e-001
+},
+"fMedium": {
+"_typename": "TGeoMedium",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_Al",
+"fTitle": "",
+"fId": 205,
+"fParams": [
+0,
+2,
+10,
+10,
+999,
+1.000000e-001,
+5.000000e-004,
+1.000000e-003,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"fMaterial": {
+"_typename": "TGeoMaterial",
+"fUniqueID": 214,
+"fBits": 50462720,
+"fName": "TPC_Al",
+"fTitle": "",
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fIndex": 213,
+"fA": 2.698000e+001,
+"fZ": 13,
+"fDensity": 2.700000e+000,
+"fRadLen": 8.875104e+000,
+"fIntLen": 999,
+"fTemperature": 2.731500e+002,
+"fPressure": 632420000,
+"fState": 0,
+"fShader": null,
+"fCerenkov": null,
+"fElement": null
+}
+},
+"fFinder": null,
+"fVoxels": null,
+"fNumber": 603,
+"fNtotal": 1,
+"fRefCount": 0
+},
+"fMother": "$ref:24",
+"fNumber": 1,
+"fNovlp": 0,
+"fOverlaps": [ ],
+"fMatrix": {
+"_typename": "TGeoIdentity",
+"fUniqueID": 0,
+"fBits": 52428800,
+"fName": "Identity",
+"fTitle": ""
+}
+},
+{
+"_typename": "TGeoNodeMatrix",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_OHVH_1",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fVolume": {
+"_typename": "TGeoVolume",
+"fUniqueID": 0,
+"fBits": 58720256,
+"fName": "TPC_OHVH",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fLineColor": 3,
+"fLineStyle": 1,
+"fLineWidth": 1,
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fNodes": null,
+"fShape": {
+"_typename": "TGeoTube",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 9216,
+"fDX": 256,
+"fDY": 256,
+"fDZ": 5.000000e-001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fRmin": 250,
+"fRmax": 256,
+"fDz": 5.000000e-001
+},
+"fMedium": "$ref:29",
+"fFinder": null,
+"fVoxels": null,
+"fNumber": 604,
+"fNtotal": 1,
+"fRefCount": 0
+},
+"fMother": "$ref:24",
+"fNumber": 1,
+"fNovlp": 0,
+"fOverlaps": [ ],
+"fMatrix": "$ref:31"
+},
+{
+"_typename": "TGeoNodeMatrix",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_HV_1",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fVolume": {
+"_typename": "TGeoVolume",
+"fUniqueID": 0,
+"fBits": 58720256,
+"fName": "TPC_HV",
+"fTitle": "",
+"fGeoAtt": 3084,
+"fLineColor": 7,
+"fLineStyle": 1,
+"fLineWidth": 1,
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fNodes": null,
+"fShape": {
+"_typename": "TGeoTube",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 9216,
+"fDX": 250,
+"fDY": 250,
+"fDZ": 1.000000e-002,
+"fOrigin": [
+0,
+0,
+0
+],
+"fRmin": 8.405000e+001,
+"fRmax": 250,
+"fDz": 1.000000e-002
+},
+"fMedium": {
+"_typename": "TGeoMedium",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_Mylar",
+"fTitle": "",
+"fId": 209,
+"fParams": [
+0,
+2,
+10,
+10,
+999,
+1.000000e-001,
+5.000000e-004,
+1.000000e-003,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"fMaterial": {
+"_typename": "TGeoMixture",
+"fUniqueID": 209,
+"fBits": 50462720,
+"fName": "TPC_Mylar",
+"fTitle": "",
+"fFillColor": 19,
+"fFillStyle": 1001,
+"fIndex": 208,
+"fA": 1.288114e+001,
+"fZ": 6.458052e+000,
+"fDensity": 1.390000e+000,
+"fRadLen": 2.854639e+001,
+"fIntLen": 0,
+"fTemperature": 2.731500e+002,
+"fPressure": 632420000,
+"fState": 0,
+"fShader": null,
+"fCerenkov": null,
+"fElement": null,
+"fNelements": 3,
+"fZmixture": [
+6,
+1,
+8
+],
+"fAmixture": [
+1.201100e+001,
+1,
+1.599940e+001
+],
+"fWeights": [
+6.252225e-001,
+4.164333e-002,
+3.331341e-001
+],
+"fNatoms": [ ],
+"fElements": null
+}
+},
+"fFinder": null,
+"fVoxels": null,
+"fNumber": 605,
+"fNtotal": 1,
+"fRefCount": 0
+},
+"fMother": "$ref:24",
+"fNumber": 1,
+"fNovlp": 0,
+"fOverlaps": [ ],
+"fMatrix": "$ref:31"
+}
+]
+},
+"fShape": "$ref:23",
+"fMedium": null,
+"fFinder": null,
+"fVoxels": null,
+"fNumber": 606,
+"fNtotal": 4,
+"fRefCount": 0
+},
+"fBBoxOK": false
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_IHVH_1",
+"fTitle": "TPC_IHVH::TGeoTube",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+4.078431e-001,
+1,
+5.960785e-001,
+2.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:28",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_OHVH_1",
+"fTitle": "TPC_OHVH::TGeoTube",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+4.078431e-001,
+1,
+5.960785e-001,
+2.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:34",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TPC_HV_1",
+"fTitle": "TPC_HV::TGeoTube",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+7.000000e-001,
+6.500000e-001,
+5.900000e-001,
+1.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:37",
+"fElements": null
+}
+],
+"opt": [
+"",
+"",
+""
+]
+}
+}
+],
+"opt": [
+""
+]
+}
+}
+],
+"opt": [
+""
+]
+}
+}
+],
+"opt": [
+""
+]
+}
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "TRD+TOF",
+"fTitle": "B077::TGeoPgon",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+7.000000e-001,
+6.500000e-001,
+5.900000e-001,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPgon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 67503104,
+"fDX": 4.274946e+002,
+"fDY": 4.274946e+002,
+"fDZ": 376,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 2,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+280,
+280
+],
+"fRmax": [
+421,
+421
+],
+"fZ": [
+-376,
+376
+],
+"fNedges": 18
+},
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BREF_1",
+"fTitle": "BREF::TGeoPgon",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+3.529412e-001,
+4.156863e-001,
+6.980392e-001,
+5.100000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPgon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 67503104,
+"fDX": 2.844210e+002,
+"fDY": 2.844210e+002,
+"fDZ": 376,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 2,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+280,
+280
+],
+"fRmax": [
+2.801000e+002,
+2.801000e+002
+],
+"fZ": [
+-376,
+376
+],
+"fNedges": 18
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "B076_1",
+"fTitle": "B076::TGeoPgon",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+6.980392e-001,
+1.686275e-001,
+2.235294e-001,
+2.000000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoPgon",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 67503104,
+"fDX": 4.272024e+002,
+"fDY": 4.272024e+002,
+"fDZ": 350,
+"fOrigin": [
+0,
+0,
+0
+],
+"fNz": 2,
+"fPhi1": 0,
+"fDphi": 360,
+"fRmin": [
+399,
+399
+],
+"fRmax": [
+4.207122e+002,
+4.207122e+002
+],
+"fZ": [
+-350,
+350
+],
+"fNedges": 18
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO13_1",
+"fTitle": "BSEGMO13::TGeoTrd1",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+-1,
+0,
+0,
+0,
+-3.418000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO14_1",
+"fTitle": "BSEGMO14::TGeoTrd1",
+"fTrans": [
+9.396926e-001,
+3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+3.420202e-001,
+-9.396926e-001,
+0,
+0,
+1.169025e+002,
+-3.211869e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO15_1",
+"fTitle": "BSEGMO15::TGeoTrd1",
+"fTrans": [
+7.660444e-001,
+6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+6.427876e-001,
+-7.660444e-001,
+0,
+0,
+2.197048e+002,
+-2.618340e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO16_1",
+"fTitle": "BSEGMO16::TGeoTrd1",
+"fTrans": [
+5.000000e-001,
+8.660254e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+8.660254e-001,
+-5.000000e-001,
+0,
+0,
+2.960075e+002,
+-1.709000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO17_1",
+"fTitle": "BSEGMO17::TGeoTrd1",
+"fTrans": [
+1.736482e-001,
+9.848077e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+9.848077e-001,
+-1.736482e-001,
+0,
+0,
+3.366073e+002,
+-5.935295e+001,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO0_1",
+"fTitle": "BSEGMO0::TGeoTrd1",
+"fTrans": [
+-1.736482e-001,
+9.848077e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+9.848077e-001,
+1.736482e-001,
+0,
+0,
+3.366073e+002,
+5.935294e+001,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO1_1",
+"fTitle": "BSEGMO1::TGeoTrd1",
+"fTrans": [
+-5.000000e-001,
+8.660254e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+8.660254e-001,
+5.000000e-001,
+0,
+0,
+2.960075e+002,
+1.709000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO2_1",
+"fTitle": "BSEGMO2::TGeoTrd1",
+"fTrans": [
+-7.660444e-001,
+6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+6.427876e-001,
+7.660444e-001,
+0,
+0,
+2.197048e+002,
+2.618340e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO3_1",
+"fTitle": "BSEGMO3::TGeoTrd1",
+"fTrans": [
+-9.396926e-001,
+3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+3.420202e-001,
+9.396926e-001,
+0,
+0,
+1.169025e+002,
+3.211869e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO4_1",
+"fTitle": "BSEGMO4::TGeoTrd1",
+"fTrans": [
+-1,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+1,
+0,
+0,
+8.318020e-006,
+3.418000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO5_1",
+"fTitle": "BSEGMO5::TGeoTrd1",
+"fTrans": [
+-9.396926e-001,
+-3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-3.420202e-001,
+9.396926e-001,
+0,
+0,
+-1.169025e+002,
+3.211869e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO6_1",
+"fTitle": "BSEGMO6::TGeoTrd1",
+"fTrans": [
+-7.660444e-001,
+-6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-6.427876e-001,
+7.660444e-001,
+0,
+0,
+-2.197048e+002,
+2.618340e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO7_1",
+"fTitle": "BSEGMO7::TGeoTrd1",
+"fTrans": [
+-5.000000e-001,
+-8.660254e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-8.660254e-001,
+5.000000e-001,
+0,
+0,
+-2.960075e+002,
+1.709000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO8_1",
+"fTitle": "BSEGMO8::TGeoTrd1",
+"fTrans": [
+-1.736482e-001,
+-9.848077e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-9.848077e-001,
+1.736482e-001,
+0,
+0,
+-3.366073e+002,
+5.935296e+001,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO9_1",
+"fTitle": "BSEGMO9::TGeoTrd1",
+"fTrans": [
+1.736482e-001,
+-9.848077e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-9.848077e-001,
+-1.736482e-001,
+0,
+0,
+-3.366073e+002,
+-5.935293e+001,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO10_1",
+"fTitle": "BSEGMO10::TGeoTrd1",
+"fTrans": [
+5.000000e-001,
+-8.660254e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-8.660254e-001,
+-5.000000e-001,
+0,
+0,
+-2.960075e+002,
+-1.709000e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO11_1",
+"fTitle": "BSEGMO11::TGeoTrd1",
+"fTrans": [
+7.660444e-001,
+-6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-6.427876e-001,
+-7.660444e-001,
+0,
+0,
+-2.197048e+002,
+-2.618340e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "BSEGMO12_1",
+"fTitle": "BSEGMO12::TGeoTrd1",
+"fTrans": [
+9.396926e-001,
+-3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-3.420202e-001,
+-9.396926e-001,
+0,
+0,
+-1.169025e+002,
+-3.211869e+002,
+0,
+1
+],
+"fRGBA": [
+3.294118e-001,
+6.470588e-001,
+6.980392e-001,
+5.300000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": false,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 2,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 512,
+"fShapeBits": 8389632,
+"fDX": 7.035000e+001,
+"fDY": 3.755000e+002,
+"fDZ": 5.720000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 5.018000e+001,
+"fDx2": 7.035000e+001,
+"fDy": 3.755000e+002,
+"fDz": 5.720000e+001
+},
+"fElements": null
+}
+],
+"opt": [
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+""
+]
+}
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS",
+"fTitle": "",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+1,
+1,
+1,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": null,
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS_1",
+"fTitle": "PHOS::TGeoTrd1",
+"fTrans": [
+7.660444e-001,
+6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+6.427876e-001,
+-7.660444e-001,
+0,
+0,
+3.102157e+002,
+-3.697007e+002,
+0,
+1
+],
+"fRGBA": [
+1,
+7.843137e-001,
+1.372549e-001,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoTrd1",
+"fUniqueID": 10,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 8192,
+"fShapeBits": 8389632,
+"fDX": 8.995792e+001,
+"fDY": 7.950000e+001,
+"fDZ": 3.740000e+001,
+"fOrigin": [
+0,
+0,
+0
+],
+"fDx1": 7.716032e+001,
+"fDx2": 8.995792e+001,
+"fDy": 7.950000e+001,
+"fDz": 3.740000e+001
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS_2",
+"fTitle": "PHOS::TGeoTrd1",
+"fTrans": [
+9.396926e-001,
+3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+3.420202e-001,
+-9.396926e-001,
+0,
+0,
+1.650623e+002,
+-4.535050e+002,
+0,
+1
+],
+"fRGBA": [
+1,
+7.843137e-001,
+1.372549e-001,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:90",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS_3",
+"fTitle": "PHOS::TGeoTrd1",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+-1,
+0,
+0,
+0,
+-4.826100e+002,
+0,
+1
+],
+"fRGBA": [
+1,
+7.843137e-001,
+1.372549e-001,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:90",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS_4",
+"fTitle": "PHOS::TGeoTrd1",
+"fTrans": [
+9.396926e-001,
+-3.420202e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-3.420202e-001,
+-9.396926e-001,
+0,
+0,
+-1.650623e+002,
+-4.535050e+002,
+0,
+1
+],
+"fRGBA": [
+1,
+7.843137e-001,
+1.372549e-001,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:90",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "PHOS_5",
+"fTitle": "PHOS::TGeoTrd1",
+"fTrans": [
+7.660444e-001,
+-6.427876e-001,
+0,
+0,
+0,
+0,
+1,
+0,
+-6.427876e-001,
+-7.660444e-001,
+0,
+0,
+-3.102157e+002,
+-3.697007e+002,
+0,
+1
+],
+"fRGBA": [
+1,
+7.843137e-001,
+1.372549e-001,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:90",
+"fElements": null
+}
+],
+"opt": [
+"",
+"",
+"",
+"",
+""
+]
+}
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID",
+"fTitle": "",
+"fTrans": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+],
+"fRGBA": [
+1,
+1,
+1,
+1
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": null,
+"fElements": {
+"_typename": "TList",
+"name": "TList",
+"arr": [
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_0",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+-3.287356e-001,
+-5.796495e-002,
+-9.426415e-001,
+0,
+-1.736482e-001,
+9.848077e-001,
+0,
+0,
+9.283206e-001,
+1.636880e-001,
+-3.338069e-001,
+0,
+4.548771e+002,
+8.020711e+001,
+-1.635654e+002,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": {
+"_typename": "TGeoBBox",
+"fUniqueID": 14,
+"fBits": 50331648,
+"fName": "",
+"fTitle": "",
+"fShapeId": 1024,
+"fShapeBits": 1024,
+"fDX": 8.465000e+001,
+"fDY": 7.390000e+001,
+"fDZ": 12,
+"fOrigin": [
+0,
+0,
+0
+]
+},
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_1",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+6.030009e-017,
+1.063253e-017,
+-1,
+0,
+-1.736482e-001,
+9.848077e-001,
+0,
+0,
+9.848077e-001,
+1.736482e-001,
+6.123032e-017,
+0,
+4.825558e+002,
+8.508761e+001,
+0,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_2",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+-2.890852e-001,
+-1.669034e-001,
+-9.426415e-001,
+0,
+-5.000000e-001,
+8.660254e-001,
+0,
+0,
+8.163515e-001,
+4.713207e-001,
+-3.338069e-001,
+0,
+4.000122e+002,
+2.309472e+002,
+-1.635654e+002,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_3",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+5.302701e-017,
+3.061516e-017,
+-1,
+0,
+-5.000000e-001,
+8.660254e-001,
+0,
+0,
+8.660254e-001,
+5.000000e-001,
+6.123032e-017,
+0,
+4.243524e+002,
+245,
+0,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_4",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+2.890852e-001,
+1.669034e-001,
+-9.426415e-001,
+0,
+-5.000000e-001,
+8.660254e-001,
+0,
+0,
+8.163515e-001,
+4.713207e-001,
+3.338069e-001,
+0,
+4.000122e+002,
+2.309472e+002,
+1.635654e+002,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_5",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+3.935809e-017,
+4.690514e-017,
+-1,
+0,
+-7.660444e-001,
+6.427876e-001,
+0,
+0,
+6.427876e-001,
+7.660444e-001,
+6.123032e-017,
+0,
+3.149659e+002,
+3.753618e+002,
+0,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+},
+{
+"_typename": "TEveGeoShapeExtract",
+"fUniqueID": 0,
+"fBits": 50331648,
+"fName": "HMPID_6",
+"fTitle": "HMPID::TGeoBBox",
+"fTrans": [
+2.145669e-001,
+2.557109e-001,
+-9.426415e-001,
+0,
+-7.660444e-001,
+6.427876e-001,
+0,
+0,
+6.059183e-001,
+7.221053e-001,
+3.338069e-001,
+0,
+2.969000e+002,
+3.538316e+002,
+1.635654e+002,
+1
+],
+"fRGBA": [
+2.862745e-001,
+3.411765e-001,
+1,
+3.800000e-001
+],
+"fRGBALine": [
+0,
+0,
+0,
+1
+],
+"fRnrSelf": true,
+"fRnrElements": true,
+"fRnrFrame": true,
+"fMiniFrame": true,
+"fShape": "$ref:98",
+"fElements": null
+}
+],
+"opt": [
+"",
+"",
+"",
+"",
+"",
+"",
+""
+]
+}
+}
+],
+"opt": [
+"",
+"",
+"",
+"",
+""
+]
+}
+}
