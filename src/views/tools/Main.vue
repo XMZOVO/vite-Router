@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full">
+  <div class="flex w-full sm:flex-row flex-col space-x-0 space-y-5 sm:space-y-0 sm:space-x-5">
     <div class="w-full md:w-1/2 rounded-lg shadow-lg lg:w-1/3">
       <!-- 卡片头 -->
       <div class="flex items-center justify-between p-5">
