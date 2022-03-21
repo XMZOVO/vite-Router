@@ -7,7 +7,7 @@
 <script setup type="text/javascript">
 
 async function drawDetector() {
-    const file = await JSROOT.openFile("../../../public/JsRoot631/test.root");
+    const file = await JSROOT.openFile("../../../public/test.root");
     const obj = await file.readObject("Default;1");
     JSROOT.draw('drawing', obj, 'ssao;transp60');
 }
