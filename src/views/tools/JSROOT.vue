@@ -1,7 +1,16 @@
 <template>
-    <iframe
-        src="/public/JsRoot631/index.htm?nobrowser&file=/public/JsRoot631/test.root&item=Default;1&opt=ssao;BACK;transp60"
-        frameborder="0"
-        class="w-full h-screen"
-    ></iframe>
+    <div>
+        <div id="drawing" style="width:800px; height:600px"></div>
+    </div>
 </template>
+
+<script setup type="text/javascript">
+
+async function drawDetector() {
+    const file = await JSROOT.openFile("public/JsRoot631/test.root");
+    const obj = await file.readObject("Default;1");
+    JSROOT.draw('drawing', obj, 'ssao;transp60');
+}
+drawDetector();
+
+</script>

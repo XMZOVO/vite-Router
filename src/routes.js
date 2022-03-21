@@ -29,7 +29,8 @@ export const routes = [
           component: Test
         },{
           path:'/jsroot',
-          component: JSRoot
+          component: JSRoot,
+          name: JSRoot
         },
       
       ]
