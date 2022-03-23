@@ -91,8 +91,10 @@ let JSRootPath = ref("/JsRoot634")
 let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
 
 function simulation() {
-    if(!numberValid()){
-        return
+    if(particleNumber.value > 100000){
+        alert("测试阶段，请输入1e5以内")
+        particleNumber.value = 1000;
+        return;
     }
     LunchButton.value = "模拟中..."
     console.log(cylinderH);
