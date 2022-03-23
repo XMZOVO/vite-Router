@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="flex items-center mx-auto sm:w-3/5 p-5">
+    <div class="flex items-center sm:items-start mx-auto sm:w-3/5 p-5">
         <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
     </div>
 </template>
@@ -88,19 +88,17 @@ let refreshButton = ref("刷新模型")
 
 let JSRootPath = ref("/JsRoot634")
 
-let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&file=http://localhost:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
+let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
 
 function simulation() {
     LunchButton.value = "模拟中..."
     console.log(cylinderH);
     specFile.value = '';
-    detectorSrc.value = '';
     disabled.value = true;
     axios.post("http://43.154.8.62:8080/g4/simulate/" + particleNumber.value + "/" + nuclide.value + "/" + cylinderH.value + "/" + cylinderR.value + "/" + reflectTT.value + "/" + reflectST.value + "/" + reflectMat.value + "/" + pmtT.value).then(resp => {
         alert("模拟完成")
         LunchButton.value = "开始模拟"
         disabled.value = false;
-        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
         specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=http://43.154.8.62:8080/root/result.root&item=EDep;1&opt=hist;logy'
     })
 }
