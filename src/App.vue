@@ -14,9 +14,9 @@
             <router-link to="/" class="text-main-active">主页</router-link>
           </nav>
           <nav>
-            <router-link to="/" class="text-main-unactive">主日</router-link>
+            <router-link to="/webG4" class="text-main-unactive">WebG4</router-link>
           </nav>
-          <nav>
+          <!-- <nav>
             <router-link to="/" class="text-main-unactive">焼鳥</router-link>
           </nav>
           <nav>
@@ -24,7 +24,7 @@
           </nav>
           <nav>
             <router-link to="/" class="text-main-unactive">歌ります</router-link>
-          </nav>
+          </nav> -->
         </div>
       </div>
 

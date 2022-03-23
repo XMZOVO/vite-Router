@@ -6,6 +6,7 @@ import Dat2CSV from './views/tools/Dat2CSV.vue'
 import ToolsMain from './views/tools/Main.vue'
 import Test from './views/tools/Test.vue'
 import JSRoot from './views/tools/JSRoot.vue'
+import WebG4 from './views/WebG4.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -38,13 +39,9 @@ export const routes = [
     ],
   },
   {
-    path: '/about',
-    meta: { title: 'About' },
-    component: About,
-    // example of route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import('./views/About.vue')
+    path: '/webG4',
+    meta: { title: 'G4' },
+    component: WebG4,
   },
   { path: '/:path(.*)', component: NotFound },
 ]
