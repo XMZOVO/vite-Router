@@ -91,7 +91,7 @@ let JSRootPath = ref("/JsRoot634")
 let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
 
 function simulation() {
-    if(!numberValid){
+    if(!numberValid()){
         return
     }
     LunchButton.value = "模拟中..."
