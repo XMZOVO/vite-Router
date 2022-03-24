@@ -1,5 +1,5 @@
 <template>
-    <div class="  px-10 lg:px-40 md:px-24">
+    <div class="px-10 lg:px-40 md:px-24">
         <div class="flex w-full flex-wrap sm:space-x-5 pt-16 sm:flex-nowrap">
             <div class="flex items-center mx-auto sm:w-3/5">
                 <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
@@ -59,33 +59,56 @@
             </div>
         </div>
 
-        <div class="flex sm:w-full py-5">
+        <div v-if="specFile" class="flex sm:w-full py-5">
             <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
         </div>
 
-        <div v-if="specFile" class="flex space-x-3 items-center w-full md:w-2/3 lg:w-1/2 mb-10">
-            <input
-                v-model="fa"
-                class="w-1/4 rounded-lg border-2 text-xs"
-                type="text"
-                placeholder="系数fa"
-            />
-            <input
-                v-model="fb"
-                class="w-1/4 rounded-lg border-2 text-xs"
-                type="text"
-                placeholder="系数fb"
-            />
-            <input
-                v-model="fc"
-                class="w-1/4 rounded-lg border-2 text-xs"
-                type="text"
-                placeholder="系数fc"
-            />
+        <div
+            v-if="specFile"
+            class="flex space-x-1 w-full md:w-2/3 lg:w-1/2 mb-3"
+        >
+            <div class="w-1/3 flex items-center space-x-1">
+                <p>a:</p>
+                <input
+                    v-model="fa"
+                    class="w-full rounded-lg border-2 text-xs"
+                    type="text"
+                    placeholder="系数fa"
+                />
+            </div>
+
+            <div class="flex w-1/3 items-center space-x-1">
+                <p>b:</p>
+                <input
+                    v-model="fb"
+                    class="w-full rounded-lg border-2 text-xs"
+                    type="text"
+                    placeholder="系数fb"
+                />
+            </div>
+
+            <div class="flex items-center w-1/3 space-x-1">
+                <p>c:</p>
+                <input
+                    v-model="fc"
+                    class=" w-full rounded-lg border-2 text-xs"
+                    type="text"
+                    placeholder="系数fc"
+                />
+            </div>
+        </div>
+
+
+        <div v-if="specFile" class="flex sm:justify-start justify-between mb-5 lg:w-52">
             <button
                 @click="fwhm"
-                class="w-1/4 text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
+                class=" mr-3 text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
             >{{ fwhmBtn }}</button>
+
+            <button
+                @click="originSpec"
+                class=" text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
+            >查看原谱</button>
         </div>
     </div>
 </template>
@@ -170,6 +193,10 @@ function fwhm() {
         fwhmBtn.value = "高斯展宽"
         disabled.value = false;
     })
+}
+
+function originSpec(){
+    specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
 }
 
 function reSet() {
