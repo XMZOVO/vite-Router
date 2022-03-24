@@ -186,6 +186,7 @@ function createGDML() {
 }
 
 function fwhm() {
+    specFile.value=" "
     fwhmBtn.value = "展宽中..."
     axios.post(HttpUrl.value + "/g4/fwhm/" + fa.value + "/" + fb.value + "/" + fc.value).then(resp => {
         disabled.value = true;
