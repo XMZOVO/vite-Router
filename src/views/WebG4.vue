@@ -1,65 +1,92 @@
 <template>
-    <div class="flex w-full flex-wrap sm:space-x-5 pt-16 px-10 sm:px-20 sm:flex-nowrap">
-        <div class="flex items-center mx-auto sm:w-3/5">
-            <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
+    <div class="  px-10 lg:px-40 md:px-24">
+        <div class="flex w-full flex-wrap sm:space-x-5 pt-16 sm:flex-nowrap">
+            <div class="flex items-center mx-auto sm:w-3/5">
+                <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
+            </div>
+            <div class="flex items-center flex-col m-auto space-y-5 mt-5">
+                <div class="flex items-center m-auto space-x-5 justify-between w-full">
+                    <p>晶体高度</p>
+                    <input
+                        v-model="cylinderH"
+                        placeholder="单位（cm）"
+                        type="text"
+                        class="rounded-lg border-2 w-3/5"
+                    />
+                </div>
+                <div class="flex items-center m-auto space-x-5 justify-between w-full">
+                    <p>晶体半径</p>
+                    <input
+                        v-model="cylinderR"
+                        placeholder="单位（cm）"
+                        type="text"
+                        class="rounded-lg border-2 w-3/5"
+                    />
+                </div>
+                <div class="flex items-center space-x-5 justify-between w-full">
+                    <p>核素选择</p>
+                    <select
+                        v-model="nuclide"
+                        placeholder="单位（cm）"
+                        type="text"
+                        class="rounded-lg border-2 w-3/5"
+                    >
+                        <option v-for="item in nuclides" :key="item">{{ item }}</option>
+                    </select>
+                </div>
+                <div class="flex items-center space-x-5 sm:space-x-3 justify-between w-full">
+                    <p class="text-left flex-wrap">发射粒子数</p>
+                    <input
+                        v-model="particleNumber"
+                        placeholder="整数"
+                        type="text"
+                        class="rounded-lg border-2 w-3/5"
+                        :onChange="numberValid"
+                    />
+                </div>
+                <div class="flex items-center m-auto space-x-5 justify-between w-full">
+                    <button
+                        :disable="disabled"
+                        @click="createGDML"
+                        class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
+                    >{{ refreshButton }}</button>
+                    <button
+                        :disable="disabled"
+                        @click="simulation"
+                        class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
+                    >{{ LunchButton }}</button>
+                </div>
+            </div>
         </div>
-        <div class="flex items-center flex-col m-auto space-y-5 mt-5">
-            <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                <p>晶体高度</p>
-                <input
-                    v-model="cylinderH"
-                    placeholder="单位（cm）"
-                    type="text"
-                    class="rounded-lg border-2 w-3/5"
-                />
-            </div>
-            <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                <p>晶体半径</p>
-                <input
-                    v-model="cylinderR"
-                    placeholder="单位（cm）"
-                    type="text"
-                    class="rounded-lg border-2 w-3/5"
-                />
-            </div>
-            <div class="flex items-center space-x-5 justify-between w-full">
-                <p>核素选择</p>
-                <select
-                    v-model="nuclide"
-                    placeholder="单位（cm）"
-                    type="text"
-                    class="rounded-lg border-2 w-3/5"
-                >
-                    <option v-for="item in nuclides" :key="item">{{ item }}</option>
-                </select>
-            </div>
-            <div class="flex items-center space-x-5 sm:space-x-3 justify-between w-full">
-                <p class="text-left flex-wrap">发射粒子数</p>
-                <input
-                    v-model="particleNumber"
-                    placeholder="整数"
-                    type="text"
-                    class="rounded-lg border-2 w-3/5"
-                    :onChange="numberValid"
-                />
-            </div>
-            <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                <button
-                    :disable="disabled"
-                    @click="createGDML"
-                    class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-                >{{refreshButton}}</button>
-                <button
-                    :disable="disabled"
-                    @click="simulation"
-                    class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-                >{{LunchButton}}</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="flex items-center sm:items-start mx-auto sm:w-3/5 p-5">
-        <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
+        <div class="flex sm:w-full py-5">
+            <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
+        </div>
+
+        <div v-if="specFile" class="flex space-x-3 items-center w-full md:w-2/3 lg:w-1/2 mb-10">
+            <input
+                v-model="fa"
+                class="w-1/4 rounded-lg border-2 text-xs"
+                type="text"
+                placeholder="系数fa"
+            />
+            <input
+                v-model="fb"
+                class="w-1/4 rounded-lg border-2 text-xs"
+                type="text"
+                placeholder="系数fb"
+            />
+            <input
+                v-model="fc"
+                class="w-1/4 rounded-lg border-2 text-xs"
+                type="text"
+                placeholder="系数fc"
+            />
+            <button
+                @click="fwhm"
+                class="w-1/4 text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
+            >{{ fwhmBtn }}</button>
+        </div>
     </div>
 </template>
 
@@ -80,36 +107,42 @@ let reflectST = ref(0.2);
 let reflectMat = ref("G4_ALUMINUM_OXIDE");
 let pmtT = ref(3);
 
+let fa = ref(-0.0137257);
+let fb = ref(0.0739501);
+let fc = ref(-0.152982);
+let fwhmBtn = ref("高斯展宽");
+
+let JSRootPath = ref("/JsRoot634")
+
+//服务端IP
+// let HttpUrl = ref("http://43.154.8.62:8080")
+//本地段IP
+let HttpUrl = ref("http://localhost:8080")
+
 const particleNumber = ref(1000);
-let specFile = ref('');
+let specFile = ref("");
+// specFile.value = JSRootPath.value + '/index.htm?nobrowser&noprogress&file=' + HttpUrl.value + '/root/FWHM_result.root&item=EDep;1&opt=hist;logy'
 let disabled = ref(false);
 let LunchButton = ref("开始模拟")
 let refreshButton = ref("刷新模型")
 
-let JSRootPath = ref("/JsRoot634")
-
-let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
+let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
 
 function simulation() {
-    if(particleNumber.value > 100000){
-        alert("测试阶段，请输入1e5以内")
-        particleNumber.value = 1000;
-        return;
-    }
     LunchButton.value = "模拟中..."
     console.log(cylinderH);
     specFile.value = '';
     disabled.value = true;
-    axios.post("http://43.154.8.62:8080/g4/simulate/" + particleNumber.value + "/" + nuclide.value + "/" + cylinderH.value + "/" + cylinderR.value + "/" + reflectTT.value + "/" + reflectST.value + "/" + reflectMat.value + "/" + pmtT.value).then(resp => {
+    axios.post(HttpUrl.value + "/g4/simulate/" + particleNumber.value + "/" + nuclide.value + "/" + cylinderH.value + "/" + cylinderR.value + "/" + reflectTT.value + "/" + reflectST.value + "/" + reflectMat.value + "/" + pmtT.value).then(resp => {
         alert("模拟完成")
         LunchButton.value = "开始模拟"
         disabled.value = false;
-        specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=http://43.154.8.62:8080/root/result.root&item=EDep;1&opt=hist;logy'
+        specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
     })
 }
 
-function numberValid(){
-    if(particleNumber.value > 100000){
+function numberValid() {
+    if (particleNumber.value > 100000) {
         alert("测试阶段，请输入1e5以内")
         particleNumber.value = 1000;
         return false;
@@ -121,11 +154,21 @@ function createGDML() {
     detectorSrc.value = "";
     refreshButton.value = "刷新中..."
     disabled.value = true;
-    axios.post("http://43.154.8.62:8080/g4/gdml/" + cylinderH.value + "/" + cylinderR.value + "/" + reflectTT.value + "/" + reflectST.value + "/" + reflectMat.value + "/" + pmtT.value).then(resp => {
+    axios.post(HttpUrl.value + "/g4/gdml/" + cylinderH.value + "/" + cylinderR.value + "/" + reflectTT.value + "/" + reflectST.value + "/" + reflectMat.value + "/" + pmtT.value).then(resp => {
         alert("创建完成！");
         disabled.value = true;
         refreshButton.value = "刷新模型"
-        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&file=http://43.154.8.62:8080/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
+        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowse&noprogressr&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
+    })
+}
+
+function fwhm() {
+    fwhmBtn.value = "展宽中..."
+    axios.post(HttpUrl.value + "/g4/fwhm/" + fa.value + "/" + fb.value + "/" + fc.value).then(resp => {
+        disabled.value = true;
+        specFile.value = JSRootPath.value + '/index.htm?nobrowser&noprogress&file=' + HttpUrl.value + '/root/FWHM_result.root&item=EDep;1&opt=hist;logy';
+        fwhmBtn.value = "高斯展宽"
+        disabled.value = false;
     })
 }
 
@@ -136,6 +179,6 @@ function reSet() {
     reflectST.value = 0.2;
     reflectMat.value = "G4_SODIUM_IODIDE";
     pmtT.value = 3;
-    detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&file=file:///Users/roy/IdeaProjects/springboottest/rootFiles/origin.root&item=Default;1&opt=ssao;BACK;transp60";
+    detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/origin.root&item=Default;1&opt=ssao;BACK;transp60";
 }
 </script>
