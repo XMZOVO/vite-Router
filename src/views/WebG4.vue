@@ -181,7 +181,7 @@ function createGDML() {
         alert("创建完成！");
         disabled.value = true;
         refreshButton.value = "刷新模型"
-        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowse&noprogressr&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
+        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
     })
 }
 

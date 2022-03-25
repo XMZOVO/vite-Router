@@ -20,7 +20,7 @@
                     点击上传
                     <el-upload
                         drag
-                        action="http://43.154.8.62:8080/test/upload"
+                        action=""
                         multiple
                         tip="haha"
                         :on-success="onSuccess"
@@ -100,34 +100,36 @@ function beforeUp(file) {
 }
 
 function onSuccess(response, file, fileList) {
-    if (filesNum.value == 0) {
-        loading = ElLoading.service({
-            lock: true,
-            text: '上传中',
-            background: 'rgba(0, 0, 0, 0.7)',
-        })
-    }
-    filesNum.value += 1;
-    if (filesNum.value == fileList.length) {
-        filesNum.value = 0;
-        upload.value.clearFiles();
-        loading.close()
-    }
+    // if (filesNum.value == 0) {
+    //     loading = ElLoading.service({
+    //         lock: true,
+    //         text: '上传中',
+    //         background: 'rgba(0, 0, 0, 0.7)',
+    //     })
+    // }
+    // filesNum.value += 1;
+    // if (filesNum.value == fileList.length) {
+    //     filesNum.value = 0;
+    //     upload.value.clearFiles();
+    //     loading.close()
+    // }
+    alert("哈哈")
 }
 
 function convert2Csv() {
-    loading = ElLoading.service({
-        lock: true,
-        text: '转换中',
-        background: 'rgba(0, 0, 0, 0.7)',
-    })
+    // loading = ElLoading.service({
+    //     lock: true,
+    //     text: '转换中',
+    //     background: 'rgba(0, 0, 0, 0.7)',
+    // })
 
-    axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
-        loading.close()
-        // alert("转换完成")
-        window.location.href = "http://43.154.8.62:8080/test/download?fileName=data2csv.zip";
-        upload.value.clearFiles();
-    })
+    // axios.post('http://43.154.8.62:8080/test/execute/' + st.value + '/' + ed.value + '/' + chl.value).then(resp => {
+    //     loading.close()
+    //     // alert("转换完成")
+    //     window.location.href = "http://43.154.8.62:8080/test/download?fileName=data2csv.zip";
+    //     upload.value.clearFiles();
+    // })
+    alert("纯纯的沙口")
 }
 </script>
 
