@@ -35,7 +35,7 @@
         class="transition duration-400 ease-in-out flex items-center space-x-1 border rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
       >
         <i class="ph-lightning-bold"></i>
-        <span class="font-bold px-3">The fallen leaves tell us a story</span>
+        <span @click="elHandle" class="font-bold px-2">The fallen leaves tell us a story</span>
       </button>
     </div>
   </div>
