@@ -206,7 +206,10 @@ let disabled = ref(false);
 let LunchButton = ref("开始模拟")
 let refreshButton = ref("刷新模型")
 
-let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60;zoomFACTOR=110");
+let detecMid = ref("/index.htm?nobrowser&noprogress&file=" )
+let deteSuffix = ref("/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60;zoomFACTOR=110")
+
+let detectorSrc = ref(JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value);
 
 function actived() {
 
@@ -221,7 +224,7 @@ function simulation() {
         alert("模拟完成")
         LunchButton.value = "开始模拟"
         disabled.value = false;
-        specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
+        specFile.value = JSRootPath.value + '/index.htm?nobrowser&noprogress&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
     })
 }
 
@@ -242,7 +245,7 @@ function createGDML() {
         alert("创建完成！");
         disabled.value = true;
         refreshButton.value = "刷新模型"
-        detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60";
+        detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value;
     })
 }
 
@@ -258,7 +261,7 @@ function fwhm() {
 }
 
 function originSpec() {
-    specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
+    specFile.value = JSRootPath.value + '/index.htm?nobrowser&noprogress&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
 }
 
 function reSet() {
@@ -268,6 +271,6 @@ function reSet() {
     reflectST.value = 0.2;
     reflectMat.value = "G4_SODIUM_IODIDE";
     pmtT.value = 3;
-    detectorSrc.value = JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/origin.root&item=Default;1&opt=ssao;BACK;transp60";
+    detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value;
 }
 </script>
