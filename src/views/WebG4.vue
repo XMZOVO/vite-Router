@@ -1,7 +1,7 @@
 <template>
     <div class="flex w-full flex-wrap pt-10 pb-10 sm:flex-nowrap items-center">
         <!-- 主模型渲染图 -->
-        <div class="flex items-center mx-auto w-full sm:w-3/5 shadow-lg rounded-lg p-3">
+        <div class="flex items-center mx-auto w-full sm:w-3/5 shadow-lg rounded-lg p-3 mb-8 sm:mb-0">
             <iframe :src="detectorSrc" frameborder="0" class="w-full h-80"></iframe>
         </div>
         <!--  -->
@@ -95,12 +95,12 @@
 
     <div v-if="specFile" class="flex w-full flex-col lg:flex-row items-center border-t pt-10">
         <!-- 谱线展示 -->
-        <div class="shadow-lg w-full lg:w-3/5 rounded-lg">
+        <div class="shadow-lg w-full lg:w-3/5 rounded-lg mb-8 sm:mb-0">
             <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
         </div>
         <!--  -->
 
-        <div class="mx-auto w-full lg:w-2/5 py-5">
+        <div class="mx-auto w-full lg:w-2/5">
             <div class="flex justify-center sm:justify-end">
                 <div class="mb-3 w-52">
                     <label
