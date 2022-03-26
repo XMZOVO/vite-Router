@@ -3,7 +3,7 @@ import About from './views/About.vue'
 import NotFound from './views/NotFound.vue'
 import Tools from './views/tools/Tools.vue'
 import Dat2CSV from './views/tools/Dat2CSV.vue'
-import ToolsMain from './views/tools/Main.vue'
+import Main from './views/tools/Main.vue'
 import Test from './views/tools/Test.vue'
 import JSRoot from './views/tools/JSRoot.vue'
 import WebG4 from './views/WebG4.vue'
@@ -21,7 +21,7 @@ export const routes = [
         meta: { transition: 'slide-left' },
         children: [{
           path: '',
-          component: ToolsMain,
+          component: Main,
         }, {
           path: '/dat2csv',
           component: Dat2CSV,

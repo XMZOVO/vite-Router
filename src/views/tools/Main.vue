@@ -1,10 +1,11 @@
 <template>
-  <div class="flex w-full sm:flex-row flex-col space-x-0 space-y-5 sm:space-y-0 sm:space-x-5">
-    <div class="w-full md:w-1/2 rounded-lg shadow-lg lg:w-1/3">
+  <div class="flex w-full sm:flex-row flex-col space-x-0 space-y-8 sm:space-y-0 sm:space-x-5">
+
+    <div class="w-full md:w-1/2 rounded-lg shadow-lg 2xl:w-1/3">
       <!-- 卡片头 -->
       <div class="flex items-center justify-between p-5">
         <div class="inline-flex items-center">
-          <img src="../../../public/zeplin.svg" class="w-10 h-10"/>
+          <img src="/zeplin.svg" class="w-10 h-10"/>
           <p class="ml-2">Dat2Csv</p>
         </div>
       </div>
@@ -18,11 +19,11 @@
       </div>
     </div>
 
-    <div class="w-full md:w-1/2 rounded-lg shadow-lg lg:w-1/3">
+    <div class="w-full md:w-1/2 rounded-lg shadow-lg 2xl:w-1/3">
       <!-- 卡片头 -->
       <div class="flex items-center justify-between p-5">
         <div class="inline-flex items-center">
-          <img src="../../../public/github.svg" class="w-10 h-10"/>
+          <img src="/github.svg" class="w-10 h-10"/>
           <p class="ml-2">Dat2Csv</p>
         </div>
       </div>

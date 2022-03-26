@@ -1,8 +1,10 @@
 <template>
-    <div class="flex w-full flex-wrap pt-10 pb-5 sm:flex-nowrap">
-        <div class="flex items-center mx-auto sm:w-3/5">
-            <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
+    <div class="flex w-full flex-wrap pt-10 pb-10 sm:flex-nowrap">
+        <!-- 主模型渲染图 -->
+        <div class="flex items-center mx-auto w-full sm:w-3/5 shadow-lg rounded-lg p-3">
+            <iframe :src="detectorSrc" frameborder="0" class="w-full h-80"></iframe>
         </div>
+        <!--  -->
 
         <div class="mx-auto w-full lg:w-2/5 py-5">
             <div class="flex justify-center sm:justify-end">
@@ -89,9 +91,17 @@
         </div>
     </div>
 
-    <!-- 谱线展示 -->
-    <div class="flex w-full flex-col lg:flex-row items-center">
-        <iframe v-if="specFile" :src="specFile" frameborder="0" class="lg:w-3/5 w-full h-80 sm:h-96 rounded-sm"></iframe>
+    <div class="flex w-full flex-col lg:flex-row items-center border-t pt-10">
+        <!-- 谱线展示 -->
+        <div class="shadow-lg rounded-lg w-full lg:w-3/5">
+            <iframe
+                v-if="specFile"
+                :src="specFile"
+                frameborder="0"
+                class="w-full h-80 sm:h-96"
+            ></iframe>
+        </div>
+        <!--  -->
 
         <div v-if="specFile" class="mx-auto w-full lg:w-2/5 py-5">
             <div class="flex justify-center sm:justify-end">
@@ -156,9 +166,7 @@
                     :disable="disabled"
                     @click="originSpec"
                     class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                    查看原谱
-                </button>
+                >查看原谱</button>
             </div>
         </div>
     </div>
