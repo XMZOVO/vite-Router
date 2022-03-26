@@ -2,21 +2,22 @@
 </script>
 
 <template>
-  <div class="w-ful bg-white border-b">
-    <div class=" w-11/12 sm:w-3/4 mx-auto h-20 flex items-center justify-between font-bold">
-      <div class="flex space-x-12">
-        <div class="flex items-center">
+  <div class="shadow-sm h-20 flex justify-between font-bold px-10 md:px-32 2xl:px-80">
+    <div class="flex space-x-12">
+      <div class="flex items-center">
+        <router-link to="/">
           <img class="rounded h-8 w-8" src="../public/zhouzhou.jpeg" />
-        </div>
-        <!-- nav bar -->
-        <div class="items-center space-x-24 hidden xl:flex">
-          <nav>
-            <router-link to="/" class="text-main-active">主页</router-link>
-          </nav>
-          <nav>
-            <router-link to="/webG4" class="text-main-unactive">WebG4</router-link>
-          </nav>
-          <!-- <nav>
+        </router-link>
+      </div>
+      <!-- nav bar -->
+      <div class="items-center space-x-24 hidden md:flex">
+        <nav>
+          <router-link to="/" class="text-main-active">主页</router-link>
+        </nav>
+        <nav>
+          <router-link to="/webG4" class="text-main-unactive">WebG4</router-link>
+        </nav>
+        <!-- <nav>
             <router-link to="/" class="text-main-unactive">焼鳥</router-link>
           </nav>
           <nav>
@@ -24,32 +25,24 @@
           </nav>
           <nav>
             <router-link to="/" class="text-main-unactive">歌ります</router-link>
-          </nav> -->
-        </div>
+        </nav>-->
       </div>
+    </div>
 
-      <!-- nav bar left -->
-      <div class="flex items-center space-x-6">
-        <button
-          class="transition duration-400 ease-in-out flex items-center space-x-1 border-2 rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
-        >
-          <i class="ph-lightning-bold"></i>
-          <span class="font-bold px-3">Falls tell us story</span>
-        </button>
-
-        <div class="md:flex items-center space-x-6 hidden">
-          <a href="#" class="icon-button">
-            <i class="ph-gear-bold text-lg text-main-unactive hover:text-main-active"></i>
-          </a>
-          <a href="#" class="icon-button text-lg text-main-unactive hover:text-main-active">
-            <i class="ph-bell-bold"></i>
-          </a>
-        </div>
-      </div>
+    <!-- nav bar left -->
+    <div class="flex items-center">
+      <button
+        class="transition duration-400 ease-in-out flex items-center space-x-1 border-2 rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
+      >
+        <i class="ph-lightning-bold"></i>
+        <span class="font-bold px-3">The fallen leaves tell us a</span>
+      </button>
     </div>
   </div>
 
-  <router-view></router-view>
+  <div class="pb-10 px-10 md:px-32 2xl:px-80">
+    <router-view></router-view>
+  </div>
 
   <!-- <div>
     <header class="header">

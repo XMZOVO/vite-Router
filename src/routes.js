@@ -20,27 +20,28 @@ export const routes = [
         component: Tools,
         meta: { transition: 'slide-left' },
         children: [{
-          path:'',
-          component:ToolsMain,
+          path: '',
+          component: ToolsMain,
         }, {
           path: '/dat2csv',
           component: Dat2CSV,
-        },{
-          path:'/test',
+        }, {
+          path: '/test',
           component: Test
-        },{
-          path:'/jsroot',
+        }, {
+          path: '/jsroot',
           component: JSRoot,
           name: JSRoot
         },
-      
-      ]
+
+        ]
       }
     ],
   },
   {
     path: '/webG4',
-    meta: { title: 'G4' },
+    name:'webG4',
+    meta: { keepAlive: true },
     component: WebG4,
   },
   { path: '/:path(.*)', component: NotFound },

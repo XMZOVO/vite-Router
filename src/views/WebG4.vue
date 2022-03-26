@@ -1,114 +1,165 @@
 <template>
-    <div class="px-10 lg:px-40 md:px-24">
-        <div class="flex w-full flex-wrap sm:space-x-5 pt-16 sm:flex-nowrap">
-            <div class="flex items-center mx-auto sm:w-3/5">
-                <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
-            </div>
-            <div class="flex items-center flex-col m-auto space-y-5 mt-5">
-                <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                    <p>晶体高度</p>
+    <div class="flex w-full flex-wrap pt-10 pb-5 sm:flex-nowrap">
+        <div class="flex items-center mx-auto sm:w-3/5">
+            <iframe :src="detectorSrc" frameborder="0" class="w-full h-80 rounded-lg"></iframe>
+        </div>
+
+        <div class="mx-auto w-full lg:w-2/5 py-5">
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >晶体高度</label>
                     <input
                         v-model="cylinderH"
-                        placeholder="单位（cm）"
                         type="text"
-                        class="rounded-lg border-2 w-3/5"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder="单位cm"
                     />
                 </div>
-                <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                    <p>晶体半径</p>
+            </div>
+
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >晶体半径</label>
                     <input
                         v-model="cylinderR"
-                        placeholder="单位（cm）"
                         type="text"
-                        class="rounded-lg border-2 w-3/5"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder="单位cm"
                     />
                 </div>
-                <div class="flex items-center space-x-5 justify-between w-full">
+            </div>
+
+            <div class="flex justify-center sm:justify-end">
+                <div class="grid w-52 py-1">
                     <p>核素选择</p>
                     <select
-                        v-model="nuclide"
-                        placeholder="单位（cm）"
-                        type="text"
-                        class="rounded-lg border-2 w-3/5"
+                        class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label="Default select example"
                     >
                         <option v-for="item in nuclides" :key="item">{{ item }}</option>
                     </select>
                 </div>
-                <div class="flex items-center space-x-5 sm:space-x-3 justify-between w-full">
-                    <p class="text-left flex-wrap">发射粒子数</p>
+            </div>
+
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >发射粒子数</label>
                     <input
                         v-model="particleNumber"
-                        placeholder="整数"
                         type="text"
-                        class="rounded-lg border-2 w-3/5"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder
                         :onChange="numberValid"
                     />
                 </div>
-                <div class="flex items-center m-auto space-x-5 justify-between w-full">
-                    <button
-                        :disable="disabled"
-                        @click="createGDML"
-                        class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-                    >{{ refreshButton }}</button>
-                    <button
-                        :disable="disabled"
-                        @click="simulation"
-                        class="text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-                    >{{ LunchButton }}</button>
+            </div>
+
+            <div class="flex items-center m-auto space-x-5 justify-center sm:justify-end w-full">
+                <button
+                    :disable="disabled"
+                    @click="createGDML"
+                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                    {{
+                        refreshButton
+                    }}
+                </button>
+                <button
+                    :disable="disabled"
+                    @click="simulation"
+                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                    {{
+                        LunchButton
+                    }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 谱线展示 -->
+    <div class="flex w-full flex-col lg:flex-row items-center">
+        <iframe v-if="specFile" :src="specFile" frameborder="0" class="lg:w-3/5 w-full h-80 sm:h-96 rounded-sm"></iframe>
+
+        <div v-if="specFile" class="mx-auto w-full lg:w-2/5 py-5">
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >a:</label>
+                    <input
+                        v-model="fa"
+                        type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder="系数fa"
+                    />
                 </div>
             </div>
-        </div>
 
-        <div v-if="specFile" class="flex sm:w-full py-5">
-            <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
-        </div>
-
-        <div
-            v-if="specFile"
-            class="flex space-x-1 w-full md:w-2/3 lg:w-1/2 mb-3"
-        >
-            <div class="w-1/3 flex items-center space-x-1">
-                <p>a:</p>
-                <input
-                    v-model="fa"
-                    class="w-full rounded-lg border-2 text-xs"
-                    type="text"
-                    placeholder="系数fa"
-                />
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >b:</label>
+                    <input
+                        v-model="fb"
+                        type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder="系数fb"
+                    />
+                </div>
             </div>
 
-            <div class="flex w-1/3 items-center space-x-1">
-                <p>b:</p>
-                <input
-                    v-model="fb"
-                    class="w-full rounded-lg border-2 text-xs"
-                    type="text"
-                    placeholder="系数fb"
-                />
+            <div class="flex justify-center sm:justify-end">
+                <div class="mb-3 w-52">
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block mb-2 text-gray-700"
+                    >c:</label>
+                    <input
+                        v-model="fc"
+                        type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleFormControlInput1"
+                        placeholder="系数fc"
+                    />
+                </div>
             </div>
 
-            <div class="flex items-center w-1/3 space-x-1">
-                <p>c:</p>
-                <input
-                    v-model="fc"
-                    class=" w-full rounded-lg border-2 text-xs"
-                    type="text"
-                    placeholder="系数fc"
-                />
+            <div class="flex items-center m-auto space-x-5 justify-center sm:justify-end w-full">
+                <button
+                    :disable="disabled"
+                    @click="fwhm"
+                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                    {{
+                        fwhmBtn
+                    }}
+                </button>
+                <button
+                    :disable="disabled"
+                    @click="originSpec"
+                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                    查看原谱
+                </button>
             </div>
-        </div>
-
-
-        <div v-if="specFile" class="flex sm:justify-start justify-between mb-5 lg:w-52">
-            <button
-                @click="fwhm"
-                class=" mr-3 text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-            >{{ fwhmBtn }}</button>
-
-            <button
-                @click="originSpec"
-                class=" text-main-unactive border-2 px-3 py-1 rounded-lg border-main-unactive hover:text-white hover:bg-main-unactive active:bg-main-active"
-            >查看原谱</button>
         </div>
     </div>
 </template>
@@ -118,6 +169,7 @@
 import { useRouter } from 'vue-router'
 import { ref, reactive } from 'vue'
 import axios from 'axios'
+import 'tw-elements';
 var router = useRouter();
 
 let nuclides = reactive(["Cs137", "Co60", "Eu152"])
@@ -150,6 +202,10 @@ let LunchButton = ref("开始模拟")
 let refreshButton = ref("刷新模型")
 
 let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
+
+function actived() {
+
+}
 
 function simulation() {
     LunchButton.value = "模拟中..."
@@ -186,7 +242,7 @@ function createGDML() {
 }
 
 function fwhm() {
-    specFile.value=" "
+    specFile.value = " "
     fwhmBtn.value = "展宽中..."
     axios.post(HttpUrl.value + "/g4/fwhm/" + fa.value + "/" + fb.value + "/" + fc.value).then(resp => {
         disabled.value = true;
@@ -196,7 +252,7 @@ function fwhm() {
     })
 }
 
-function originSpec(){
+function originSpec() {
     specFile.value = JSRootPath.value + '/index.htm?nobrowser&file=' + HttpUrl.value + '/root/result.root&item=EDep;1&opt=hist;logy'
 }
 

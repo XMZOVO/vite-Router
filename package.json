@@ -7,17 +7,18 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.26.0",
-    "element-plus": "^2.0.4",
-    "vue": "^3.2.31",
-    "vue-router": "^4.0.12",
     "atob": "^2.1.2",
+    "axios": "^0.26.0",
     "btoa": "^1.2.1",
     "canvas": "^2.9.0",
+    "element-plus": "^2.0.4",
     "gl": "^5.0.0",
     "jsdom": "^19.0.0",
     "mathjax": "3.2.0",
     "tmp": "^0.2.1",
+    "tw-elements": "^1.0.0-alpha12",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.12",
     "xhr2": "^0.2.1",
     "zstd-codec": "^0.1.2"
   },
