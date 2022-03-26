@@ -1,12 +1,12 @@
 <template>
-    <div class="flex w-full flex-wrap pt-10 pb-10 sm:flex-nowrap">
+    <div class="flex w-full flex-wrap pt-10 pb-10 sm:flex-nowrap items-center">
         <!-- 主模型渲染图 -->
         <div class="flex items-center mx-auto w-full sm:w-3/5 shadow-lg rounded-lg p-3">
             <iframe :src="detectorSrc" frameborder="0" class="w-full h-80"></iframe>
         </div>
         <!--  -->
 
-        <div class="mx-auto w-full lg:w-2/5 py-5">
+        <div class="mx-auto w-full lg:w-2/5">
             <div class="flex justify-center sm:justify-end">
                 <div class="mb-3 w-52">
                     <label
@@ -24,7 +24,7 @@
             </div>
 
             <div class="flex justify-center sm:justify-end">
-                <div class="mb-3 w-52">
+                <div class="grid mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
                         class="form-label inline-block mb-2 text-gray-700"
@@ -40,7 +40,7 @@
             </div>
 
             <div class="flex justify-center sm:justify-end">
-                <div class="grid w-52 py-1">
+                <div class="grid mb-3 w-52">
                     <p>核素选择</p>
                     <select
                         class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -52,7 +52,7 @@
             </div>
 
             <div class="flex justify-center sm:justify-end">
-                <div class="mb-3 w-52">
+                <div class="grid mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
                         class="form-label inline-block mb-2 text-gray-700"
@@ -68,42 +68,39 @@
                 </div>
             </div>
 
-            <div class="flex items-center m-auto space-x-5 justify-center sm:justify-end w-full">
-                <button
-                    :disable="disabled"
-                    @click="createGDML"
-                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                    {{
-                        refreshButton
-                    }}
-                </button>
-                <button
-                    :disable="disabled"
-                    @click="simulation"
-                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                    {{
-                        LunchButton
-                    }}
-                </button>
+            <div class="flex justify-center sm:justify-end">
+                <div class="flex justify-between mb-3 w-52">
+                    <button
+                        :disable="disabled"
+                        @click="createGDML"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    >
+                        {{
+                            refreshButton
+                        }}
+                    </button>
+                    <button
+                        :disable="disabled"
+                        @click="simulation"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    >
+                        {{
+                            LunchButton
+                        }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="flex w-full flex-col lg:flex-row items-center border-t pt-10">
+    <div v-if="specFile" class="flex w-full flex-col lg:flex-row items-center border-t pt-10">
         <!-- 谱线展示 -->
-        <div class="shadow-lg rounded-lg w-full lg:w-3/5">
-            <iframe
-                v-if="specFile"
-                :src="specFile"
-                frameborder="0"
-                class="w-full h-80 sm:h-96"
-            ></iframe>
+        <div class="shadow-lg w-full lg:w-3/5 rounded-lg">
+            <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
         </div>
         <!--  -->
 
-        <div v-if="specFile" class="mx-auto w-full lg:w-2/5 py-5">
+        <div class="mx-auto w-full lg:w-2/5 py-5">
             <div class="flex justify-center sm:justify-end">
                 <div class="mb-3 w-52">
                     <label
@@ -209,7 +206,7 @@ let disabled = ref(false);
 let LunchButton = ref("开始模拟")
 let refreshButton = ref("刷新模型")
 
-let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60");
+let detectorSrc = ref(JSRootPath.value + "/index.htm?nobrowser&noprogress&file=" + HttpUrl.value + "/root/wtest.root&item=Default;1&opt=ssao;BACK;transp60;zoomFACTOR=110");
 
 function actived() {
 
