@@ -322,9 +322,9 @@ let fwhmBtn = ref("高斯展宽");
 let JSRootPath = ref("/JsRoot634")
 
 //服务端IP
-let HttpUrl = ref("http://43.154.8.62:8080")
+// let HttpUrl = ref("http://43.154.8.62:8080")
 //本地段IP
-// let HttpUrl = ref("http://localhost:8080")
+let HttpUrl = ref("http://localhost:8080")
 
 const particleNumber = ref(1000);
 let specFile = ref("");
@@ -334,9 +334,9 @@ let LunchButton = ref("开始模拟")
 let refreshButton = ref("刷新模型")
 
 let detecMid = ref("/index.htm?nobrowser&noprogress&file=")
-let deteSuffix = ref("/root/wtest.root&item=Default;1&opt=transp60;zoomFACTOR=110")
+let detecSuffix = ref("/root/wtest.root&item=Default;1&opt=transp60;zoomFACTOR=110")
 
-let detectorSrc = ref(JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value);
+let detectorSrc = ref(JSRootPath.value + detecMid.value + HttpUrl.value + "/root/NaI.root&item=Default;1&opt=transp60;zoomFACTOR=110");
 
 function resetArgus() {
     cylinderH.value = 7.6;
@@ -377,7 +377,7 @@ function createGDML() {
         alert("创建完成！");
         disabled.value = true;
         refreshButton.value = "刷新模型"
-        detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value;
+        detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + detecSuffix.value;
     })
 }
 
@@ -403,6 +403,6 @@ function reSet() {
     reflectST.value = 0.2;
     reflectMat.value = "G4_SODIUM_IODIDE";
     pmtT.value = 3;
-    detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + deteSuffix.value;
+    detectorSrc.value = JSRootPath.value + detecMid.value + HttpUrl.value + detecSuffix.value;
 }
 </script>
