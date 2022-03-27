@@ -6,7 +6,7 @@
     <div class="flex space-x-12">
       <div class="flex items-center">
         <router-link to="/">
-          <img class="rounded h-8 w-8" src="../public/zhouzhou.jpeg" />
+          <img class="rounded h-8 w-8" src="/zhouzhou.jpeg" />
         </router-link>
       </div>
       <!-- nav bar -->
