@@ -11,7 +11,7 @@
                 <div class="mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >晶体高度</label>
                     <input
                         v-model="cylinderH"
@@ -27,7 +27,7 @@
                 <div class="grid mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >晶体半径</label>
                     <input
                         v-model="cylinderR"
@@ -41,7 +41,10 @@
 
             <div class="flex justify-center sm:justify-end">
                 <div class="grid mb-3 w-52">
-                    <p>核素选择</p>
+                    <label
+                        for="exampleFormControlInput1"
+                        class="form-label inline-block text-gray-700"
+                    >核素选择</label>
                     <select
                         class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         aria-label="Default select example"
@@ -55,7 +58,7 @@
                 <div class="grid mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >发射粒子数</label>
                     <input
                         v-model="particleNumber"
@@ -93,7 +96,7 @@
         </div>
     </div>
 
-    <div v-if="specFile" class="flex w-full flex-col lg:flex-row items-center border-t pt-10">
+    <div v-if="specFile" class="flex w-full flex-wrap sm:flex-nowrap items-center border-t pt-10">
         <!-- 谱线展示 -->
         <div class="shadow-lg w-full lg:w-3/5 rounded-lg mb-8 sm:mb-0">
             <iframe :src="specFile" frameborder="0" class="w-full h-80 sm:h-96 rounded-lg"></iframe>
@@ -105,7 +108,7 @@
                 <div class="mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >a:</label>
                     <input
                         v-model="fa"
@@ -121,7 +124,7 @@
                 <div class="mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >b:</label>
                     <input
                         v-model="fb"
@@ -137,7 +140,7 @@
                 <div class="mb-3 w-52">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block text-gray-700"
                     >c:</label>
                     <input
                         v-model="fc"
