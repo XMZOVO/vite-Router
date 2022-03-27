@@ -301,6 +301,7 @@
 import { useRouter } from 'vue-router'
 import { ref, reactive } from 'vue'
 import axios from 'axios'
+import 'tw-elements'
 var router = useRouter();
 
 let nuclides = reactive(["Cs137", "Co60", "Eu152"])
