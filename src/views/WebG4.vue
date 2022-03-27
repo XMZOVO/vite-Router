@@ -322,9 +322,9 @@ let fwhmBtn = ref("高斯展宽");
 let JSRootPath = ref("/JsRoot634")
 
 //服务端IP
-// let HttpUrl = ref("http://43.154.8.62:8080")
+let HttpUrl = ref("http://43.154.8.62:8080")
 //本地段IP
-let HttpUrl = ref("http://localhost:8080")
+// let HttpUrl = ref("http://localhost:8080")
 
 const particleNumber = ref(1000);
 let specFile = ref("");
