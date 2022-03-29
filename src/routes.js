@@ -7,6 +7,7 @@ import Main from './views/tools/Main.vue'
 import Test from './views/tools/Test.vue'
 import JSRoot from './views/tools/JSRoot.vue'
 import WebG4 from './views/WebG4.vue'
+import Three from './views/Three.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -43,6 +44,12 @@ export const routes = [
     name:'webG4',
     meta: { keepAlive: true },
     component: WebG4,
+  },
+  {
+    path: '/three',
+    name:'three',
+    meta: { keepAlive: true },
+    component: Three,
   },
   { path: '/:path(.*)', component: NotFound },
 ]
