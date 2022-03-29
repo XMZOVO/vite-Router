@@ -42,7 +42,7 @@ const init = () => {
     })
 
 
-    fontLoader.load('/font2.json',
+    fontLoader.load('/font3.json',
         (font) => {
             const textGeometry = new TextBufferGeometry(
                 '小阳人',
@@ -76,7 +76,10 @@ const init = () => {
 
 const animation = (time) => {
     // text.rotation.x = time / 2000
-    text.rotation.y = time / 10000
+
+    text.rotation.y = time / 800
+
+    console.log(text.rotation.y)
 
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
