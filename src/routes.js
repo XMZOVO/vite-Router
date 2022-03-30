@@ -48,7 +48,7 @@ export const routes = [
   {
     path: '/three',
     name:'three',
-    meta: { keepAlive: true },
+    meta: { keepAlive: false },
     component: Three,
   },
   { path: '/:path(.*)', component: NotFound },

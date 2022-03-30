@@ -1,96 +1,182 @@
-<template></template>
+<template>
+    <canvas class="webgl"></canvas>
+</template>
 
 <script setup>
-import {
-    PerspectiveCamera,
-    Scene,
-    BoxGeometry,
-    MeshNormalMaterial,
-    Mesh,
-    WebGLRenderer,
-    FontLoader,
-    MeshMatcapMaterial,
-    TextBufferGeometry,
-    TextureLoader,
-} from 'three'
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as dat from 'dat.gui'
+import { onMounted, onUnmounted } from 'vue'
 
+const parmaeters = {
 
-let camera
+}
+parmaeters.count = 100000
+parmaeters.size = 0.01
+parmaeters.radius = 5
+parmaeters.branches = 3
+parmaeters.spin = 1
+parmaeters.randomness = 0.002
+parmaeters.randomnessPower = 3
+parmaeters.insideColors = '#ff6030'
+parmaeters.outsideColors = '#1b3984'
+
+let geometry = null
+let material = null
+let points = null
+
+let canvas
 let scene
+let camera
+let controls
 let renderer
-let geometry
-let material
-let mesh
-let text
+let clock
 
-const fontLoader = new FontLoader()
-const textureLoader = new TextureLoader()
-const matcapTextures = textureLoader.load('/matcaps/3.png')
+const gui = new dat.GUI({ width: 360 })
 
-const init = () => {
-    camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 10)
-    camera.position.z = 1
+onUnmounted(() => {
+    gui.destroy()
+})
 
-    scene = new Scene()
+onMounted(() => {
 
-    geometry = new BoxGeometry(0.2, 0.2, 0.2)
-    material = new MeshNormalMaterial()
+    // Canvas
+    canvas = document.querySelector('canvas.webgl')
+
+    // Scene
+    scene = new THREE.Scene()
 
 
-    renderer = new WebGLRenderer({
-        antialias: true,
+    generateGalaxy()
+
+    const sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+
+    window.addEventListener('resize', () => {
+        // Update sizes
+        sizes.width = window.innerWidth
+        sizes.height = window.innerHeight
+
+        // Update camera
+        camera.aspect = sizes.width / sizes.height
+        camera.updateProjectionMatrix()
+
+        // Update renderer
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     })
 
-
-    fontLoader.load('/font3.json',
-        (font) => {
-            const textGeometry = new TextBufferGeometry(
-                '小阳人',
-                {
-                    font: font,
-                    size: 0.2,
-                    height: 0.2,
-                    curveSegments: 5,
-                    bevelEnabled: true,
-                    bevelThickness: 0.03,
-                    bevelSize: 0.02,
-                    bevelOffset: 0,
-                    bevelSegments: 5
-                }
-            )
-            textGeometry.center()
-
-            const textMaterial = new MeshMatcapMaterial({ matcap: matcapTextures })
-            // textMaterial.wireframe = true
-            // textMaterial.matcap
-            text = new Mesh(textGeometry, textMaterial)
-            scene.add(text)
+    camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+    camera.position.x = 3
+    camera.position.y = 3
+    camera.position.z = 3
+    scene.add(camera)
 
 
 
-            renderer.setSize(window.innerWidth, window.innerHeight)
-            renderer.setAnimationLoop(animation)
-            document.querySelector('#app').appendChild(renderer.domElement)
-        })
-}
+    /**
+     * Renderer
+     */
+    renderer = new THREE.WebGLRenderer({
+        canvas: canvas
+    })
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-const animation = (time) => {
-    // text.rotation.x = time / 2000
+    // Controls
+    controls = new OrbitControls(camera, renderer.domElement)
+    controls.enableDamping = true
 
-    text.rotation.y = time / 800
+    /**
+     * Animate
+     */
+    clock = new THREE.Clock()
 
-    console.log(text.rotation.y)
-
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
-
-    renderer.render(scene, camera)
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    init()
+    tick()
 })
+
+const generateGalaxy = () => {
+    if (points != null) {
+        geometry.dispose()
+        material.dispose()
+        scene.remove(points)
+    }
+
+    geometry = new THREE.BufferGeometry()
+    const positions = new Float32Array(parmaeters.count * 3)
+    const colors = new Float32Array(parmaeters.count * 3)
+
+    const colorInside = new THREE.Color(parmaeters.insideColors)
+    const colorOutside = new THREE.Color(parmaeters.outsideColors)
+    for (let i = 0; i < parmaeters.count; i++) {
+        const i3 = i * 3
+
+        const radius = Math.random() * parmaeters.radius
+        const spinAngle = radius * parmaeters.spin
+        const branchAngle = (i % parmaeters.branches) / parmaeters.branches * Math.PI * 2
+
+        const randomX = Math.pow(Math.random(), parmaeters.randomnessPower) * (Math.random() < 0.5 ? 1 : -1)
+        const randomY = Math.pow(Math.random(), parmaeters.randomnessPower) * (Math.random() < 0.5 ? 1 : -1)
+        const randomZ = Math.pow(Math.random(), parmaeters.randomnessPower) * (Math.random() < 0.5 ? 1 : -1)
+
+        positions[i3 + 0] = Math.cos(branchAngle + spinAngle) * radius + randomX
+        positions[i3 + 1] = 0 + randomY
+        positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ
+
+        // Color
+        const mixedColor = colorInside.clone()
+        mixedColor.lerp(colorOutside, radius / parmaeters.radius)
+
+        colors[i3 + 0] = mixedColor.r
+        colors[i3 + 1] = mixedColor.g
+        colors[i3 + 2] = mixedColor.b
+    }
+    geometry.setAttribute(
+        'position',
+        new THREE.BufferAttribute(positions, 3)
+    )
+    geometry.setAttribute(
+        'color',
+        new THREE.BufferAttribute(colors, 3)
+    )
+
+    material = new THREE.PointsMaterial({
+        size: parmaeters.size,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        vertexColors: true
+    })
+
+    points = new THREE.Points(geometry, material)
+    scene.add(points)
+}
+
+gui.add(parmaeters, 'count', 100, 1000000, 100).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'size', 0.001, 0.1, 0.001).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'radius', 0.01, 20, 0.01).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'branches', 2, 20, 1).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'spin', -5, 5, 0.001).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'randomness', 0, 2, 0.001).onFinishChange(generateGalaxy)
+gui.add(parmaeters, 'randomnessPower', 1, 10, 0.001).onFinishChange(generateGalaxy)
+gui.addColor(parmaeters, 'insideColors', 1, 10, 0.001).onFinishChange(generateGalaxy)
+gui.addColor(parmaeters, 'outsideColors', 1, 10, 0.001).onFinishChange(generateGalaxy)
+
+const tick = () => {
+    const elapsedTime = clock.getElapsedTime()
+
+    // Update controls
+    controls.update()
+
+    // Render
+    renderer.render(scene, camera)
+
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
+}
+
 </script>
 
 <style>

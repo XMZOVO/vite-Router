@@ -17,6 +17,9 @@
         <nav>
           <router-link to="/webG4" class="text-main-unactive">WebG4</router-link>
         </nav>
+        <nav>
+          <router-link to="/three" class="text-main-unactive">ThreeJs</router-link>
+        </nav>
         <!-- <nav>
             <router-link to="/" class="text-main-unactive">焼鳥</router-link>
           </nav>

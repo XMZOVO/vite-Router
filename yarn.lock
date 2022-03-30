@@ -602,6 +602,11 @@ custom-event-polyfill@^1.0.7:
   resolved "https://registry.yarnpkg.com/custom-event-polyfill/-/custom-event-polyfill-1.0.7.tgz#9bc993ddda937c1a30ccd335614c6c58c4f87aee"
   integrity sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==
 
+dat.gui@^0.7.9:
+  version "0.7.9"
+  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.7.9.tgz#860cab06053b028e327820eabdf25a13cf07b17e"
+  integrity sha512-sCNc1OHobc+Erc1HqiswYgHdVNpSJUlk/Hz8vzOCsER7rl+oF/4+v8GXFUyCgtXpoCX6+bnmg07DedLvBLwYKQ==
+
 data-urls@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/data-urls/-/data-urls-3.0.1.tgz#597fc2ae30f8bc4dbcf731fcd1b1954353afc6f8"
