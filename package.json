@@ -12,7 +12,7 @@
     "btoa": "^1.2.1",
     "canvas": "^2.9.0",
     "dat.gui": "^0.7.9",
-    "element-plus": "^2.0.4",
+    "element-plus": "^2.1.7",
     "jsdom": "^19.0.0",
     "mathjax": "3.2.0",
     "three": "^0.124.0",
