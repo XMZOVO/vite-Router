@@ -41,6 +41,7 @@ const updateAllMaterial = () => {
  */
 // Debug
 const gui = new dat.GUI()
+gui.closed = true
 
 const gltfLoader = new GLTFLoader()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
