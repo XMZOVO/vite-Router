@@ -1,14 +1,14 @@
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-import NotFound from './views/NotFound.vue'
-import Tools from './views/tools/Tools.vue'
-import Dat2CSV from './views/tools/Dat2CSV.vue'
-import Main from './views/tools/Main.vue'
-import Test from './views/tools/Test.vue'
-import JSRoot from './views/tools/JSRoot.vue'
-import WebG4 from './views/WebG4.vue'
-import Three from './views/Three.vue'
-import Blender from './views/Blender.vue'
+const About = () => import('./views/About.vue')
+const NotFound = () => import('./views/NotFound.vue')
+const Tools = () => import('./views/tools/Tools.vue')
+const Dat2CSV = () => import('./views/tools/Dat2CSV.vue')
+const Main = () => import('./views/tools/Main.vue')
+const Test = () => import('./views/tools/Test.vue')
+const JSRoot = () => import('./views/tools/JSRoot.vue')
+const WebG4 = () => import('./views/WebG4.vue')
+const Three = () => import('./views/Three.vue')
+const Blender = () => import('./views/Blender.vue')
+const Home = () => import('./views/Home.vue')
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -42,19 +42,19 @@ export const routes = [
   },
   {
     path: '/webG4',
-    name:'webG4',
+    name: 'webG4',
     meta: { keepAlive: true },
     component: WebG4,
   },
   {
     path: '/three',
-    name:'three',
+    name: 'three',
     meta: { keepAlive: false },
     component: Three,
   },
   {
     path: '/blender',
-    name:'blender',
+    name: 'blender',
     meta: { keepAlive: false },
     component: Blender,
   },
