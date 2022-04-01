@@ -8,6 +8,7 @@ import Test from './views/tools/Test.vue'
 import JSRoot from './views/tools/JSRoot.vue'
 import WebG4 from './views/WebG4.vue'
 import Three from './views/Three.vue'
+import Blender from './views/Blender.vue'
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -50,6 +51,12 @@ export const routes = [
     name:'three',
     meta: { keepAlive: false },
     component: Three,
+  },
+  {
+    path: '/blender',
+    name:'blender',
+    meta: { keepAlive: false },
+    component: Blender,
   },
   { path: '/:path(.*)', component: NotFound },
 ]
