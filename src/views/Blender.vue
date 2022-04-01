@@ -9,7 +9,6 @@ import * as dat from 'dat.gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { onMounted, onUnmounted } from 'vue'
 
-let scene
 let debugObject
 let camera
 let renderer
@@ -24,6 +23,18 @@ const sizes = {
     height: window.innerHeight
 }
 
+
+const updateAllMaterial = () => {
+    scene.traverse((child) => {
+        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+            // child.material.envMap = environmentMap
+            child.material.envMapIntensity = debugObject.envMapIntensity
+            child.material.needsUpdate = true
+            child.castShadow = true
+            child.receiveShadow = true
+        }
+    })
+}
 
 /**
  * Base
@@ -44,6 +55,63 @@ const environmentMap = cubeTextureLoader.load([
     '/textures/environmentMaps/3/nz.jpg',
 ])
 
+// Scene
+const scene = new THREE.Scene()
+
+// Update all material
+
+environmentMap.encoding = THREE.sRGBEncoding
+scene.background = environmentMap
+scene.environment = environmentMap
+
+
+
+debugObject = {}
+debugObject.envMapIntensity = 5
+gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
+
+// Models
+gltfLoader.load('/models/FlightHelmet/glTF/FlightHelmet.gltf',
+    (gltf) => {
+        gltf.scene.scale.set(10, 10, 10)
+        gltf.scene.position.set(0, -4, 0)
+        gltf.scene.rotation.y = Math.PI * 0.5
+        scene.add(gltf.scene)
+
+        gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+
+        updateAllMaterial()
+    })
+
+
+
+// Light 
+const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
+directionalLight.position.set(-1.5, 1, 5)
+directionalLight.castShadow = true
+directionalLight.shadow.camera.far = 15
+directionalLight.shadow.mapSize.set(1024, 1024)
+scene.add(directionalLight)
+
+
+// const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+// scene.add(directionalLightCameraHelper)
+
+gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
+gui.add(directionalLight.position, "x").min(-5).max(5).step(0.001).name('lightX')
+gui.add(directionalLight.position, "y").min(-5).max(5).step(0.001).name('lightY')
+gui.add(directionalLight.position, "z").min(-5).max(10).step(0.001).name('lightZ')
+
+
+
+/**
+ * Camera
+ */
+// Base camera
+camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+camera.position.set(4, 1, - 4)
+scene.add(camera)
+
 onUnmounted(() => {
     gui.destroy()
 })
@@ -51,63 +119,10 @@ onUnmounted(() => {
 onMounted(() => {
     // Loaders
 
-    debugObject = {}
-
     // Canvas
     canvas = document.querySelector('canvas.webgl')
 
-    // Scene
-    scene = new THREE.Scene()
 
-    // Update all material
-
-    environmentMap.encoding = THREE.sRGBEncoding
-    scene.background = environmentMap
-    scene.environment = environmentMap
-
-
-    debugObject.envMapIntensity = 5
-    gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
-
-    // Models
-    gltfLoader.load('/models/FlightHelmet/glTF/FlightHelmet.gltf',
-        (gltf) => {
-            gltf.scene.scale.set(10, 10, 10)
-            gltf.scene.position.set(0, -4, 0)
-            gltf.scene.rotation.y = Math.PI * 0.5
-            scene.add(gltf.scene)
-
-            gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
-
-            updateAllMaterial()
-        })
-
-    // Light 
-    const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-    directionalLight.position.set(-1.5, 1, 5)
-    directionalLight.castShadow = true
-    directionalLight.shadow.camera.far = 15
-    directionalLight.shadow.mapSize.set(1024, 1024)
-    scene.add(directionalLight)
-
-
-    // const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
-    // scene.add(directionalLightCameraHelper)
-
-    gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
-    gui.add(directionalLight.position, "x").min(-5).max(5).step(0.001).name('lightX')
-    gui.add(directionalLight.position, "y").min(-5).max(5).step(0.001).name('lightY')
-    gui.add(directionalLight.position, "z").min(-5).max(10).step(0.001).name('lightZ')
-
-
-
-    /**
-     * Camera
-     */
-    // Base camera
-    camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-    camera.position.set(4, 1, - 4)
-    scene.add(camera)
 
     // Controls
     controls = new OrbitControls(camera, canvas)
@@ -175,17 +190,6 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-const updateAllMaterial = () => {
-    scene.traverse((child) => {
-        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
-            // child.material.envMap = environmentMap
-            child.material.envMapIntensity = debugObject.envMapIntensity
-            child.material.needsUpdate = true
-            child.castShadow = true
-            child.receiveShadow = true
-        }
-    })
-}
 
 </script>
 
