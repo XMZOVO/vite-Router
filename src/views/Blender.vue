@@ -72,10 +72,10 @@ debugObject.envMapIntensity = 5
 gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
 
 // Models
-gltfLoader.load('/models/FlightHelmet/glTF/FlightHelmet.gltf',
+gltfLoader.load('/models/DSPEC_jr2.0/DSPEC_jr.gltf',
     (gltf) => {
-        gltf.scene.scale.set(10, 10, 10)
-        gltf.scene.position.set(0, -4, 0)
+        gltf.scene.scale.set(1.5, 1.5, 1.5)
+        gltf.scene.position.set(0, -2, 0)
         gltf.scene.rotation.y = Math.PI * 0.5
         scene.add(gltf.scene)
 
@@ -88,7 +88,7 @@ gltfLoader.load('/models/FlightHelmet/glTF/FlightHelmet.gltf',
 
 // Light 
 const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-directionalLight.position.set(-1.5, 1, 5)
+directionalLight.position.set(0.180, 5, 4.07)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
