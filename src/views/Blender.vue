@@ -48,12 +48,12 @@ const cubeTextureLoader = new THREE.CubeTextureLoader()
 
 // EnvironmentMap
 const environmentMap = cubeTextureLoader.load([
-    '/textures/environmentMaps/3/px.jpg',
-    '/textures/environmentMaps/3/nx.jpg',
-    '/textures/environmentMaps/3/py.jpg',
-    '/textures/environmentMaps/3/ny.jpg',
-    '/textures/environmentMaps/3/pz.jpg',
-    '/textures/environmentMaps/3/nz.jpg',
+    '/textures/environmentMaps/4/px.png',
+    '/textures/environmentMaps/4/nx.png',
+    '/textures/environmentMaps/4/py.png',
+    '/textures/environmentMaps/4/ny.png',
+    '/textures/environmentMaps/4/pz.png',
+    '/textures/environmentMaps/4/nz.png',
 ])
 
 // Scene
@@ -76,7 +76,7 @@ gltfLoader.load('/models/DSPEC_jr_Real/DSPEC_jr.gltf',
     (gltf) => {
         gltf.scene.scale.set(1.5, 1.5, 1.5)
         gltf.scene.position.set(0, -2, 0)
-        gltf.scene.rotation.y = Math.PI * 0.5
+        gltf.scene.rotation.y = Math.PI * 0.25
         scene.add(gltf.scene)
 
         gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
@@ -88,7 +88,7 @@ gltfLoader.load('/models/DSPEC_jr_Real/DSPEC_jr.gltf',
 
 // Light 
 const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-directionalLight.position.set(0.180, 5, 4.07)
+directionalLight.position.set(-13, 22.4, 14.8)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
@@ -99,9 +99,9 @@ scene.add(directionalLight)
 // scene.add(directionalLightCameraHelper)
 
 gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, "x").min(-5).max(5).step(0.001).name('lightX')
-gui.add(directionalLight.position, "y").min(-5).max(5).step(0.001).name('lightY')
-gui.add(directionalLight.position, "z").min(-5).max(10).step(0.001).name('lightZ')
+gui.add(directionalLight.position, "x").min(-50).max(50).step(0.001).name('lightX')
+gui.add(directionalLight.position, "y").min(-50).max(50).step(0.001).name('lightY')
+gui.add(directionalLight.position, "z").min(-50).max(50).step(0.001).name('lightZ')
 
 
 
@@ -110,7 +110,7 @@ gui.add(directionalLight.position, "z").min(-5).max(10).step(0.001).name('lightZ
  */
 // Base camera
 camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(4, 1, - 4)
+camera.position.set(0, 1, 7)
 scene.add(camera)
 
 onUnmounted(() => {
