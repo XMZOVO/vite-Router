@@ -137,7 +137,7 @@ onMounted(() => {
         antialias: true
     })
     renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(window.devicePixelRatio)
     renderer.physicallyCorrectLights = true
     renderer.outputEncoding = THREE.sRGBEncoding
     renderer.toneMapping = THREE.ReinhardToneMapping
