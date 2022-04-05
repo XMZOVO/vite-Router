@@ -9,42 +9,53 @@ const WebG4 = () => import('./views/WebG4.vue')
 const Three = () => import('./views/Three.vue')
 const Blender = () => import('./views/Blender.vue')
 const Home = () => import('./views/Home.vue')
+const App = () => import('./App.vue')
+const MainPage = () => import('./views/MainPage.vue')
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
   {
     path: '/',
-    component: Home,
-    meta: { title: 'Home' },
+    component: App,
+    meta: { title: 'App' },
     children: [
       {
-        path: "",
-        component: Tools,
-        meta: { transition: 'slide-left' },
+        path: '',
+        component: MainPage,
         children: [{
           path: '',
-          component: Main,
-        }, {
-          path: '/dat2csv',
-          component: Dat2CSV,
-        }, {
-          path: '/test',
-          component: Test
-        }, {
-          path: '/jsroot',
-          component: JSRoot,
-          name: JSRoot
+          component: Home,
+          children: [{
+            path: '',
+            component: Tools,
+            meta: { transition: 'slide-left' },
+            children: [{
+              path: '',
+              component: Main,
+            }, {
+              path: '/dat2csv',
+              component: Dat2CSV,
+            }, {
+              path: '/test',
+              component: Test
+            }, {
+              path: '/jsroot',
+              component: JSRoot,
+              name: JSRoot
+            },
+
+            ]
+          }]
         },
 
-        ]
+        {
+          path: '/webG4',
+          name: 'webG4',
+          meta: { keepAlive: true },
+          component: WebG4,
+        },]
       }
     ],
-  },
-  {
-    path: '/webG4',
-    name: 'webG4',
-    meta: { keepAlive: true },
-    component: WebG4,
   },
   {
     path: '/three',
