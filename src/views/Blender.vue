@@ -1,6 +1,8 @@
 <template>
     <canvas class="webgl"></canvas>
-    <div class="loading-bar"></div>
+    <div id="progressDiv" class="w-full bg-gray-200 h-2 mb-6 absolute top-1/2">
+        <div id="progress" class="transition-all duration-200 ease-in-out bg-main-active h-2 w-{{progressRatio}}"></div>
+    </div>
 </template>
 
 <script setup>
@@ -11,6 +13,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
+import {ref} from 'vue'
 
 let debugObject
 let camera
@@ -18,6 +21,7 @@ let renderer
 let controls
 let canvas
 let scene
+let progressRatio = ref(0)
 
 /**
  * Sizes
@@ -92,7 +96,8 @@ onMounted(() => {
 
     // Canvas
     canvas = document.querySelector('canvas.webgl')
-    const loadingBarElement = document.querySelector('.loading-bar')
+    const loadingBarElement = document.querySelector('#progress')
+    const loadingElement = document.querySelector('#progressDiv')
 
     // Controls
     controls = new OrbitControls(camera, canvas)
@@ -104,14 +109,15 @@ onMounted(() => {
 
                 gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 })
 
-                loadingBarElement.classList.add('ended')
-                loadingBarElement.style.transform = ''
+                // loadingBarElement.classList.add('ended')
+                // loadingBarElement.style.transform = ''
+                loadingElement.style.visibility = 'hidden'
             }, 500)
         },
         (itemUrl, itemsLoaded, itemsTotal) => {
-            const progressRatio = itemsLoaded / itemsTotal
-            loadingBarElement.style.transform = `scaleX(${progressRatio})`
-            console.log(progressRatio);
+            progressRatio.value = itemsLoaded / itemsTotal * 100
+            loadingBarElement.style.width = `${progressRatio.value}%`
+            console.log(progressRatio.value);
         },
     )
 
@@ -266,21 +272,4 @@ body {
     outline: none;
 }
 
-.loading-bar {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
-    transform: scale(0);
-    transform-origin: top left;
-    transition: transform 0.5s;
-    margin: 0px;
-}
-
-.loading-bar.ended {
-    transform: scaleX(0);
-    transform-origin: 100% 0;
-    transition: transfom 1.5s ease-in-out;
-}
 </style>
