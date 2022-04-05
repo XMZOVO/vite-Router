@@ -72,7 +72,7 @@ debugObject.envMapIntensity = 5
 gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
 
 // Models
-gltfLoader.load('/models/DSPEC_jr/DSPEC_jr.gltf',
+gltfLoader.load('/models/DSPEC_jr/DSPEC_jr.glb',
     (gltf) => {
         gltf.scene.scale.set(1.5, 1.5, 1.5)
         gltf.scene.position.set(0, -2, 0)
