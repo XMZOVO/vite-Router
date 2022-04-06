@@ -36,7 +36,7 @@
         <div class="label select-none">6</div>
         <div class="text select-none">USB</div>
     </div>
-    
+
     <div class="point point-6">
         <div class="label select-none">7</div>
         <div class="text select-none">This is creation of Roy</div>
@@ -74,6 +74,7 @@ let progressRatio = ref(0)
 let points
 let sceneReady = false
 
+
 /**
  * Sizes
  */
@@ -104,12 +105,18 @@ const raycaster = new Raycaster()
  */
 // Debug
 const gui = new dat.GUI()
-gui.closed = true
+// gui.closed = true
 
+const showTips = { visible: false }
+gui.add(showTips, 'visible').name('Show tips').onFinishChange(() => {
+    for(const point of points){
+        point.element.classList.remove('visible')
+    }
+})
 
 debugObject = {}
 debugObject.envMapIntensity = 5
-gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
+// gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
 
 
 
@@ -126,10 +133,10 @@ directionalLight.shadow.mapSize.set(1024, 1024)
 // const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
 // scene.add(directionalLightCameraHelper)
 
-gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, "x").min(-50).max(50).step(0.001).name('lightX')
-gui.add(directionalLight.position, "y").min(-50).max(50).step(0.001).name('lightY')
-gui.add(directionalLight.position, "z").min(-50).max(50).step(0.001).name('lightZ')
+// gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, "x").min(-50).max(50).step(0.001).name('lightX')
+// gui.add(directionalLight.position, "y").min(-50).max(50).step(0.001).name('lightY')
+// gui.add(directionalLight.position, "z").min(-50).max(50).step(0.001).name('lightZ')
 
 
 
@@ -200,7 +207,7 @@ onMounted(() => {
         () => {
             window.setTimeout(() => {
 
-                gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0 })
+                gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1, value: 0 })
 
                 // loadingBarElement.classList.add('ended')
                 // loadingBarElement.style.transform = ''
@@ -209,7 +216,7 @@ onMounted(() => {
             window.setTimeout(() => {
 
                 sceneReady = true
-            }, 1000)
+            })
         },
         (itemUrl, itemsLoaded, itemsTotal) => {
             progressRatio.value = itemsLoaded / itemsTotal * 100
@@ -245,7 +252,7 @@ onMounted(() => {
             gltf.scene.rotation.y = 0
             scene.add(gltf.scene)
 
-            gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+            // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
 
             updateAllMaterial()
         })
@@ -306,20 +313,18 @@ onMounted(() => {
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
-    gui.add(renderer, 'toneMapping', {
-        No: THREE.NoToneMapping,
-        Linear: THREE.LinearToneMapping,
-        Reinhard: THREE.ReinhardToneMapping,
-        Cineon: THREE.CineonToneMapping,
-        ACESFilmic: THREE.ACESFilmicToneMapping
-    }).onFinishChange(() => {
-        renderer.toneMapping = Number(renderer.toneMapping)
-        updateAllMaterial()
-    })
+    // gui.add(renderer, 'toneMapping', {
+    //     No: THREE.NoToneMapping,
+    //     Linear: THREE.LinearToneMapping,
+    //     Reinhard: THREE.ReinhardToneMapping,
+    //     Cineon: THREE.CineonToneMapping,
+    //     ACESFilmic: THREE.ACESFilmicToneMapping
+    // }).onFinishChange(() => {
+    //     renderer.toneMapping = Number(renderer.toneMapping)
+    //     updateAllMaterial()
+    // })
 
-    gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
-
-
+    // gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 
 
     /**
@@ -335,7 +340,7 @@ const tick = () => {
     controls.update()
 
     // Update Point
-    if (sceneReady) {
+    if (sceneReady && showTips.visible) {
         for (const point of points) {
             const screenPosition = point.position.clone()
             screenPosition.project(camera)
@@ -446,7 +451,6 @@ body {
     font-weight: 100;
     font-size: 14px;
     opacity: 0;
-
 
     transition: opacity 0.3s;
     pointer-events: none;
