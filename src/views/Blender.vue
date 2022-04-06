@@ -1,7 +1,35 @@
 <template>
     <canvas class="webgl"></canvas>
     <div id="progressDiv" class="w-full bg-gray-200 h-2 mb-6 absolute top-1/2">
-        <div id="progress" class="transition-all duration-200 ease-in-out bg-main-active h-2 w-{{progressRatio}}"></div>
+        <div
+            id="progress"
+            class="transition-all duration-200 ease-in-out bg-main-active h-2 w-{{progressRatio}}"
+        ></div>
+    </div>
+
+    <div class="point point-0">
+        <div class="label select-none">1</div>
+        <div class="text select-none">Screen</div>
+    </div>
+
+    <div class="point point-1">
+        <div class="label select-none">2</div>
+        <div class="text select-none">Switch</div>
+    </div>
+
+    <div class="point point-2">
+        <div class="label select-none">3</div>
+        <div class="text select-none">Light Switch</div>
+    </div>
+
+    <div class="point point-3">
+        <div class="label select-none">4</div>
+        <div class="text select-none">This is creation of Roy</div>
+    </div>
+
+    <div class="point point-4">
+        <div class="label select-none">5</div>
+        <div class="text select-none">Elden Ring</div>
     </div>
 </template>
 
@@ -13,7 +41,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
-import {ref} from 'vue'
+import { ref } from 'vue'
+import { Raycaster } from 'three'
 
 let debugObject
 let camera
@@ -22,6 +51,8 @@ let controls
 let canvas
 let scene
 let progressRatio = ref(0)
+let points
+let sceneReady = false
 
 /**
  * Sizes
@@ -43,6 +74,9 @@ const updateAllMaterial = () => {
         }
     })
 }
+
+// Raycaster
+const raycaster = new Raycaster()
 
 
 /**
@@ -84,7 +118,7 @@ gui.add(directionalLight.position, "z").min(-50).max(50).step(0.001).name('light
  */
 // Base camera
 camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(0, 1, 7)
+camera.position.set(-5, 1, 5)
 
 
 onUnmounted(() => {
@@ -98,6 +132,29 @@ onMounted(() => {
     canvas = document.querySelector('canvas.webgl')
     const loadingBarElement = document.querySelector('#progress')
     const loadingElement = document.querySelector('#progressDiv')
+    // Points
+    points = [
+        {
+            position: new THREE.Vector3(-1.5, -0.2, 1.5),
+            element: document.querySelector('.point-0')
+        },
+        {
+            position: new THREE.Vector3(0.6, -0.9, 1.7),
+            element: document.querySelector('.point-1')
+        },
+        {
+            position: new THREE.Vector3(1.9, -0.9, 1.7),
+            element: document.querySelector('.point-2')
+        },
+        {
+            position: new THREE.Vector3(0.5, -0.9, -5.5),
+            element: document.querySelector('.point-3')
+        },
+        {
+            position: new THREE.Vector3(0.2, -0.9, -5.5),
+            element: document.querySelector('.point-4')
+        }
+    ]
 
     // Controls
     controls = new OrbitControls(camera, canvas)
@@ -113,11 +170,15 @@ onMounted(() => {
                 // loadingBarElement.style.transform = ''
                 loadingElement.style.visibility = 'hidden'
             }, 500)
+            window.setTimeout(() => {
+
+                sceneReady = true
+            }, 1000)
         },
         (itemUrl, itemsLoaded, itemsTotal) => {
             progressRatio.value = itemsLoaded / itemsTotal * 100
             loadingBarElement.style.width = `${progressRatio.value}%`
-            console.log(progressRatio.value);
+            // console.log(progressRatio.value);
         },
     )
 
@@ -141,11 +202,11 @@ onMounted(() => {
     ])
 
     // Models
-    gltfLoader.load('/models/DSPEC_jr/DSPEC_jr.gltf',
+    gltfLoader.load('models/DSPEC_jr/DSPEC_jr.gltf',///
         (gltf) => {
             gltf.scene.scale.set(1.5, 1.5, 1.5)
             gltf.scene.position.set(0, -2, 0)
-            gltf.scene.rotation.y = Math.PI * 0.25
+            gltf.scene.rotation.y = 0
             scene.add(gltf.scene)
 
             gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
@@ -159,6 +220,10 @@ onMounted(() => {
 
     scene.add(directionalLight)
     scene.add(camera)
+
+    // AxisHelp
+    // const axisHelp = new THREE.AxesHelper(10)
+    // scene.add(axisHelp)
 
     const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
     const overlayMaterial = new THREE.ShaderMaterial({
@@ -230,6 +295,34 @@ const tick = () => {
     // Update controls
     controls.update()
 
+    // Update Point
+    if (sceneReady) {
+        for (const point of points) {
+            const screenPosition = point.position.clone()
+            screenPosition.project(camera)
+
+            raycaster.setFromCamera(screenPosition, camera)
+            const intersects = raycaster.intersectObjects(scene.children, true)
+            if (intersects.length === 0) {
+                point.element.classList.add('visible')
+            }
+            else {
+                const intersectionDistance = intersects[0].distance
+                const pointDistance = point.position.distanceTo(camera.position)
+
+                if (intersectionDistance < pointDistance) {
+                    point.element.classList.remove('visible')
+                }
+                else {
+                    point.element.classList.add('visible')
+                }
+            }
+
+            const translateX = screenPosition.x * sizes.width * 0.5
+            const translateY = -screenPosition.y * sizes.height * 0.5
+            point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
+        }
+    }
     // Render
     renderer.render(scene, camera)
 
@@ -272,4 +365,59 @@ body {
     outline: none;
 }
 
+.point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.point .label {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #00000077;
+    border: 1px solid #ffffff77;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 100;
+    font-size: 14px;
+    cursor: help;
+
+    transform: scale(0, 0);
+    transition: transform 0.3s;
+}
+
+.point .text {
+    position: absolute;
+    top: 30px;
+    left: -100px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 4px;
+    background: #00000077;
+    border: 1px solid #ffffff77;
+    color: #ffffff;
+    line-height: 1.3em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    opacity: 0;
+
+
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.point:hover .text {
+    opacity: 1;
+}
+
+.point.visible .label {
+    transform: scale(1, 1);
+}
 </style>

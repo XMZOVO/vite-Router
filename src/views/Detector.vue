@@ -31,7 +31,6 @@ const sizes = {
     height: window.innerHeight
 }
 
-
 const updateAllMaterial = () => {
     scene.traverse((child) => {
         if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
@@ -117,7 +116,7 @@ onMounted(() => {
         (itemUrl, itemsLoaded, itemsTotal) => {
             progressRatio.value = itemsLoaded / itemsTotal * 100
             loadingBarElement.style.width = `${progressRatio.value}%`
-            console.log(progressRatio.value);
+            // console.log(progressRatio.value);
         },
     )
 
