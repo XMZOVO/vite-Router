@@ -11,6 +11,7 @@ const Blender = () => import('./views/Blender.vue')
 const Home = () => import('./views/Home.vue')
 const App = () => import('./App.vue')
 const MainPage = () => import('./views/MainPage.vue')
+const Detector = () => import('./views/Detector.vue')
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -68,6 +69,11 @@ export const routes = [
     name: 'blender',
     meta: { keepAlive: false },
     component: Blender,
+  },
+  {
+    path: '/detector',
+    name: 'detector',
+    component: Detector
   },
   { path: '/:path(.*)', component: NotFound },
 ]

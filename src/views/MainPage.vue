@@ -17,11 +17,11 @@
         <nav>
           <router-link to="/webG4" class="text-main-unactive">WebG4</router-link>
         </nav>
-        <nav class=" hidden xl:block ">
-          <router-link to="/three" class="text-main-unactive">ThreeJs</router-link>
-        </nav>
         <nav>
           <router-link to="/blender" class="text-main-unactive">Blender</router-link>
+        </nav>
+        <nav class=" hidden xl:block ">
+          <router-link to="/detector" class="text-main-unactive">Detector</router-link>
         </nav>
         <!-- <nav>
             <router-link to="/" class="text-main-unactive">焼鳥</router-link>
