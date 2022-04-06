@@ -9,7 +9,7 @@
 
     <div class="point point-0">
         <div class="label select-none">1</div>
-        <div class="text select-none">Screen</div>
+        <div class="text select-none">This is creation of Roy</div>
     </div>
 
     <div class="point point-1">
@@ -24,12 +24,32 @@
 
     <div class="point point-3">
         <div class="label select-none">4</div>
-        <div class="text select-none">This is creation of Roy</div>
+        <div class="text select-none">Power</div>
     </div>
 
     <div class="point point-4">
         <div class="label select-none">5</div>
         <div class="text select-none">Elden Ring</div>
+    </div>
+
+    <div class="point point-5">
+        <div class="label select-none">6</div>
+        <div class="text select-none">USB</div>
+    </div>
+    
+    <div class="point point-6">
+        <div class="label select-none">7</div>
+        <div class="text select-none">This is creation of Roy</div>
+    </div>
+
+    <div class="point point-7">
+        <div class="label select-none">8</div>
+        <div class="text select-none">This is creation of Roy</div>
+    </div>
+
+    <div class="point point-8">
+        <div class="label select-none">9</div>
+        <div class="text select-none">This is creation of Roy</div>
     </div>
 </template>
 
@@ -146,14 +166,30 @@ onMounted(() => {
             position: new THREE.Vector3(1.9, -0.9, 1.7),
             element: document.querySelector('.point-2')
         },
-        {
-            position: new THREE.Vector3(0.5, -0.9, -5.5),
-            element: document.querySelector('.point-3')
-        },
+        // {
+        //     position: new THREE.Vector3(0.5, -0.9, -5.5),
+        //     element: document.querySelector('.point-3')
+        // },
         {
             position: new THREE.Vector3(0.2, -0.9, -5.5),
             element: document.querySelector('.point-4')
-        }
+        },
+        // {
+        //     position: new THREE.Vector3(-0.1, -0.9, -5.5),
+        //     element: document.querySelector('.point-5')
+        // },
+        // {
+        //     position: new THREE.Vector3(-1.1, -0.9, -5.5),
+        //     element: document.querySelector('.point-6')
+        // },
+        // {
+        //     position: new THREE.Vector3(-2.2, -0.9, -5.5),
+        //     element: document.querySelector('.point-7')
+        // },
+        // {
+        //     position: new THREE.Vector3(-0.1, -1.5, -5.5),
+        //     element: document.querySelector('.point-8')
+        // },
     ]
 
     // Controls
@@ -282,6 +318,9 @@ onMounted(() => {
     })
 
     gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
+
+
+
 
     /**
      * Animate
