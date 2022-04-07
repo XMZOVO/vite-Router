@@ -63,6 +63,7 @@ import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 import { ref } from 'vue'
 import { Raycaster } from 'three'
+import * as CANNON from 'cannon-es'
 
 let debugObject
 let camera
@@ -73,6 +74,11 @@ let scene
 let progressRatio = ref(0)
 let points
 let sceneReady = false
+
+
+let model
+let boxBody
+let world
 
 
 /**
@@ -109,7 +115,7 @@ const gui = new dat.GUI()
 
 const showTips = { visible: false }
 gui.add(showTips, 'visible').name('Show tips').onFinishChange(() => {
-    for(const point of points){
+    for (const point of points) {
         point.element.classList.remove('visible')
     }
 })
@@ -145,15 +151,52 @@ directionalLight.shadow.mapSize.set(1024, 1024)
  */
 // Base camera
 camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(-5, 1, 5)
+camera.position.set(-20, 10, 15)
 
 
 onUnmounted(() => {
     gui.destroy()
 })
 
+
+/* 
+THREEJS入口
+*/
 onMounted(() => {
-    // Loaders
+
+    //Cannon
+    world = new CANNON.World({
+        gravity: new CANNON.Vec3(0, -9.82, 0), // m/s²
+    })
+    world.broadphase = new CANNON.SAPBroadphase(world)
+
+    // Default material
+    const defaultMaterial = new CANNON.Material('default')
+    const defaultContactMaterial = new CANNON.ContactMaterial(
+        defaultMaterial,
+        defaultMaterial,
+        {
+            friction: 0.1,
+            restitution: 0.7
+        }
+    )
+    world.defaultContactMaterial = defaultContactMaterial
+
+    const boxSize = new CANNON.Vec3(0.01, 0.0025, 0.01) // m
+    boxBody = new CANNON.Body({
+        mass: 5, // kg
+        shape: new CANNON.Box(boxSize),
+    })
+    boxBody.position.set(0, 10, 0) // m
+    world.addBody(boxBody)
+
+    //GroundBody
+    const groundBody = new CANNON.Body({
+        type: CANNON.Body.STATIC,
+        shape: new CANNON.Plane(),
+    })
+    groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
+    world.addBody(groundBody)
 
     // Canvas
     canvas = document.querySelector('canvas.webgl')
@@ -212,6 +255,9 @@ onMounted(() => {
                 // loadingBarElement.classList.add('ended')
                 // loadingBarElement.style.transform = ''
                 loadingElement.style.visibility = 'hidden'
+
+
+                tick()
             }, 500)
             window.setTimeout(() => {
 
@@ -244,25 +290,39 @@ onMounted(() => {
         '/textures/environmentMaps/0/nz.jpg',
     ])
 
+    // Scene
+    scene = new THREE.Scene()
+
+    scene.add(directionalLight)
+    scene.add(camera)
+
     // Models
     gltfLoader.load('models/DSPEC_jr/DSPEC_jr.gltf',///
         (gltf) => {
             gltf.scene.scale.set(1.5, 1.5, 1.5)
-            gltf.scene.position.set(0, -2, 0)
+            gltf.scene.position.set(0, 10, 0)
             gltf.scene.rotation.y = 0
+            model = gltf.scene
             scene.add(gltf.scene)
+            console.log(gltf.scene);
 
             // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
 
             updateAllMaterial()
         })
 
-
-    // Scene
-    scene = new THREE.Scene()
-
-    scene.add(directionalLight)
-    scene.add(camera)
+    const floor = new THREE.Mesh(
+        new THREE.PlaneBufferGeometry(20, 20),
+        new THREE.MeshStandardMaterial({
+            color: '#777777',
+            metalness: 0.3,
+            roughness: 0.4,
+            envMap: environmentMap
+        })
+    )
+    floor.receiveShadow = true
+    floor.rotation.x = - Math.PI * 0.5
+    scene.add(floor)
 
     // AxisHelp
     // const axisHelp = new THREE.AxesHelper(10)
@@ -331,8 +391,6 @@ onMounted(() => {
      * Animate
      */
 
-    tick()
-
 })
 
 const tick = () => {
@@ -367,6 +425,13 @@ const tick = () => {
             point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
         }
     }
+
+    // console.log(boxBody.position)
+    world.fixedStep()
+
+    model.position.copy(boxBody.position)
+    model.quaternion.copy(boxBody.quaternion)
+
     // Render
     renderer.render(scene, camera)
 
