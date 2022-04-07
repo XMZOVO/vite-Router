@@ -65,7 +65,7 @@ import { ref } from 'vue'
 import { Raycaster } from 'three'
 import * as CANNON from 'cannon-es'
 
-let debugObject
+let debugObject = {}
 let camera
 let renderer
 let controls
@@ -177,7 +177,7 @@ onMounted(() => {
         defaultMaterial,
         {
             friction: 0.1,
-            restitution: 0.7
+            restitution: 0.1
         }
     )
     world.defaultContactMaterial = defaultContactMaterial
@@ -304,7 +304,6 @@ onMounted(() => {
             gltf.scene.rotation.y = 0
             model = gltf.scene
             scene.add(gltf.scene)
-            console.log(gltf.scene);
 
             // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
 
@@ -431,6 +430,8 @@ const tick = () => {
 
     model.position.copy(boxBody.position)
     model.quaternion.copy(boxBody.quaternion)
+
+
 
     // Render
     renderer.render(scene, camera)
