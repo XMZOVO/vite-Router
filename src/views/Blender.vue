@@ -1,532 +1,435 @@
 <template>
-    <canvas class="webgl"></canvas>
-    <div id="progressDiv" class="w-full bg-gray-200 h-2 mb-6 absolute top-1/2">
-        <div
-            id="progress"
-            class="transition-all duration-200 ease-in-out bg-main-active h-2 w-{{progressRatio}}"
-        ></div>
-    </div>
-
-    <div class="point point-0">
-        <div class="label select-none">1</div>
-        <div class="text select-none">This is creation of Roy</div>
-    </div>
-
-    <div class="point point-1">
-        <div class="label select-none">2</div>
-        <div class="text select-none">Switch</div>
-    </div>
-
-    <div class="point point-2">
-        <div class="label select-none">3</div>
-        <div class="text select-none">Light Switch</div>
-    </div>
-
-    <div class="point point-3">
-        <div class="label select-none">4</div>
-        <div class="text select-none">Power</div>
-    </div>
-
-    <div class="point point-4">
-        <div class="label select-none">5</div>
-        <div class="text select-none">Elden Ring</div>
-    </div>
-
-    <div class="point point-5">
-        <div class="label select-none">6</div>
-        <div class="text select-none">USB</div>
-    </div>
-
-    <div class="point point-6">
-        <div class="label select-none">7</div>
-        <div class="text select-none">This is creation of Roy</div>
-    </div>
-
-    <div class="point point-7">
-        <div class="label select-none">8</div>
-        <div class="text select-none">This is creation of Roy</div>
-    </div>
-
-    <div class="point point-8">
-        <div class="label select-none">9</div>
-        <div class="text select-none">This is creation of Roy</div>
+    <div id="instructions">
+        <span>Click to play</span>
+        <br />(W,A,S,D = Move, SPACE = Jump, MOUSE = Look, CLICK = Shoot)
     </div>
 </template>
 
 <script setup>
+import * as CANNON from 'cannon-es'
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
+import Stats from 'three/examples/jsm/libs/stats.module'
+import { PointerLockControlsCannon } from '../js/PointerLockControlsCannon'
+import { onMounted } from 'vue'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { onMounted, onUnmounted } from 'vue'
-import { gsap } from 'gsap'
-import { ref } from 'vue'
-import { Raycaster } from 'three'
-import * as CANNON from 'cannon-es'
 
-let debugObject = {}
-let camera
-let renderer
-let controls
-let canvas
-let scene
-let progressRatio = ref(0)
-let points
-let sceneReady = false
-
-
-let model
-let boxBody
-let world
-
-
-/**
- * Sizes
- */
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-
-const updateAllMaterial = () => {
-    scene.traverse((child) => {
-        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
-            // child.material.envMap = environmentMap
-            child.material.envMapIntensity = debugObject.envMapIntensity
-            child.material.needsUpdate = true
-            child.castShadow = true
-            child.receiveShadow = true
-        }
-    })
-}
-
-// Raycaster
-const raycaster = new Raycaster()
-
-
-/**
- * Base
- */
-// Debug
-const gui = new dat.GUI()
-// gui.closed = true
-
-const showTips = { visible: false }
-gui.add(showTips, 'visible').name('Show tips').onFinishChange(() => {
-    for (const point of points) {
-        point.element.classList.remove('visible')
-    }
-})
-
-debugObject = {}
-debugObject.envMapIntensity = 5
-// gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterial)
-
-
-
-
-// Light 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-directionalLight.position.set(-13, 22.4, 14.8)
-directionalLight.castShadow = true
-directionalLight.shadow.camera.far = 15
-directionalLight.shadow.mapSize.set(1024, 1024)
-
-
-
-// const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
-// scene.add(directionalLightCameraHelper)
-
-// gui.add(directionalLight, "intensity").min(0).max(10).step(0.001).name('lightIntensity')
-// gui.add(directionalLight.position, "x").min(-50).max(50).step(0.001).name('lightX')
-// gui.add(directionalLight.position, "y").min(-50).max(50).step(0.001).name('lightY')
-// gui.add(directionalLight.position, "z").min(-50).max(50).step(0.001).name('lightZ')
-
-
-
-/**
- * Camera
- */
-// Base camera
-camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(-20, 10, 15)
-
-
-onUnmounted(() => {
-    gui.destroy()
-})
-
-
-/* 
-THREEJS入口
-*/
 onMounted(() => {
-
-    //Cannon
-    world = new CANNON.World({
-        gravity: new CANNON.Vec3(0, -9.82, 0), // m/s²
-    })
-    world.broadphase = new CANNON.SAPBroadphase(world)
-
-    // Default material
-    const defaultMaterial = new CANNON.Material('default')
-    const defaultContactMaterial = new CANNON.ContactMaterial(
-        defaultMaterial,
-        defaultMaterial,
-        {
-            friction: 0.1,
-            restitution: 0.1
-        }
-    )
-    world.defaultContactMaterial = defaultContactMaterial
-
-    const boxSize = new CANNON.Vec3(0.01, 0.0025, 0.01) // m
-    boxBody = new CANNON.Body({
-        mass: 5, // kg
-        shape: new CANNON.Box(boxSize),
-    })
-    boxBody.position.set(0, 10, 0) // m
-    world.addBody(boxBody)
-
-    //GroundBody
-    const groundBody = new CANNON.Body({
-        type: CANNON.Body.STATIC,
-        shape: new CANNON.Plane(),
-    })
-    groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
-    world.addBody(groundBody)
-
-    // Canvas
-    canvas = document.querySelector('canvas.webgl')
-    const loadingBarElement = document.querySelector('#progress')
-    const loadingElement = document.querySelector('#progressDiv')
-    // Points
-    points = [
-        {
-            position: new THREE.Vector3(-1.5, -0.2, 1.5),
-            element: document.querySelector('.point-0')
-        },
-        {
-            position: new THREE.Vector3(0.6, -0.9, 1.7),
-            element: document.querySelector('.point-1')
-        },
-        {
-            position: new THREE.Vector3(1.9, -0.9, 1.7),
-            element: document.querySelector('.point-2')
-        },
-        // {
-        //     position: new THREE.Vector3(0.5, -0.9, -5.5),
-        //     element: document.querySelector('.point-3')
-        // },
-        {
-            position: new THREE.Vector3(0.2, -0.9, -5.5),
-            element: document.querySelector('.point-4')
-        },
-        // {
-        //     position: new THREE.Vector3(-0.1, -0.9, -5.5),
-        //     element: document.querySelector('.point-5')
-        // },
-        // {
-        //     position: new THREE.Vector3(-1.1, -0.9, -5.5),
-        //     element: document.querySelector('.point-6')
-        // },
-        // {
-        //     position: new THREE.Vector3(-2.2, -0.9, -5.5),
-        //     element: document.querySelector('.point-7')
-        // },
-        // {
-        //     position: new THREE.Vector3(-0.1, -1.5, -5.5),
-        //     element: document.querySelector('.point-8')
-        // },
-    ]
-
-    // Controls
-    controls = new OrbitControls(camera, canvas)
-    controls.enableDamping = true
-
-    const loadingManage = new THREE.LoadingManager(
-        () => {
-            window.setTimeout(() => {
-
-                gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 1, value: 0 })
-
-                // loadingBarElement.classList.add('ended')
-                // loadingBarElement.style.transform = ''
-                loadingElement.style.visibility = 'hidden'
-
-
-                tick()
-            }, 500)
-            window.setTimeout(() => {
-
-                sceneReady = true
-            })
-        },
-        (itemUrl, itemsLoaded, itemsTotal) => {
-            progressRatio.value = itemsLoaded / itemsTotal * 100
-            loadingBarElement.style.width = `${progressRatio.value}%`
-            // console.log(progressRatio.value);
-        },
-    )
-
-
-    const dracoLoader = new DRACOLoader()
-    dracoLoader.setDecoderPath('/draco/')
-
-
-    const gltfLoader = new GLTFLoader(loadingManage)
-    gltfLoader.setDRACOLoader(dracoLoader)
-    const cubeTextureLoader = new THREE.CubeTextureLoader()
-
-    // EnvironmentMap
-    const environmentMap = cubeTextureLoader.load([
-        '/textures/environmentMaps/0/px.jpg',
-        '/textures/environmentMaps/0/nx.jpg',
-        '/textures/environmentMaps/0/py.jpg',
-        '/textures/environmentMaps/0/ny.jpg',
-        '/textures/environmentMaps/0/pz.jpg',
-        '/textures/environmentMaps/0/nz.jpg',
-    ])
-
-    // Scene
-    scene = new THREE.Scene()
-
-    scene.add(directionalLight)
-    scene.add(camera)
-
-    // Models
-    gltfLoader.load('models/DSPEC_jr/DSPEC_jr.gltf',///
-        (gltf) => {
-            gltf.scene.scale.set(1.5, 1.5, 1.5)
-            gltf.scene.position.set(0, 10, 0)
-            gltf.scene.rotation.y = 0
-            model = gltf.scene
-            scene.add(gltf.scene)
-
-            // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
-
-            updateAllMaterial()
-        })
-
-    const floor = new THREE.Mesh(
-        new THREE.PlaneBufferGeometry(20, 20),
-        new THREE.MeshStandardMaterial({
-            color: '#777777',
-            metalness: 0.3,
-            roughness: 0.4,
-            envMap: environmentMap
-        })
-    )
-    floor.receiveShadow = true
-    floor.rotation.x = - Math.PI * 0.5
-    scene.add(floor)
-
-    // AxisHelp
-    // const axisHelp = new THREE.AxesHelper(10)
-    // scene.add(axisHelp)
-
-    const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
-    const overlayMaterial = new THREE.ShaderMaterial({
-        // wireframe:true,
-        transparent: true,
-        uniforms: {
-            uAlpha: { value: 1 }
-        },
-        vertexShader: `
-
-    void main(){
-        gl_Position = vec4(position, 1.0);
-        
-    }`,
-        fragmentShader: `
-    uniform float uAlpha;
-
-    void main(){
-        gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
-    }`
-    })
-    const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
-    scene.add(overlay)
-
-    // Update all material
-
-    environmentMap.encoding = THREE.sRGBEncoding
-    scene.background = environmentMap
-    scene.environment = environmentMap
-
-    /**
-     * Renderer
-     */
-    renderer = new THREE.WebGLRenderer({
-        canvas: canvas,
-        antialias: true
-    })
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.physicallyCorrectLights = true
-    renderer.outputEncoding = THREE.sRGBEncoding
-    renderer.toneMapping = THREE.ReinhardToneMapping
-    renderer.toneMappingExposure = 3
-    renderer.shadowMap.enabled = true
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap
-
-    // gui.add(renderer, 'toneMapping', {
-    //     No: THREE.NoToneMapping,
-    //     Linear: THREE.LinearToneMapping,
-    //     Reinhard: THREE.ReinhardToneMapping,
-    //     Cineon: THREE.CineonToneMapping,
-    //     ACESFilmic: THREE.ACESFilmicToneMapping
-    // }).onFinishChange(() => {
-    //     renderer.toneMapping = Number(renderer.toneMapping)
-    //     updateAllMaterial()
-    // })
-
-    // gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
-
-
-    /**
-     * Animate
-     */
-
+    initial()
 })
 
-const tick = () => {
-    // Update controls
-    controls.update()
+function initial() {
+    // three.js variables
+    let camera, scene, renderer, stats
+    let material
 
-    // Update Point
-    if (sceneReady && showTips.visible) {
-        for (const point of points) {
-            const screenPosition = point.position.clone()
-            screenPosition.project(camera)
+    // cannon.js variables
+    let world
+    let controls
+    const timeStep = 1 / 60
+    let lastCallTime = performance.now()
+    let sphereShape
+    let sphereBody
+    let physicsMaterial
+    const balls = []
+    const ballMeshes = []
+    const boxes = []
+    const boxMeshes = []
 
-            raycaster.setFromCamera(screenPosition, camera)
-            const intersects = raycaster.intersectObjects(scene.children, true)
-            if (intersects.length === 0) {
-                point.element.classList.add('visible')
-            }
-            else {
-                const intersectionDistance = intersects[0].distance
-                const pointDistance = point.position.distanceTo(camera.position)
+    const instructions = document.getElementById('instructions')
 
-                if (intersectionDistance < pointDistance) {
-                    point.element.classList.remove('visible')
-                }
-                else {
-                    point.element.classList.add('visible')
-                }
-            }
+    initThree()
+    initCannon()
+    initPointerLock()
+    animate()
 
-            const translateX = screenPosition.x * sizes.width * 0.5
-            const translateY = -screenPosition.y * sizes.height * 0.5
-            point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
-        }
+    function initThree() {
+        // Camera
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+
+        const cubeTextureLoader = new THREE.CubeTextureLoader()
+
+        const environmentMap = cubeTextureLoader.load([
+            '/textures/environmentMaps/0/px.jpg',
+            '/textures/environmentMaps/0/nx.jpg',
+            '/textures/environmentMaps/0/py.jpg',
+            '/textures/environmentMaps/0/ny.jpg',
+            '/textures/environmentMaps/0/pz.jpg',
+            '/textures/environmentMaps/0/nz.jpg',
+        ])
+
+        // Scene
+        scene = new THREE.Scene()
+        // scene.fog = new THREE.Fog(0x000000, 0, 500)
+        const axisHelp = new THREE.AxesHelper(30)
+        scene.add(axisHelp)
+
+        // Update Mat
+        environmentMap.encoding = THREE.sRGBEncoding
+        scene.background = environmentMap
+        scene.environment = environmentMap
+
+        // Renderer
+        renderer = new THREE.WebGLRenderer({ antialias: true })
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        renderer.setPixelRatio(window.devicePixelRatio)
+        // renderer.setClearColor(scene.fog.color)
+        renderer.physicallyCorrectLights = true
+        renderer.outputEncoding = THREE.sRGBEncoding
+        renderer.toneMapping = THREE.ReinhardToneMapping
+        renderer.toneMappingExposure = 3
+
+        renderer.shadowMap.enabled = true
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap
+
+        document.body.appendChild(renderer.domElement)
+
+        // Stats.js
+        stats = new Stats()
+        document.body.appendChild(stats.dom)
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.1)
+        scene.add(ambientLight)
+
+        const spotlight = new THREE.DirectionalLight(0xffffff, 0.9, 0, Math.PI / 4, 1)
+        spotlight.position.set(10, 30, 20)
+        spotlight.target.position.set(0, 0, 0)
+
+        spotlight.castShadow = true
+
+        spotlight.shadow.camera.near = 10
+        spotlight.shadow.camera.far = 100
+        spotlight.shadow.camera.fov = 30
+
+        // spotlight.shadow.bias = -0.0001
+        spotlight.shadow.mapSize.width = 2048
+        spotlight.shadow.mapSize.height = 2048
+
+        scene.add(spotlight)
+
+        // Generic material
+        material = new THREE.MeshLambertMaterial({ color: 0xdddddd })
+
+        // Floor
+        const floorGeometry = new THREE.PlaneBufferGeometry(300, 300, 100, 100)
+        floorGeometry.rotateX(-Math.PI / 2)
+        const floor = new THREE.Mesh(floorGeometry, material)
+        floor.receiveShadow = true
+        scene.add(floor)
+
+        window.addEventListener('resize', onWindowResize)
     }
 
-    // console.log(boxBody.position)
-    world.fixedStep()
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(window.innerWidth, window.innerHeight)
+    }
 
-    model.position.copy(boxBody.position)
-    model.quaternion.copy(boxBody.quaternion)
+    function initCannon() {
+        world = new CANNON.World()
 
+        // Tweak contact properties.
+        // Contact stiffness - use to make softer/harder contacts
+        world.defaultContactMaterial.contactEquationStiffness = 1e9
 
+        // Stabilization time in number of timesteps
+        world.defaultContactMaterial.contactEquationRelaxation = 4
 
-    // Render
-    renderer.render(scene, camera)
+        const solver = new CANNON.GSSolver()
+        solver.iterations = 7
+        solver.tolerance = 0.1
+        world.solver = new CANNON.SplitSolver(solver)
+        // use this to test non-split solver
+        // world.solver = solver
 
-    window.requestAnimationFrame(tick)
+        world.gravity.set(0, -20, 0)
+
+        // Create a slippery material (friction coefficient = 0.0)
+        physicsMaterial = new CANNON.Material('physics')
+        const physics_physics = new CANNON.ContactMaterial(physicsMaterial, physicsMaterial, {
+            friction: 0.5,
+            restitution: 0.3,
+        })
+
+        // We must add the contact materials to the world
+        world.addContactMaterial(physics_physics)
+
+        // 加载模型
+        const dracoLoader = new DRACOLoader()
+        dracoLoader.setDecoderPath('/draco/')
+
+        const gltfLoader = new GLTFLoader()
+        gltfLoader.setDRACOLoader(dracoLoader)
+
+        let box
+        let model
+        gltfLoader.load('models/Detector_model/Detector.gltf',///
+            (gltf) => {
+                gltf.scene.scale.set(0.7, 0.7, 0.7)
+                // gltf.scene.position.set(0, 10, 0)
+                // gltf.scene.rotateY(Math.PI /)
+                box = new THREE.Box3().setFromObject(gltf.scene);
+                // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+                // updateAllMaterial()
+
+                const DspecShape = new CANNON.Box(box.getSize().divide(new THREE.Vector3(2, 2, 2)))
+                const DspecBody = new CANNON.Body({ mass: 0.5, material: physicsMaterial })
+                DspecBody.addShape(DspecShape)
+
+                const x = (Math.random() - 0.5) * 20
+                const y = (Math.random() - 0.5) * 1 + 1
+                const z = (Math.random() - 0.5) * 20
+
+                DspecBody.position.set(x, y, z)
+                gltf.scene.position.copy(DspecBody.position)
+
+                gltf.scene.castShadow = true
+
+                world.addBody(DspecBody)
+                scene.add(gltf.scene)
+                boxes.push(DspecBody)
+                boxMeshes.push(gltf.scene)
+
+            })
+
+        gltfLoader.load('models/DSPEC_jr/DSPEC_jr.gltf',///
+            (gltf) => {
+                gltf.scene.scale.set(0.5, 0.5, 0.5)
+                // gltf.scene.position.set(0, 10, 0)
+                gltf.scene.rotation.y = 0
+                box = new THREE.Box3().setFromObject(gltf.scene);
+                // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+                // updateAllMaterial()
+
+                const DspecShape = new CANNON.Box(box.getSize().divide(new THREE.Vector3(2, 2, 2)))
+                const DspecBody = new CANNON.Body({ mass: 0.5, material: physicsMaterial })
+                DspecBody.addShape(DspecShape)
+
+                const x = (Math.random() - 0.5) * 20
+                const y = (Math.random() - 0.5) * 1 + 1
+                const z = (Math.random() - 0.5) * 20
+
+                DspecBody.position.set(x, y, z)
+                gltf.scene.position.copy(DspecBody.position)
+
+                gltf.scene.castShadow = true
+
+                world.addBody(DspecBody)
+                scene.add(gltf.scene)
+                boxes.push(DspecBody)
+                boxMeshes.push(gltf.scene)
+
+            })
+
+        // Create the user collision sphere
+        const radius = 1.3
+        sphereShape = new CANNON.Sphere(radius)
+        sphereBody = new CANNON.Body({ mass: 5, material: physicsMaterial })
+        sphereBody.addShape(sphereShape)
+        sphereBody.position.set(0, 5, 0)
+        sphereBody.linearDamping = 0.9
+        world.addBody(sphereBody)
+
+        // Create the ground plane
+        const groundShape = new CANNON.Plane()
+        const groundBody = new CANNON.Body({ mass: 0, material: physicsMaterial })
+        groundBody.addShape(groundShape)
+        groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0)
+        world.addBody(groundBody)
+
+        // Add boxes both in cannon.js and three.js
+        const halfExtents = new CANNON.Vec3(1, 1, 1)
+        const boxShape = new CANNON.Box(halfExtents)
+        const boxGeometry = new THREE.BoxBufferGeometry(halfExtents.x * 2, halfExtents.y * 2, halfExtents.z * 2)
+
+        for (let i = 0; i < 1; i++) {
+            const boxBody = new CANNON.Body({ mass: 5 })
+            boxBody.addShape(boxShape)
+            const boxMesh = new THREE.Mesh(boxGeometry, material)
+
+            const x = (Math.random() - 0.5) * 20
+            const y = (Math.random() - 0.5) * 1 + 1
+            const z = (Math.random() - 0.5) * 20
+
+            boxBody.position.set(x, y, z)
+            boxMesh.position.copy(boxBody.position)
+
+            boxMesh.castShadow = true
+            boxMesh.receiveShadow = true
+
+            world.addBody(boxBody)
+            scene.add(boxMesh)
+            boxes.push(boxBody)
+            boxMeshes.push(boxMesh)
+        }
+
+        // Add linked boxes
+        const size = 0.5
+        const mass = 0.3
+        const space = 0.1 * size
+        const N = 5
+        const halfExtents2 = new CANNON.Vec3(size, size, size * 0.1)
+        const boxShape2 = new CANNON.Box(halfExtents2)
+        const boxGeometry2 = new THREE.BoxBufferGeometry(halfExtents2.x * 2, halfExtents2.y * 2, halfExtents2.z * 2)
+
+        let last
+        for (let i = 0; i < N; i++) {
+            // Make the fist one static to support the others
+            const boxBody = new CANNON.Body({ mass: i === 0 ? 0 : mass })
+            boxBody.addShape(boxShape2)
+            const boxMesh = new THREE.Mesh(boxGeometry2, material)
+            boxBody.position.set(5, (N - i) * (size * 2 + 2 * space) + size * 2 + space, 0)
+            boxBody.linearDamping = 0.01
+            boxBody.angularDamping = 0.01
+
+            boxMesh.castShadow = true
+            boxMesh.receiveShadow = true
+
+            world.addBody(boxBody)
+            scene.add(boxMesh)
+            boxes.push(boxBody)
+            boxMeshes.push(boxMesh)
+
+            if (i > 0) {
+                // Connect the body to the last one
+                const constraint1 = new CANNON.PointToPointConstraint(
+                    boxBody,
+                    new CANNON.Vec3(-size, size + space, 0),
+                    last,
+                    new CANNON.Vec3(-size, -size - space, 0)
+                )
+                const constranit2 = new CANNON.PointToPointConstraint(
+                    boxBody,
+                    new CANNON.Vec3(size, size + space, 0),
+                    last,
+                    new CANNON.Vec3(size, -size - space, 0)
+                )
+                world.addConstraint(constraint1)
+                world.addConstraint(constranit2)
+            }
+
+            last = boxBody
+        }
+
+        // The shooting balls
+        const shootVelocity = 15
+        const ballShape = new CANNON.Sphere(0.2)
+        const ballGeometry = new THREE.SphereBufferGeometry(ballShape.radius, 32, 32)
+
+        // Returns a vector pointing the the diretion the camera is at
+        function getShootDirection() {
+            const vector = new THREE.Vector3(0, 0, 1)
+            vector.unproject(camera)
+            const ray = new THREE.Ray(sphereBody.position, vector.sub(sphereBody.position).normalize())
+            return ray.direction
+        }
+
+        window.addEventListener('click', (event) => {
+            if (!controls.enabled) {
+                return
+            }
+
+            const ballBody = new CANNON.Body({ mass: 1 })
+            ballBody.addShape(ballShape)
+            const ballMesh = new THREE.Mesh(ballGeometry, material)
+
+            ballMesh.castShadow = true
+            ballMesh.receiveShadow = true
+
+            world.addBody(ballBody)
+            scene.add(ballMesh)
+            balls.push(ballBody)
+            ballMeshes.push(ballMesh)
+
+            const shootDirection = getShootDirection()
+            ballBody.velocity.set(
+                shootDirection.x * shootVelocity,
+                shootDirection.y * shootVelocity,
+                shootDirection.z * shootVelocity
+            )
+
+            // Move the ball outside the player sphere
+            const x = sphereBody.position.x + shootDirection.x * (sphereShape.radius * 1.02 + ballShape.radius)
+            const y = sphereBody.position.y + shootDirection.y * (sphereShape.radius * 1.02 + ballShape.radius)
+            const z = sphereBody.position.z + shootDirection.z * (sphereShape.radius * 1.02 + ballShape.radius)
+            ballBody.position.set(x, y, z)
+            ballMesh.position.copy(ballBody.position)
+        })
+    }
+
+    function initPointerLock() {
+        controls = new PointerLockControlsCannon(camera, sphereBody)
+        scene.add(controls.getObject())
+
+        instructions.addEventListener('click', () => {
+            controls.lock()
+        })
+
+        controls.addEventListener('lock', () => {
+            controls.enabled = true
+            instructions.style.display = 'none'
+        })
+
+        controls.addEventListener('unlock', () => {
+            controls.enabled = false
+            instructions.style.display = null
+        })
+    }
+
+    function animate() {
+        requestAnimationFrame(animate)
+
+        const time = performance.now() / 1000
+        const dt = time - lastCallTime
+        lastCallTime = time
+
+        if (controls.enabled) {
+            world.step(timeStep, dt)
+
+            // Update ball positions
+            for (let i = 0; i < balls.length; i++) {
+                ballMeshes[i].position.copy(balls[i].position)
+                ballMeshes[i].quaternion.copy(balls[i].quaternion)
+            }
+
+            // Update box positions
+            for (let i = 0; i < boxes.length; i++) {
+                boxMeshes[i].position.copy(boxes[i].position)
+                boxMeshes[i].quaternion.copy(boxes[i].quaternion)
+            }
+        }
+
+        controls.update(dt)
+        renderer.render(scene, camera)
+        stats.update()
+    }
 }
-
-
-window.addEventListener('resize', () => {
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
-
 
 </script>
 
 <style scoped>
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    overflow: hidden;
-}
-
-.webgl {
+#instructions {
     position: fixed;
-    top: 0;
     left: 0;
-    outline: none;
-}
+    top: 0;
 
-.point {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
+    width: 100%;
+    height: 100%;
 
-.point .label {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #00000077;
-    border: 1px solid #ffffff77;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    font-family: Helvetica, Arial, sans-serif;
     text-align: center;
-    line-height: 25px;
-    font-weight: 100;
-    font-size: 14px;
-    cursor: help;
 
-    transform: scale(0, 0);
-    transition: transform 0.3s;
+    cursor: pointer;
 }
-
-.point .text {
-    position: absolute;
-    top: 30px;
-    left: -100px;
-    width: 200px;
-    padding: 20px;
-    border-radius: 4px;
-    background: #00000077;
-    border: 1px solid #ffffff77;
-    color: #ffffff;
-    line-height: 1.3em;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 100;
-    font-size: 14px;
-    opacity: 0;
-
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
-
-.point:hover .text {
-    opacity: 1;
-}
-
-.point.visible .label {
-    transform: scale(1, 1);
+#instructions span {
+    font-size: 40px;
 }
 </style>
