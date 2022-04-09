@@ -120,7 +120,7 @@ onMounted(() => {
     })
 
     //CANNONJS Debug
-    cannonDebugRenderer = new CannonDebugRenderer(scene, world)
+    // cannonDebugRenderer = new CannonDebugRenderer(scene, world)
 
     tick()
 })
@@ -308,8 +308,8 @@ function initThree() {
     scene.add(floor)
 
     // AxisHelp
-    const axisHelp = new THREE.AxesHelper(20)
-    scene.add(axisHelp)
+    // const axisHelp = new THREE.AxesHelper(20)
+    // scene.add(axisHelp)
 
     const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
     const overlayMaterial = new THREE.ShaderMaterial({
