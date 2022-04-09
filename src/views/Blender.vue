@@ -361,7 +361,7 @@ function initThree() {
     // dragControl.transformGroup = true
     dragControl.addEventListener('dragstart', function (event) {
         draggingId = event.object.userData.i
-        console.log(draggingId);
+        // console.log(draggingId);
         if (draggingId === -1)
             return
         // console.log(draggingId)
