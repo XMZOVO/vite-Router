@@ -1823,6 +1823,11 @@ tw-elements@^1.0.0-alpha12:
     popper.js "^1.16.1"
     tailwindcss "^3.0.7"
 
+tweakpane@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/tweakpane/-/tweakpane-3.0.8.tgz#e9138020ff4dc13a86cf1b2276ff5a2b5921df5c"
+  integrity sha512-vJuB0346B6gMpxnFDJyy2wcEshkvcTpQ74TCqJTeFaDvzq9FL29h5KszT1+YUTLlP+26OQI8PFGN8WbtOQStnQ==
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
