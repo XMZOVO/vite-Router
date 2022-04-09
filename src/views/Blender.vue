@@ -208,8 +208,8 @@ function initThree() {
     Promise.all([
         gltfLoader.loadAsync('models/DSPEC_jr/DSPEC_jr.gltf'),
         gltfLoader.loadAsync('models/Detector_model/Detector.gltf'),
-        gltfLoader.loadAsync('models/PortalGun/portalGun.gltf'),
-        // gltfLoader.loadAsync('models/modern_coffee_table_01_2k_2.blend/modern_coffee_table_01_2k.gltf'),
+        // gltfLoader.loadAsync('models/PortalGun/portalGun.gltf'),
+        gltfLoader.loadAsync('models/modern_coffee_table_01_2k_2.blend/modern_coffee_table_01_2k.gltf'),
     ]).then((results) => {
         const [djr, detector, table,] = results
 
