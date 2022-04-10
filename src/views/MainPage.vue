@@ -23,6 +23,9 @@
         <nav class=" hidden xl:block ">
           <router-link to="/detector" class="text-main-unactive">Detector</router-link>
         </nav>
+        <nav class=" hidden lg:block ">
+          <router-link to="/babylon" class="text-main-unactive">BabylonJs</router-link>
+        </nav>
         <!-- <nav>
             <router-link to="/" class="text-main-unactive">焼鳥</router-link>
           </nav>
