@@ -58,7 +58,6 @@ export class BasicScene {
             'DSPEC_jr.gltf',
             this.scene
         )
-        console.log(dJRMeshes);
         this.camera.setTarget(dJRMeshes.meshes[2])
 
         // this.lightTubs = dJRmeshes.filter(
