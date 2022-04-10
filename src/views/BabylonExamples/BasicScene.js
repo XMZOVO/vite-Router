@@ -39,7 +39,7 @@ export class BasicScene {
         const scene = new BABYLON.Scene(this.engine)
 
         const envTex = BABYLON.CubeTexture.CreateFromPrefilteredData(
-            'textures/environmentMaps/christmas_photo_studio_01_8k.env',
+            'textures/environmentMaps/christmas_photo_studio_01_2k.env',
             scene
         )
         envTex.gammaSpace = false;
