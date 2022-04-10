@@ -12,6 +12,7 @@ const Home = () => import('./views/Home.vue')
 const App = () => import('./App.vue')
 const MainPage = () => import('./views/MainPage.vue')
 const Detector = () => import('./views/Detector.vue')
+const BabylonJs = () => import('./views/BabylonJs.vue')
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -74,6 +75,11 @@ export const routes = [
     path: '/detector',
     name: 'detector',
     component: Detector
+  },
+  {
+    path: '/babylon',
+    name: 'babylon',
+    component: BabylonJs
   },
   { path: '/:path(.*)', component: NotFound },
 ]
