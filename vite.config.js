@@ -7,7 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src/'),
-    }
+      ammojs: '/src/js/ammo.js',
+    },
   },
   server: {
     open: true,

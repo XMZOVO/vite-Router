@@ -1,0 +1,1 @@
+import{_ as e,o,c as s,a as t}from"./index.816e8c11.js";const a={},c={class:"bg-white shadow"},n=t("div",{class:"mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8"},[t("h1",{class:"text-3xl font-bold leading-tight text-gray-900"},"Not Found")],-1),r=[n];function _(d,l){return o(),s("header",c,r)}var i=e(a,[["render",_]]);export{i as default};

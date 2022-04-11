@@ -7,8 +7,9 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@babylonjs/core": "^5.1.0",
     "@babylonjs/loaders": "^5.1.0",
-    "ammo.js": "kripken/ammo.js",
+    "@tweakpane/core": "^1.0.9",
     "atob": "^2.1.2",
     "axios": "^0.26.0",
     "btoa": "^1.2.1",
@@ -24,22 +25,26 @@
     "tw-elements": "^1.0.0-alpha12",
     "tweakpane": "^3.0.8",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.12",
+    "vue-router": "^4.0.14",
     "xhr2": "^0.2.1",
     "zstd-codec": "^0.1.2"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.5.0",
-    "@heroicons/vue": "^1.0.5",
+    "@heroicons/vue": "^1.0.6",
     "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.2",
-    "@types/tailwindcss": "^3.0.8",
-    "@vitejs/plugin-vue": "^2.2.2",
-    "autoprefixer": "^10.4.2",
-    "prettier-plugin-tailwindcss": "^0.1.7",
+    "@types/tailwindcss": "^3.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "autoprefixer": "^10.4.4",
+    "eslint": "^8.13.0",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.23",
-    "vite": "^2.8.4"
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1"
   }
 }

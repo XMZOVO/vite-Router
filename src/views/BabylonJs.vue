@@ -5,7 +5,7 @@
 <script setup>
 import * as BABYLON from '@babylonjs/core'
 import '@babylonjs/loaders/glTF'
-import { BasicScene } from './BabylonExamples/BasicScene.js'
+import { BasicScene } from './BabylonExamples/BasicScene.ts'
 import { onMounted } from 'vue'
 
 onMounted(() => {
