@@ -1,1 +1,0 @@
-import{o as e,e as t,f as o}from"./vendor.69ab715b.js";const s=o("div",{id:"drawing",style:{width:"800px",height:"600px"}},null,-1),a=[s],_={setup(c){return(n,r)=>(e(),t("div",null,a))}};export{_ as default};

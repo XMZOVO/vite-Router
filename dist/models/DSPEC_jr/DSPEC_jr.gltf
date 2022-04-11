@@ -15,7 +15,8 @@
             "name" : "Scene",
             "nodes" : [
                 3,
-                4
+                4,
+                5
             ]
         }
     ],
@@ -77,6 +78,20 @@
                 -0.33277690410614014,
                 0.5327994227409363,
                 -0.1736709475517273
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Plane",
+            "scale" : [
+                8.072463989257812,
+                8.072463989257812,
+                8.072463989257812
+            ],
+            "translation" : [
+                0,
+                -0.4836837649345398,
+                0
             ]
         }
     ],
@@ -340,6 +355,22 @@
                 ],
                 "metallicFactor" : 0.38735178112983704,
                 "roughnessFactor" : 0.21541503071784973
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Ground",
+            "normalTexture" : {
+                "index" : 10
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 11
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 12
+                }
             }
         }
     ],
@@ -713,6 +744,31 @@
                     "mode" : 4
                 }
             ]
+        },
+        {
+            "name" : "Plane",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 72,
+                        "NORMAL" : 73,
+                        "TEXCOORD_0" : 74
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 18,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 75,
+                    "material" : 18,
+                    "mode" : 4
+                }
+            ]
         }
     ],
     "textures" : [
@@ -755,6 +811,18 @@
         {
             "sampler" : 0,
             "source" : 7
+        },
+        {
+            "sampler" : 0,
+            "source" : 8
+        },
+        {
+            "sampler" : 0,
+            "source" : 9
+        },
+        {
+            "sampler" : 0,
+            "source" : 10
         }
     ],
     "images" : [
@@ -797,6 +865,21 @@
             "mimeType" : "image/png",
             "name" : "MetalStainlessSteelBrushedElongated005_ROUGHNESS_2K_METALNESS",
             "uri" : "MetalStainlessSteelBrushedElongated005_ROUGHNESS_2K_METALNESS.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "square_floor_nor_gl_2k",
+            "uri" : "square_floor_nor_gl_2k.png"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "square_floor_diff_2k",
+            "uri" : "square_floor_diff_2k.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "square_floor_rough_2k",
+            "uri" : "square_floor_rough_2k.png"
         }
     ],
     "accessors" : [
@@ -1339,6 +1422,36 @@
             "componentType" : 5123,
             "count" : 948,
             "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 4,
+            "max" : [
+                1,
+                0,
+                1
+            ],
+            "min" : [
+                -1,
+                0,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 6,
+            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -1431,6 +1544,11 @@
             "buffer" : 0,
             "byteLength" : 2692,
             "byteOffset" : 662392
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 166,
+            "byteOffset" : 665084
         }
     ],
     "samplers" : [
@@ -1441,7 +1559,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 665084,
+            "byteLength" : 665252,
             "uri" : "DSPEC_jr.bin"
         }
     ]

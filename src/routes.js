@@ -7,7 +7,7 @@ const Test = () => import('./views/tools/Test.vue')
 const JSRoot = () => import('./views/tools/JSRoot.vue')
 const WebG4 = () => import('./views/WebG4.vue')
 const Three = () => import('./views/Three.vue')
-const Blender = () => import('./views/Blender.vue')
+// const Blender = () => import('./views/Blender.vue')
 const Home = () => import('./views/Home.vue')
 const App = () => import('./App.vue')
 const MainPage = () => import('./views/MainPage.vue')
@@ -65,12 +65,12 @@ export const routes = [
     meta: { keepAlive: false },
     component: Three,
   },
-  {
-    path: '/blender',
-    name: 'blender',
-    meta: { keepAlive: false },
-    component: Blender,
-  },
+  // {
+  //   path: '/blender',
+  //   name: 'blender',
+  //   meta: { keepAlive: false },
+  //   component: Blender,
+  // },
   {
     path: '/detector',
     name: 'detector',

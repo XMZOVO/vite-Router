@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@babylonjs/loaders": "^5.1.0",
+    "ammo.js": "kripken/ammo.js",
     "atob": "^2.1.2",
     "axios": "^0.26.0",
     "btoa": "^1.2.1",
@@ -18,7 +19,7 @@
     "gsap": "^3.10.2",
     "jsdom": "^19.0.0",
     "mathjax": "3.2.0",
-    "three": "^0.124.0",
+    "three": "^0.139.2",
     "tmp": "^0.2.1",
     "tw-elements": "^1.0.0-alpha12",
     "tweakpane": "^3.0.8",
