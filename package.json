@@ -24,7 +24,7 @@
     "tw-elements": "^1.0.0-alpha12",
     "tweakpane": "^3.0.8",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.12",
+    "vue-router": "^4.0.14",
     "xhr2": "^0.2.1",
     "zstd-codec": "^0.1.2"
   },
