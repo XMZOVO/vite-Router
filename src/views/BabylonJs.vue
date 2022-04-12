@@ -2,10 +2,8 @@
     <canvas class="w-full h-screen">BabylonJs</canvas>
 </template>
 
-<script setup>
-import * as BABYLON from '@babylonjs/core'
-import '@babylonjs/loaders/glTF'
-import { BasicScene } from './BabylonExamples/BasicScene.ts'
+<script setup lang="ts">
+import { BasicScene } from './BabylonExamples/BasicScene'
 import { onMounted } from 'vue'
 
 onMounted(() => {
