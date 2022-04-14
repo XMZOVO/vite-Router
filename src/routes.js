@@ -13,6 +13,7 @@ const App = () => import('./App.vue')
 const MainPage = () => import('./views/MainPage.vue')
 const Detector = () => import('./views/Detector.vue')
 const BabylonJs = () => import('./views/BabylonJs.vue')
+const TestPage = () => import('./views/Test.vue')
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
@@ -80,6 +81,11 @@ export const routes = [
     path: '/babylon',
     name: 'babylon',
     component: BabylonJs
+  },
+  {
+    path: '/Rushia',
+    name: 'test',
+    component: TestPage
   },
   { path: '/:path(.*)', component: NotFound },
 ]

@@ -18,7 +18,8 @@
                 4,
                 5,
                 6,
-                7
+                11,
+                12
             ]
         }
     ],
@@ -88,8 +89,8 @@
             "rotation" : [
                 0,
                 0,
-                -0.70710688829422,
-                -0.7071067094802856
+                -0.6339356899261475,
+                -0.7733858227729797
             ],
             "scale" : [
                 0.1171899288892746,
@@ -97,9 +98,9 @@
                 0.1171899288892746
             ],
             "translation" : [
-                -0.36819884181022644,
-                0.5599223375320435,
-                0.17499122023582458
+                -0.2793062627315521,
+                1.0286437273025513,
+                -0.6847617626190186
             ]
         },
         {
@@ -118,15 +119,92 @@
         },
         {
             "mesh" : 4,
-            "name" : "Plane",
+            "name" : "Cube.001_Soporte_0",
+            "rotation" : [
+                0,
+                0,
+                -1,
+                7.549790126404332e-08
+            ],
             "scale" : [
-                8.072463989257812,
-                8.072463989257812,
-                8.072463989257812
+                1.2365778684616089,
+                1.2365778684616089,
+                1.2365778684616089
+            ],
+            "translation" : [
+                -32.91411209106445,
+                121.49175262451172,
+                59.109657287597656
+            ]
+        },
+        {
+            "children" : [
+                7
+            ],
+            "name" : "Cube.002",
+            "rotation" : [
+                -0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.1592160016298294,
+                0.1592160016298294,
+                0.1592160016298294
             ],
             "translation" : [
                 0,
-                -0.4836837649345398,
+                83.24974822998047,
+                -51.28301239013672
+            ]
+        },
+        {
+            "children" : [
+                8
+            ],
+            "name" : "RootNode"
+        },
+        {
+            "children" : [
+                9
+            ],
+            "name" : "60a20f1dd0c149d19aff364cbd6096f9.fbx",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ]
+        },
+        {
+            "children" : [
+                10
+            ],
+            "name" : "Sketchfab_model.001",
+            "rotation" : [
+                -0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "Plane",
+            "scale" : [
+                8.050000190734863,
+                4.776723861694336,
+                8.050000190734863
+            ],
+            "translation" : [
+                0,
+                -0.4875977337360382,
                 0
             ]
         }
@@ -558,7 +636,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Ground",
+            "name" : "Soporte",
             "normalTexture" : {
                 "index" : 19
             },
@@ -566,9 +644,24 @@
                 "baseColorTexture" : {
                     "index" : 20
                 },
-                "metallicFactor" : 0,
                 "metallicRoughnessTexture" : {
                     "index" : 21
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Ground",
+            "normalTexture" : {
+                "index" : 22
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 23
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 24
                 }
             }
         }
@@ -1175,7 +1268,7 @@
             ]
         },
         {
-            "name" : "Plane",
+            "name" : "Cube.001_Soporte_0",
             "primitives" : [
                 {
                     "attributes" : {
@@ -1195,6 +1288,31 @@
                     },
                     "indices" : 119,
                     "material" : 29,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Plane.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 120,
+                        "NORMAL" : 121,
+                        "TEXCOORD_0" : 122
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 30,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 123,
+                    "material" : 30,
                     "mode" : 4
                 }
             ]
@@ -1288,6 +1406,18 @@
         {
             "sampler" : 0,
             "source" : 17
+        },
+        {
+            "sampler" : 0,
+            "source" : 18
+        },
+        {
+            "sampler" : 0,
+            "source" : 19
+        },
+        {
+            "sampler" : 0,
+            "source" : 20
         }
     ],
     "images" : [
@@ -1365,6 +1495,21 @@
             "mimeType" : "image/png",
             "name" : "MetalStainlessSteelBrushedElongated005_METALNESS_2K_METALNESS-MetalStainlessSteelBrushedElongated005_ROUGHNESS_2K_METALNESS",
             "uri" : "MetalStainlessSteelBrushedElongated005_METALNESS_2K_METALNESS-MetalStainlessSteelBrushedElongated005_ROUGHNESS_2K_METALNESS.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Soporte_normal",
+            "uri" : "Soporte_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Soporte_baseColor",
+            "uri" : "Soporte_baseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Soporte_metallicRoughness",
+            "uri" : "Soporte_metallicRoughness.png"
         },
         {
             "mimeType" : "image/png",
@@ -2255,6 +2400,36 @@
         },
         {
             "componentType" : 5126,
+            "count" : 5282,
+            "max" : [
+                68.17371368408203,
+                80.76663208007812,
+                19.916963577270508
+            ],
+            "min" : [
+                -68.1737060546875,
+                -55.5807991027832,
+                -213.38949584960938
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 5282,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 5282,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 5592,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
             "count" : 4,
             "max" : [
                 1,
@@ -2432,8 +2607,13 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 166,
+            "byteLength" : 33413,
             "byteOffset" : 7472608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 166,
+            "byteOffset" : 7506024
         }
     ],
     "samplers" : [
@@ -2444,7 +2624,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 7472776,
+            "byteLength" : 7506192,
             "uri" : "DSPEC_jr.bin"
         }
     ]

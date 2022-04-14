@@ -1,13 +1,15 @@
 <template>
-    <canvas class="w-full h-screen">BabylonJs</canvas>
+    <canvas ref="bjsCanvas" class="w-full h-screen">BabylonJs</canvas>
 </template>
 
 <script setup lang="ts">
 import { BasicScene } from './BabylonExamples/BasicScene'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+const bjsCanvas = ref()
 
 onMounted(() => {
-    const canvas = document.querySelector('canvas')
+    const canvas = bjsCanvas.value
     new BasicScene(canvas)
 })
 
