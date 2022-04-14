@@ -26,6 +26,7 @@ export class Test {
 
     CreateScene() {
         this.engine = new Engine(this.canvas, true, { adaptToDeviceRatio: true })
+        this.engine.displayLoadingUI()
         this.scene = new Scene(this.engine)
         // new AxesViewer(this.scene, 3)
 
@@ -52,5 +53,6 @@ export class Test {
         this.camera1.setTarget(new Vector3(0, 5, 0))
         // this.scene.beginAnimation(ecy.skeletons[0], 0, 100, true, 1.0);
         this.vtb = ecy
+        this.engine.hideLoadingUI()
     }
 }
