@@ -18,7 +18,6 @@ export class MainPage {
         this.CreateScene()
         this.CreateCamera()
         this.CreateModel()
-        this.CreateLight()
 
         this.engine.runRenderLoop(() => {
             this.scene.render()
@@ -55,6 +54,7 @@ export class MainPage {
             'models/jiggly_watermelon_jello/',
             'untitled.gltf', this.scene)
 
+        this.scene.createDefaultLight(true)
         this.loaded.value = true
     }
 
@@ -74,8 +74,6 @@ export class MainPage {
     }
 
     CreateLight() {
-        const light1 = new HemisphereLight()
-        light1.intensity = 100
     }
 
 }
