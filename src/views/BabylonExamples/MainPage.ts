@@ -1,7 +1,7 @@
 import { ArcRotateCamera, AxesViewer, Color3, Color4, CubeTexture, Engine, Scene, SceneLoader, Vector3 } from "@babylonjs/core"
-import '@babylonjs/loaders'
+import'@babylonjs/loaders'
 import { HemisphereLight } from "three"
-import {CustomLoadingScreen} from './CustomLoading/LoadingScreen'
+import { CustomLoadingScreen } from './CustomLoading/LoadingScreen'
 
 export class MainPage {
     canvas: HTMLCanvasElement
@@ -54,6 +54,7 @@ export class MainPage {
             '',
             'models/jiggly_watermelon_jello/',
             'untitled.gltf', this.scene)
+
         this.loaded.value = true
     }
 

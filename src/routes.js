@@ -1,9 +1,9 @@
 const About = () => import('./views/About.vue')
 const NotFound = () => import('./views/NotFound.vue')
 const Tools = () => import('./views/tools/Tools.vue')
-const Dat2CSV = () => import('./views/tools/Dat2CSV.vue')
+// const Dat2CSV = () => import('./views/tools/Dat2CSV.vue')
 const Main = () => import('./views/tools/Main.vue')
-const Test = () => import('./views/tools/Test.vue')
+// const Test = () => import('./views/tools/Test.vue')
 const JSRoot = () => import('./views/tools/JSRoot.vue')
 const WebG4 = () => import('./views/WebG4.vue')
 const Three = () => import('./views/Three.vue')
@@ -35,13 +35,16 @@ export const routes = [
             children: [{
               path: '',
               component: Main,
-            }, {
-              path: '/dat2csv',
-              component: Dat2CSV,
-            }, {
-              path: '/test',
-              component: Test
-            }, {
+            }, 
+            // {
+            //   path: '/dat2csv',
+            //   component: Dat2CSV,
+            // }, 
+            // {
+            //   path: '/test',
+            //   component: Test
+            // }, 
+            {
               path: '/jsroot',
               component: JSRoot,
               name: JSRoot

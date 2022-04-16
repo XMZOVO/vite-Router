@@ -3,12 +3,13 @@
 
 <template>
   <canvas ref="canvas" class="w-full h-screen"></canvas>
-  <div v-if="loaded" class=" flex-col absolute top-40 sm:top-1/3 left-10 sm:left-20 text-white text-4xl sm:text-5xl select-none">
+  <div v-if="loaded"
+    class="flex flex-col space-y-5 absolute top-40 sm:top-1/3 left-10 sm:left-20 text-white text-4xl sm:text-5xl select-none">
     <p class="">It's Summer Now</p>
     <div class="text-lg sm:text-2xl text-gray-300">
       <p class="">Xiao Liu is going to</p>
       <p class="">pursue meaningful people and things</p>
-    </div>
+    </div>  
   </div>
 </template>
 
@@ -18,11 +19,11 @@ import {MainPage} from './BabylonExamples/MainPage'
   
 const canvas = ref()
 const loaded = ref(false)
+let scene
 
 onMounted(() => {
-  const scene = new MainPage(canvas.value, loaded)
+  scene = new MainPage(canvas.value, loaded)
 })
-
 
 function elHandle() {
   window.open('https://store.steampowered.com/app/1245620/_/');
