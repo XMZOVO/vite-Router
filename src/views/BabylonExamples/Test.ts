@@ -1,6 +1,5 @@
 import { ArcRotateCamera, Animation, AxesViewer, Camera, CubeTexture, CubicEase, EasingFunction, Engine, Mesh, Scene, SceneLoader, UniversalCamera, Vector3 } from "@babylonjs/core"
 import '@babylonjs/loaders'
-import { fa } from "element-plus/lib/locale"
 import { Pane } from "tweakpane"
 
 export class Test {
