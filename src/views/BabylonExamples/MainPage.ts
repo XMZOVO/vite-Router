@@ -1,6 +1,7 @@
 import { ArcRotateCamera, AxesViewer, Color3, Color4, CubeTexture, Engine, Scene, SceneLoader, Vector3 } from "@babylonjs/core"
 import '@babylonjs/loaders'
 import { HemisphereLight } from "three"
+import {CustomLoadingScreen} from './CustomLoading/LoadingScreen'
 
 export class MainPage {
     canvas: HTMLCanvasElement
@@ -8,8 +9,11 @@ export class MainPage {
     scene: Scene
     camera1: ArcRotateCamera
 
-    constructor(canvas: HTMLCanvasElement) {
+    loaded: any
+
+    constructor(canvas: HTMLCanvasElement, loaded: any) {
         this.canvas = canvas
+        this.loaded = loaded
 
         this.CreateScene()
         this.CreateCamera()
@@ -50,6 +54,7 @@ export class MainPage {
             '',
             'models/jiggly_watermelon_jello/',
             'untitled.gltf', this.scene)
+        this.loaded.value = true
     }
 
     CreateCamera() {
@@ -62,9 +67,9 @@ export class MainPage {
         // this.camera1.attachControl()
         // this.camera1.wheelPrecision = 10
 
-        this.camera1.useFramingBehavior = true;
-        this.camera1.framingBehavior.radiusScale = 2;
-        this.camera1.framingBehavior.framingTime = 4000;
+        // this.camera1.useFramingBehavior = true;
+        // this.camera1.framingBehavior.radiusScale = 2;
+        // this.camera1.framingBehavior.framingTime = 4000;
     }
 
     CreateLight() {
