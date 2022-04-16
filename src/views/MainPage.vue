@@ -41,8 +41,7 @@
     <!-- nav bar left -->
     <div class="flex items-center">
       <button
-        class="transition duration-400 ease-in-out flex items-center space-x-1 border rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active"
-      >
+        class="transition duration-400 ease-in-out flex items-center space-x-1 border rounded-md p-2 text-sm text-main-unactive hover:border-main-active hover:text-main-active">
         <i class="ph-lightning-bold"></i>
         <span @click="elHandle" class="font-bold px-2">The fallen leaves tell a story</span>
       </button>
@@ -105,7 +104,7 @@
   </div>-->
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 function elHandle() {
   window.open('https://store.steampowered.com/app/1245620/_/');

@@ -4,13 +4,19 @@
 
 <script setup lang="ts">
 import { BasicScene } from './BabylonExamples/BasicScene'
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const bjsCanvas = ref()
+let basicScene: BasicScene
 
 onMounted(() => {
     const canvas = bjsCanvas.value
-    new BasicScene(canvas)
+    basicScene = new BasicScene(canvas)
+})
+
+onUnmounted(() => {
+    basicScene.scene = null
+    basicScene.pane.dispose()
 })
 
 </script>

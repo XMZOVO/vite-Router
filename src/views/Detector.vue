@@ -88,6 +88,7 @@ camera.position.set(0, 1, 7)
 
 onUnmounted(() => {
     gui.destroy()
+    scene = null
 })
 
 onMounted(() => {

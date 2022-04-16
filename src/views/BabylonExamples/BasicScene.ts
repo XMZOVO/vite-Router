@@ -4,7 +4,6 @@ import { Pane } from 'tweakpane'
 import Ammo from '../../js/ammojs-typed/ammo/ammo'
 
 export class BasicScene {
-
   scene: Scene
   engine: Engine
   pane: Pane
