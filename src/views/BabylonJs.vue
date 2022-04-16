@@ -21,7 +21,8 @@ onUnmounted(() => {
 
 </script>
 
-<style scoped>* {
+<style scoped>
+* {
     margin: 0;
     padding: 0;
 }
@@ -36,4 +37,5 @@ body {
     top: 0;
     left: 0;
     outline: none;
-}</style>
+}
+</style>

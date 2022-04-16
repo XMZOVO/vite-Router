@@ -92,7 +92,7 @@ export class Test {
         // this.scene.beginAnimation(ecy.skeletons[0], 0, 100, true, 1.0);
 
         ecy.animationGroups[0] = null
-        
+
         this.vtb = ecy
         this.engine.hideLoadingUI()
     }
