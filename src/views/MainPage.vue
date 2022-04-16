@@ -4,7 +4,7 @@
 <template>
   <canvas ref="canvas" class="w-full h-screen"></canvas>
   <div v-if="loaded"
-    class="flex flex-col space-y-5 absolute top-28 sm:top-1/3 left-10 sm:left-20 text-white text-4xl sm:text-5xl select-none">
+    class="flex flex-col space-y-5 absolute top-20 sm:top-1/3 left-10 sm:left-20 text-white text-4xl sm:text-5xl select-none">
     <p class="">It's Summer Now</p>
     <div class="text-lg sm:text-2xl text-gray-300">
       <p class="">Xiao Liu is going to</p>
