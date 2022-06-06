@@ -28,20 +28,20 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.17.0.tgz"
   integrity sha512-VKXSCQx5D8S04ej+Dqsr1CzYvvWgf20jIw2D+YhQCrIlr2UZGaDds23Y0xg75/skOxpLCRpUZvk/1EAVkGoDOw==
 
-"@babylonjs/core@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-5.1.0.tgz#54cdd93cbc3f7bb054b14092c240b20ac3f5cff7"
-  integrity sha512-yHC+k2pbpjcFOkhAFcXYLLv/WbXLZlPTVdOcC3/ExC+WlnsrmiulT26AhU8ghzZCcTpil3WsyTxqB0GYMtvwcA==
+"@babylonjs/core@^5.1.0", "@babylonjs/core@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/core/-/core-5.9.0.tgz#141eed23f2f8453c00caa6ec325635f29d13a7c1"
+  integrity sha512-plKDulA2Ia8hUwxneF74JX6BPqmO72Xxi1lD2WEfXBymIqTiK5KaxwD19hFyj+VPXZ3ZDLV0TFM2nNsBb300hw==
   dependencies:
     tslib "^2.3.1"
 
-"@babylonjs/loaders@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@babylonjs/loaders/-/loaders-5.1.0.tgz#3069ba684dd01e02ab82381a5c5730ab69ede86e"
-  integrity sha512-1GFZHoo6ntCguRxyahWVzsCEfBJ5TXHwqPSPMF3I3jgivXbBUkskt9xRef/piSrFuiIQnlJGYkjmXwOj9X6Irw==
+"@babylonjs/loaders@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@babylonjs/loaders/-/loaders-5.9.0.tgz#5367e398e91e7f717252186b31053f6d994e1529"
+  integrity sha512-pOoLcWvGKMsJ+csQu2ua9gbetguV6yTkkbqHky3hjl/OzEooYnmrLDcDGUnYCXdjgOVX6JfHcAt81E896bZlyw==
   dependencies:
-    "@babylonjs/core" "^5.1.0"
-    babylonjs-gltf2interface "^5.1.0"
+    "@babylonjs/core" "^5.9.0"
+    babylonjs-gltf2interface "^5.9.0"
     tslib "^2.3.1"
 
 "@eslint/eslintrc@^1.2.1":
@@ -503,10 +503,10 @@ axios@^0.26.0:
   dependencies:
     follow-redirects "^1.14.8"
 
-babylonjs-gltf2interface@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/babylonjs-gltf2interface/-/babylonjs-gltf2interface-5.1.0.tgz#90106ab1ae07066ca80c640a8757d9ed96e7ab55"
-  integrity sha512-E98En5Rb5uIPtD4wxQDXA/ww2qjPgymqjsYP+M8+AM/ZUeXJ2xKlhM4fmkFym7+i439qHdefCSUZWBI6k7fPOA==
+babylonjs-gltf2interface@^5.9.0:
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/babylonjs-gltf2interface/-/babylonjs-gltf2interface-5.9.0.tgz#0c9fd2a408a5ae3aad34ddf607652c031ae9b58f"
+  integrity sha512-cyHOWEXYEqc9oGbHuCEMhVj4GTF8UEb0SmxnwSdfw7omwN6lTqv6VyIjHBrKFa1FFf4moo5a4KAHpW/Q3KsUrg==
 
 balanced-match@^1.0.0:
   version "1.0.2"
